@@ -1,5 +1,7 @@
 # Use Nginx
 
+We need an HTTP Server!
+
 ## Install PCRE
 
 Visit [www.pcre.org](http://www.pcre.org) to download package.
@@ -25,6 +27,8 @@ $ sudo make install
 ```
 
 ## Install OpenSSL
+
+As follows.
 
 ```
 $ sudo apt-get install openssl
