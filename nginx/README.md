@@ -31,9 +31,9 @@ $ sudo make install
 As follows.
 
 ```
-$ sudo apt-get install openssl
+$ sudo apt install openssl
 
-$ sudo apt-get install libssl-dev
+$ sudo apt install libssl-dev
 ```
 
 ## Install Nginx
