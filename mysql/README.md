@@ -70,6 +70,12 @@ mysql> DROP DATABASE mydb;
 mysql> USE mydb;
 ```
 
+你可以查看你所选定的数据库：
+
+```sql
+mysql> SELECT DATABASE();
+```
+
 以下语句用于查看某个数据库所持有的数据表：
 
 ```sql
@@ -118,13 +124,13 @@ mysql> INSERT INTO coders
 该怎么查看它呢？你可以这么做：
 
 ```sql
-mysql> SELECT * FROM coders WHERE name='laidaoqi';
+mysql> SELECT * FROM coders WHERE name = 'laidaoqi';
 ```
 
 如果只想查看它的某些属性，这条语句可以帮到你：
 
 ```sql
-mysql> SELECT cplusplus FROM coders WHERE name='laidaoqi';
+mysql> SELECT cplusplus FROM coders WHERE name = 'laidaoqi';
 ```
 
 实际上，我们可以查看整张表的数据，在此之前我们先插入另外一行数据：
@@ -172,19 +178,19 @@ mysql> SELECT * FROM coders ORDER BY name DESC;
 我需要一名C/C++开发工程师！
 
 ```sql
-mysql> SELECT * FROM coders WHERE clang=TRUE AND cplusplus=TRUE;
+mysql> SELECT * FROM coders WHERE clang = TRUE AND cplusplus = TRUE;
 ```
 
 Java和.NET是两种不同的Web开发技术栈。
 
 ```sql
-mysql> SELECT * FROM coders WHERE java=TRUE OR csharp=TRUE;
+mysql> SELECT * FROM coders WHERE java = TRUE OR csharp = TRUE;
 ```
 
 如果你想查询开头为'lai'的名字，可以这么做：
 
 ```sql
-mysql> SELECT name FROM coders WHERE name LIKE 'l%';
+mysql> SELECT name FROM coders WHERE name LIKE 'lai%';
 ```
 
 如果是结尾为'qi'的名字呢？那就这样：
@@ -203,4 +209,40 @@ mysql> SELECT name FROM coders WHERE name LIKE '%ao%';
 
 ```sql
 mysql> SELECT name FROM coders WHERE name LIKE '________';
+```
+
+你可在MySQL中使用正则表达式这一工具，先来查询开头为'lai'的名字吧！
+
+```sql
+mysql> SELECT name FROM coders WHERE name REGEXP '^lai';
+```
+
+其他类似的查询操作同样可以用正则表达式来完成：
+
+```sql
+mysql> SELECT name FROM coders WHERE name REGEXP 'qi$';
+
+mysql> SELECT name FROM coders WHERE name REGEXP 'ao';
+
+mysql> SELECT name FROM coders WHERE name REGEXP '^........$';
+```
+
+## 6. 一些有用的数值
+
+如果你想查看表里有多少行数据可以这么做：
+
+```sql
+mysql> SELECT COUNT(*) FROM coders;
+```
+
+那么，这里到底有多少人掌握Python呢？现在就可以看到：
+
+```sql
+mysql> SELECT python, COUNT(*) FROM coders GROUP BY python;
+```
+
+如果是C和C++呢？也是一样的：
+
+```sql
+mysql> SELECT clang, cplusplus, COUNT(*) FROM coders GROUP BY clang, cplusplus;
 ```
