@@ -36,6 +36,12 @@ mysql> SELECT NOW();
 mysql> SELECT USER();
 ```
 
+以下语句用于显示服务器的状态信息：
+
+```sql
+mysql> SHOW STATUS;
+```
+
 ## 2. 什么？数据库里面还有数据库？
 
 以下语句用于查看MySQL Server下所有已经建立好的数据库：
@@ -54,6 +60,12 @@ mysql> SHOW ENGINES;
 
 ```sql
 mysql> CREATE DATABASE mydb;
+```
+
+这条语句复现了你创建这个数据库的过程：
+
+```sql
+mysql> SHOW CREATE DATABASE mydb;
 ```
 
 要删除它，可以这么做：
@@ -96,6 +108,12 @@ mysql> CREATE TABLE coders
     -> python    BOOLEAN     NOT NULL DEFAULT 0,
     -> PRIMARY KEY (num)
     -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+这条语句复现了你创建这个数据表的过程：
+
+```sql
+mysql> SHOW CREATE TABLE coders;
 ```
 
 如果你想知道表的结构，可以这么做：
@@ -150,6 +168,26 @@ mysql> SELECT * FROM coders;
 mysql> SELECT num, name FROM coders;
 ```
 
+有时候你可能会使用完全限定的表名和列名来查询：
+
+```sql
+mysql> SELECT coders.name FROM mydb.coders;
+```
+
+查看从首行开始的两行数据可以这么做：
+
+```sql
+mysql> SELECT * FROM coders LIMIT 2;
+```
+
+以下语句的效果是一样的：
+
+```sql
+mysql> SELECT * FROM coders LIMIT 0, 2;
+
+mysql> SELECT * FROM coders LIMIT 2 OFFSET 0;
+```
+
 让我们再次插入一行数据，如果不想看到重复的数据，这么做是可行的：
 
 ```sql
@@ -186,6 +224,40 @@ Java和.NET是两种不同的Web开发技术栈。
 ```sql
 mysql> SELECT * FROM coders WHERE java = TRUE OR csharp = TRUE;
 ```
+
+掌握Python就更好了！
+
+```sql
+mysql> SELECT * FROM coders WHERE python != FALSE;
+
+mysql> SELECT * FROM coders WHERE python <> FALSE;
+```
+
+你的C++学到什么地步了？闭区间[0, 1]代表我的评判标准。
+
+```sql
+mysql> SELECT * FROM coders WHERE cplusplus BETWEEN 0 AND 1;
+```
+
+C++是门难以捉摸的语言，你要么会，要么不会。
+
+```sql
+mysql> SELECT * FROM coders WHERE cplusplus IN (0, 1);
+```
+
+再怎么样我也是编译通过的男人啊！
+
+```sql
+mysql> SELECT * FROM coders WHERE cplusplus NOT IN (0, 1);
+```
+
+一切的一切都是如此的真实。
+
+```sql
+mysql> SELECT * FROM coders WHERE cplusplus IS NOT NULL;
+```
+
+## 6. 匹配模式开启！
 
 如果你想查询开头为'lai'的名字，可以这么做：
 
@@ -227,7 +299,7 @@ mysql> SELECT name FROM coders WHERE name REGEXP 'ao';
 mysql> SELECT name FROM coders WHERE name REGEXP '^........$';
 ```
 
-## 6. 一些有用的数值
+## 7. 一些有用的数值
 
 如果你想查看表里有多少行数据可以这么做：
 
