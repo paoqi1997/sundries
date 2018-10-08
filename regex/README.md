@@ -54,7 +54,7 @@ Python大法好！目前我的版本为3.6.5，我将使用它来讲解以下正
 
 接上文，将平年与闰年的正则表达式合并后就是我们想要的正则表达式：
 
-其中lmatch和rmatch指代的是re.search()的第一个参数：
+其中lmatch和rmatch指代的是上面的re.search()中的第一个参数：
 
 ```python
 >>> import re
