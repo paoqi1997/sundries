@@ -4,7 +4,7 @@
 
 # 说明
 
-以下命令均在elementary OS 0.4.1下调试通过。
+以下命令均在elementary OS 5.0下调试通过。
 
 # 命令
 
