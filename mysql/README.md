@@ -302,6 +302,8 @@ mysql> SELECT name FROM coders WHERE name REGEXP 'qi$';
 
 mysql> SELECT name FROM coders WHERE name REGEXP 'ao';
 
+mysql> SELECT name FROM coders WHERE name REGEXP '.ing';
+
 mysql> SELECT name FROM coders WHERE name REGEXP '^........$';
 ```
 
