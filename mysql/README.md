@@ -211,6 +211,12 @@ mysql> SELECT * FROM coders ORDER BY name;
 mysql> SELECT * FROM coders ORDER BY name DESC;
 ```
 
+按多个列进行排序也是可以做到的：
+
+```sql
+mysql> SELECT * FROM coders ORDER BY clang, cplusplus;
+```
+
 ## 5. 更加高明的查询！
 
 我需要一名C/C++开发工程师！
@@ -317,4 +323,12 @@ mysql> SELECT python, COUNT(*) FROM coders GROUP BY python;
 
 ```sql
 mysql> SELECT clang, cplusplus, COUNT(*) FROM coders GROUP BY clang, cplusplus;
+```
+
+## 8. 后续
+
+后续操作就交给脚本们吧！
+
+```sql
+mysql> \q
 ```
