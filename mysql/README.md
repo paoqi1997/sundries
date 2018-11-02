@@ -329,7 +329,7 @@ mysql> SELECT clang, cplusplus, COUNT(*) FROM coders GROUP BY clang, cplusplus;
 
 ## 8. 后续
 
-后续操作就交给脚本们吧！
+后续操作就交给SQL脚本吧！
 
 ```sql
 mysql> \q
