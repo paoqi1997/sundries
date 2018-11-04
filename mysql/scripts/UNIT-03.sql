@@ -2,6 +2,7 @@
  * MySQL之分组数据
  */
 
+-- 表spending于UNIT-02.sql新建
 USE mydb;
 
 SELECT COUNT(*) AS item_cnt,

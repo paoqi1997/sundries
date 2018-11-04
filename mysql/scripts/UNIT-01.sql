@@ -2,6 +2,7 @@
  * MySQL之计算字段
  */
 
+-- 表coders于../README.md新建
 USE mydb;
 
 -- 相当于NOW()
