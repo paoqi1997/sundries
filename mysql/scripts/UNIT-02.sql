@@ -24,6 +24,7 @@ VALUES
 ('paoqi', 28.88, '2018-10-04 12:00:00', 'wechat'),
 ('paoqi', 88.88, '2018-11-02 18:00:00', 'alipay');
 
+-- DATE( @param ) 提取年月日
 SELECT num, name, amount, payment FROM spending
 WHERE DATE(daytime) BETWEEN '2018-10-01' AND '2018-11-01';
 

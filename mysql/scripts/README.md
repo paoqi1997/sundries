@@ -14,4 +14,6 @@ SQL代码段。
 
 + UNIT-04 : MySQL之子查询
 
-+ UNIT-05 : MySQL之联结
++ UNIT-05 : MySQL之连接
+
++ UNIT-06 : MySQL之高级连接

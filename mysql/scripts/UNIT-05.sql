@@ -1,5 +1,5 @@
 /**
- * MySQL之联结
+ * MySQL之连接
  */
 
 -- 表plate_number与girls于UNIT-05.sql新建
@@ -34,9 +34,11 @@ VALUES
 SELECT * FROM plate_number;
 SELECT * FROM girls;
 
+-- 内连接 <-> WHERE 子句
 SELECT name, city FROM plate_number, girls
 WHERE plate_number.numbers = girls.numbers ORDER BY name;
 
+-- 内连接 <-> INNER JOIN 语法
 SELECT name, city FROM plate_number
 INNER JOIN girls ON plate_number.numbers = girls.numbers ORDER BY name;
 
