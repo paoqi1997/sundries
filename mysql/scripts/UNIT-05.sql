@@ -34,11 +34,11 @@ VALUES
 SELECT * FROM plate_number;
 SELECT * FROM girls;
 
--- 内连接 <-> WHERE 子句
+-- 内连接 <-> "WHERE" syntax
 SELECT name, city FROM plate_number, girls
 WHERE plate_number.numbers = girls.numbers ORDER BY name;
 
--- 内连接 <-> INNER JOIN 语法
+-- 内连接 <-> "INNER JOIN" syntax
 SELECT name, city FROM plate_number
 INNER JOIN girls ON plate_number.numbers = girls.numbers ORDER BY name;
 
