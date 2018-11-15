@@ -34,7 +34,7 @@ VALUES
 SELECT * FROM universities;
 SELECT * FROM students;
 
--- 跨表查询
+-- 子查询 <-> 嵌套在其他查询中的查询
 SELECT name FROM students
 WHERE school IN (SELECT school FROM universities WHERE city = 'guangzhou');
 
