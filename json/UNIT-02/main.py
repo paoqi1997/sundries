@@ -5,6 +5,8 @@ JSON数组
 '''
 
 import json
+import platform
+import sys
 
 dic = {
     'name': 'xiaoting',
@@ -25,11 +27,17 @@ dic = {
     }
 }
 
+osname = platform.system()
+if osname is 'Windows':
+    jsonfile = sys.path[0] + '\\' + 'data.json'
+elif osname is 'Linux':
+    jsonfile = sys.path[0] + '/' + 'data.json'
+
 # Python Object -> JSON(String)
 jsondata = json.dumps(dic)
 print(jsondata)
 
-with open('data.json', 'r') as f:
+with open(jsonfile, 'r') as f:
     # JSON(File) -> Python Object
     pydata = json.load(f)
 
