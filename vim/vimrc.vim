@@ -1,5 +1,7 @@
 " My Vim Configuration
 
+" Directory: /etc/vim/vimrc
+
 " 01 - 字符编码
 set encoding=utf-8
 
