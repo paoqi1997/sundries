@@ -13,3 +13,23 @@
 # 非apt/yum方式安装软件
 
 有时候我们需要这么做。
+
+## Golang
+
+首先提取相应的包。
+
+```
+$ sudo tar -C /usr/local -zxvf go1.10.7.linux-amd64.tar.gz
+```
+
+在$HOME/.profile文件中添加以下命令。
+
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+
+运行一下。
+
+```
+$ source $HOME/.profile
+```
