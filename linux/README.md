@@ -19,7 +19,7 @@
 首先提取相应的包。
 
 ```
-$ sudo tar -C /usr/local -zxvf go1.10.7.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzvf go1.10.7.linux-amd64.tar.gz
 ```
 
 在$HOME/.profile文件中添加以下命令。
