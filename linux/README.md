@@ -16,7 +16,7 @@
 
 ## Golang
 
-首先提取相应的包。
+提取相应的包。
 
 ```
 $ sudo tar -C /usr/local -xzvf go1.10.7.linux-amd64.tar.gz
@@ -26,6 +26,28 @@ $ sudo tar -C /usr/local -xzvf go1.10.7.linux-amd64.tar.gz
 
 ```
 export PATH=$PATH:/usr/local/go/bin
+```
+
+运行一下。
+
+```
+$ source $HOME/.profile
+```
+
+## OpenJDK
+
+提取相应的包。
+
+```
+$ sudo tar -C /usr/local -xzvf openjdk-11.0.1_linux-x64_bin.tar.gz
+
+$ sudo mv /usr/local/jdk-11.0.1 /usr/local/java
+```
+
+在$HOME/.profile文件中添加以下命令。
+
+```
+export PATH=$PATH:/usr/local/java/bin
 ```
 
 运行一下。
