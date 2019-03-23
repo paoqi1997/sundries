@@ -56,7 +56,7 @@ $ chown -R mysql data
 $ ./bin/mysqld_safe --user=mysql &
 ```
 
-在$HOME/.profile文件中添加以下命令。
+在~/.profile文件中添加以下命令。
 
 ```
 export PATH=$PATH:/usr/local/mysql/bin
@@ -68,9 +68,13 @@ export PATH=$PATH:/usr/local/mysql/bin
 $ source ~/.profile
 ```
 
+设置密码。
+
 ```
 $ mysqladmin -uroot password 123456
 ```
+
+允许远程连接。
 
 ```sql
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
