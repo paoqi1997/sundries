@@ -34,6 +34,48 @@ export PATH=$PATH:/usr/local/go/bin
 $ source $HOME/.profile
 ```
 
+## MariaDB
+
+在root模式下执行以下命令。
+
+```
+$ groupadd mysql
+
+$ useradd -g mysql mysql
+
+$ tar -C /usr/local -xzvf mariadb-10.3.13-linux-x86_64.tar.gz
+
+$ mv /usr/local/mariadb-10.3.13-linux-x86_64 /usr/local/mysql
+
+$ cd /usr/local/mysql
+$ ./scripts/mysql_install_db --user=mysql
+
+$ chown -R root .
+$ chown -R mysql data
+
+$ ./bin/mysqld_safe --user=mysql &
+```
+
+在$HOME/.profile文件中添加以下命令。
+
+```
+export PATH=$PATH:/usr/local/mysql/bin
+```
+
+运行一下。
+
+```
+$ source ~/.profile
+```
+
+```
+$ mysqladmin -uroot password 123456
+```
+
+```sql
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+```
+
 ## OpenJDK
 
 提取相应的包。
