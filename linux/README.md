@@ -14,7 +14,7 @@
 
 有时候我们需要这么做。
 
-## Golang
+## [Golang](https://golang.google.cn/doc/install)
 
 提取相应的包。
 
@@ -34,7 +34,7 @@ export PATH=$PATH:/usr/local/go/bin
 $ source $HOME/.profile
 ```
 
-## MariaDB
+## [MariaDB](https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/)
 
 在root模式下执行以下命令。
 
@@ -80,7 +80,7 @@ $ mysqladmin -uroot password 123456
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 ```
 
-## OpenJDK
+## [OpenJDK](http://jdk.java.net/11/)
 
 提取相应的包。
 
