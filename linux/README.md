@@ -68,6 +68,12 @@ export PATH=$PATH:/usr/local/mysql/bin
 $ source ~/.profile
 ```
 
+设置自动启动。
+
+```
+$ cp support-files/mysql.server /etc/init.d/mysql.server
+```
+
 设置密码。
 
 ```
