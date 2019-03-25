@@ -68,7 +68,7 @@ export PATH=$PATH:/usr/local/mysql/bin
 $ source ~/.profile
 ```
 
-设置自动启动。
+设置开机自启。
 
 ```
 $ cp support-files/mysql.server /etc/init.d/mysql.server
