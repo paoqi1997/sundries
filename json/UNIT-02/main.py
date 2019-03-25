@@ -30,7 +30,7 @@ dic = {
 osname = platform.system()
 if osname is 'Windows':
     jsonfile = sys.path[0] + '\\' + 'data.json'
-elif osname is 'Linux':
+else:
     jsonfile = sys.path[0] + '/' + 'data.json'
 
 # Python Object -> JSON(String)
