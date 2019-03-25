@@ -68,10 +68,16 @@ export PATH=$PATH:/usr/local/mysql/bin
 $ source ~/.profile
 ```
 
-设置开机自启。
+拷贝脚本。
 
 ```
-$ cp support-files/mysql.server /etc/init.d/mysql.server
+$ cp support-files/mysql.server /etc/init.d/mysql
+```
+
+在/etc/rc.local文件中添加以下命令。
+
+```
+service mysql start
 ```
 
 设置密码。
