@@ -72,12 +72,8 @@ $ source ~/.profile
 
 ```
 $ cp support-files/mysql.server /etc/init.d/mysql
-```
 
-在/etc/rc.local文件中添加以下命令。
-
-```
-service mysql start
+$ update-rc.d mysql defaults
 ```
 
 设置密码。
