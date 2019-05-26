@@ -14,7 +14,7 @@
 
 有时候我们需要这么做。
 
-## [Golang](https://golang.google.cn/doc/install)
+## [Golang](https://golang.org/doc/install)
 
 提取相应的包。
 
