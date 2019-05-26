@@ -68,7 +68,7 @@ export PATH=$PATH:/usr/local/mysql/bin
 $ source ~/.profile
 ```
 
-拷贝脚本。
+设置开机自启。
 
 ```
 $ cp support-files/mysql.server /etc/init.d/mysql
@@ -88,7 +88,7 @@ $ mysqladmin -uroot password 123456
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 ```
 
-## [OpenJDK](http://jdk.java.net/11/)
+## [OpenJDK](http://jdk.java.net/archive/)
 
 提取相应的包。
 
