@@ -163,25 +163,25 @@ mysql> INSERT INTO coders
 
 ## 7. 查（Retrieve）操作
 
-查看name为paoqi的行的所有字段：
+查看name为paoqi的行的所有列：
 
 ```sql
 mysql> SELECT * FROM coders WHERE name = 'paoqi';
 ```
 
-查看name为paoqi的行的cplusplus字段：
+查看name为paoqi的行的cplusplus列：
 
 ```sql
 mysql> SELECT cplusplus FROM coders WHERE name = 'paoqi';
 ```
 
-查看所有行的num和name字段：
+查看所有行的num和name列：
 
 ```sql
 mysql> SELECT num, name FROM coders;
 ```
 
-通过完全限定的表名和列名查看name字段：
+通过完全限定的表名和列名查看name列：
 
 ```sql
 mysql> SELECT coders.name FROM mydb.coders;
@@ -195,28 +195,28 @@ mysql> SELECT * FROM coders LIMIT 0, 2;
 mysql> SELECT * FROM coders LIMIT 2 OFFSET 0;
 ```
 
-查看name不重复的行：
+查看name不重复的name列：
 
 ```sql
 mysql> SELECT DISTINCT name FROM coders;
 ```
 
-按序查看所有行：
+按name升序查看数据：
 
 ```sql
 mysql> SELECT * FROM coders ORDER BY name;
 ```
 
-反过来按序查看所有行：
+按name降序查看数据：
 
 ```sql
 mysql> SELECT * FROM coders ORDER BY name DESC;
 ```
 
-按多个列排序查看所有行：
+按多个列升序查看数据：
 
 ```sql
-mysql> SELECT * FROM coders ORDER BY clang, cplusplus;
+mysql> SELECT * FROM coders ORDER BY cplusplus, python;
 ```
 
 BETWEEN...AND...所形成的区间是闭区间，IN(...)枚举圆括号中的所有值。
