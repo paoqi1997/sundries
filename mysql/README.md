@@ -141,18 +141,25 @@ mysql> ALTER TABLE coders
     -> ADD javascript BOOLEAN;
 ```
 
-将javascript列的数据类型修改为INT：
+将名为javascript的列重命名为js：
 
 ```sql
 mysql> ALTER TABLE coders
-    -> MODIFY COLUMN javascript INT;
+    -> CHANGE javascript js BOOLEAN;
 ```
 
-删去表coders中名为javascript的列：
+将js列的数据类型修改为INT：
 
 ```sql
 mysql> ALTER TABLE coders
-    -> DROP COLUMN javascript;
+    -> MODIFY COLUMN js INT;
+```
+
+删去表coders中名为js的列：
+
+```sql
+mysql> ALTER TABLE coders
+    -> DROP COLUMN js;
 ```
 
 ## 4. 增（Create）操作
