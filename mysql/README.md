@@ -10,7 +10,7 @@
 
 那么，就让我们开始吧！祝你好运！
 
-## 1. 一些简单的查询
+## 1. 开胃小菜
 
 查看MySQL的版本：
 
@@ -128,6 +128,33 @@ mysql> SHOW COLUMNS FROM coders;
 mysql> DESCRIBE coders;
 ```
 
+将表coders重命名为programmers：
+
+```sql
+mysql> RENAME TABLE coders TO programmers;
+```
+
+给表coders增加一个名为javascript的列：
+
+```sql
+mysql> ALTER TABLE coders
+    -> ADD javascript BOOLEAN;
+```
+
+将javascript列的数据类型修改为INT：
+
+```sql
+mysql> ALTER TABLE coders
+    -> MODIFY COLUMN javascript INT;
+```
+
+删去表coders中名为javascript的列：
+
+```sql
+mysql> ALTER TABLE coders
+    -> DROP COLUMN javascript;
+```
+
 ## 4. 增（Create）操作
 
 插入第一行数据：
@@ -159,7 +186,28 @@ mysql> INSERT INTO coders
 
 ## 5. 删（Delete）操作
 
+删去name为paoqi的行：
+
+```sql
+mysql> DELETE FROM coders
+    -> WHERE name = 'paoqi';
+```
+
+删除所有数据：
+
+```sql
+mysql> TRUNCATE TABLE coders;
+```
+
 ## 6. 改（Update）操作
+
+将name为paoqi的行的golang字段置为FALSE：
+
+```sql
+mysql> UPDATE coders
+    -> SET golang = FALSE
+    -> WHERE name = 'paoqi';
+```
 
 ## 7. 查（Retrieve）操作
 
