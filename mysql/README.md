@@ -106,7 +106,7 @@ mysql> CREATE TABLE coders
     -> java      BOOLEAN     NOT NULL DEFAULT 0,
     -> python    BOOLEAN     NOT NULL DEFAULT 0,
     -> PRIMARY KEY (num)
-    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 ```
 
 显示创建数据表coders时输入的语句：
