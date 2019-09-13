@@ -6,15 +6,42 @@
 
 以下命令均在elementary OS 5.0下调试通过。
 
-# 常用命令
+# 常规操作
 
-待续……
+照做，便是。
 
-# 非apt/yum方式安装软件
+## 更换软件镜像
+
+将默认软件镜像换成中科大的镜像：
+
+```
+$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+$ sudo sed -i 's/cn.archive.ubuntu.com/mirrors.ustc.edu.cn/' /etc/apt/sources.list
+$ sudo sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/' /etc/apt/sources.list
+$ sudo sed -i 's/http/https/' /etc/apt/sources.list
+```
+
+针对elementary.list的操作：
+
+```
+$ sudo cp /etc/apt/sources.list.d/elementary.list /etc/apt/sources.list.d/elementary.list.bak
+$ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/sources.list.d/elementary.list
+$ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/elementary.list
+```
+
+针对patches.list的操作：
+
+```
+$ sudo cp /etc/apt/sources.list.d/patches.list /etc/apt/sources.list.d/patches.list.bak
+$ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/sources.list.d/patches.list
+$ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
+```
+
+## 非apt/yum方式安装软件
 
 有时候我们需要这么做。
 
-## [Golang](https://golang.org/doc/install)
+### [Golang](https://golang.google.cn/doc/install)
 
 提取相应的包。
 
@@ -34,7 +61,7 @@ export PATH=$PATH:/usr/local/go/bin
 $ source $HOME/.profile
 ```
 
-## [MariaDB](https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/)
+### [MariaDB](https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/)
 
 在root模式下执行以下命令。
 
@@ -88,7 +115,7 @@ $ mysqladmin -uroot password 123456
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 ```
 
-## [OpenJDK](http://jdk.java.net/archive/)
+### [OpenJDK](http://jdk.java.net/archive/)
 
 提取相应的包。
 
