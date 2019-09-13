@@ -39,7 +39,7 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 
 ## 非apt/yum方式安装软件
 
-有时候我们需要这么做。
+能不用包管理器就不用包管理器。
 
 ### [Golang](https://golang.google.cn/doc/install)
 
@@ -135,4 +135,26 @@ export PATH=$PATH:/usr/local/java/bin
 
 ```
 $ source $HOME/.profile
+```
+
+## 部分依赖apt/yum方式安装软件
+
+有些依赖用包管理器安装更方便一点。
+
+### [Lua](https://www.lua.org/manual/5.3/readme.html)
+
+安装依赖。
+
+```
+$ sudo apt install libreadline-dev
+```
+
+略。
+
+```
+$ curl -O https://www.lua.org/ftp/lua-5.3.5.tar.gz
+$ tar -xzvf lua-5.3.5.tar.gz
+$ cd lua-5.3.5
+$ make linux
+$ sudo make install
 ```
