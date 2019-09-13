@@ -143,9 +143,9 @@ $ source $HOME/.profile
 
 ```
 # for toolchain
-export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+$ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 # for rustup
-export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+$ export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 ```
 
 开始安装……
