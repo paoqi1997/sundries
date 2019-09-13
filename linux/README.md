@@ -137,6 +137,53 @@ export PATH=$PATH:/usr/local/java/bin
 $ source $HOME/.profile
 ```
 
+### [Rust](https://www.rust-lang.org/tools/install)
+
+安装前运行以下命令。
+
+```
+# for toolchain
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+# for rustup
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+```
+
+开始安装……
+
+```
+$ curl https://sh.rustup.rs -sSf | sh
+```
+
+安装前配置一些选项。
+
+```
+1) Proceed with installation (default)
+2) Customize installation
+3) Cancel installation
+>2
+
+Default host triple?
+x86_64-unknown-linux-gnu
+
+Default toolchain? (stable/beta/nightly/none)
+stable
+
+Modify PATH variable? (y/n)
+y
+```
+
+运行一下。
+
+```
+$ source ~/.cargo/env
+```
+
+如果需要卸载Rust环境，可以这么做：
+
+```
+$ rustup self uninstall
+```
+
 ## 部分依赖apt/yum方式安装软件
 
 有些依赖用包管理器安装更方便一点。
