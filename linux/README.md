@@ -218,18 +218,22 @@ $ make linux
 $ sudo make install
 ```
 
-### [pybind11](https://github.com/pybind/pybind11)
+### [pybind11](https://pybind11.readthedocs.io/en/master/basics.html)
 
-开始安装。
+安装Python的开发包。
 
 ```
 $ sudo apt install python3-dev
 ```
 
+安装pytest。
+
 ```
 $ sudo apt install python3-pip
 $ pip3 install pytest
 ```
+
+通过git获取源代码。
 
 ```
 $ sudo apt install git
@@ -237,11 +241,12 @@ $ git clone https://github.com/pybind/pybind11.git
 $ cd pybind11
 ```
 
-```
+略。
 
+```
 $ mkdir build
 $ cd build
 $ cmake ..
-$ cmake --build . --config Release --target check
+$ make
 $ sudo make install
 ```
