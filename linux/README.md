@@ -41,6 +41,18 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 
 能不用包管理器就不用包管理器。
 
+### [CMake](https://cmake.org/download/)
+
+提取相应的包。
+
+```
+$ tar -xzvf cmake-3.15.3.tar.gz
+$ cd cmake-3.15.3
+$ ./bootstrap
+$ make
+$ sudo make install
+```
+
 ### [Golang](https://golang.google.cn/doc/install)
 
 提取相应的包。
@@ -203,5 +215,33 @@ $ curl -O https://www.lua.org/ftp/lua-5.3.5.tar.gz
 $ tar -xzvf lua-5.3.5.tar.gz
 $ cd lua-5.3.5
 $ make linux
+$ sudo make install
+```
+
+### [pybind11](https://github.com/pybind/pybind11)
+
+开始安装。
+
+```
+$ sudo apt install python3-dev
+```
+
+```
+$ sudo apt install python3-pip
+$ pip3 install pytest
+```
+
+```
+$ sudo apt install git
+$ git clone https://github.com/pybind/pybind11.git
+$ cd pybind11
+```
+
+```
+
+$ mkdir build
+$ cd build
+$ cmake ..
+$ cmake --build . --config Release --target check
 $ sudo make install
 ```
