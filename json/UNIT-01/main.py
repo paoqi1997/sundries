@@ -18,8 +18,7 @@ dic = {
     }
 }
 
-osname = platform.system()
-if osname is 'Windows':
+if platform.system() is 'Windows':
     jsonfile = sys.path[0] + '\\' + 'data.json'
 else:
     jsonfile = sys.path[0] + '/' + 'data.json'

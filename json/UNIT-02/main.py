@@ -16,19 +16,15 @@ dic = {
         'tag': {
             'Teochew': [ 'Chaozhou', 'Jieyang', 'Shantou' ]
         },
-        'Internet': [
-            {
-                'name': 'alibaba', 'business': [ 'taobao', 'tmall' ]
-            },
-            {
-                'name': 'tencent', 'business': [ 'qq', 'wechat' ]
-            }
-        ]
+        'Internet': [{
+            'name': 'alibaba', 'business': [ 'taobao', 'tmall' ]
+        }, {
+            'name': 'tencent', 'business': [ 'qq', 'wechat' ]
+        }]
     }
 }
 
-osname = platform.system()
-if osname is 'Windows':
+if platform.system() is 'Windows':
     jsonfile = sys.path[0] + '\\' + 'data.json'
 else:
     jsonfile = sys.path[0] + '/' + 'data.json'
