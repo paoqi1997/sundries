@@ -37,6 +37,22 @@ $ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/source
 $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 ```
 
+## 网络工具
+
+安装依赖。
+
+```
+$ sudo apt install net-tools
+```
+
+## 远程连接
+
+安装依赖。
+
+```
+$ sudo apt install openssh-server
+```
+
 ## 非apt/yum方式安装软件
 
 能不用包管理器就不用包管理器。
