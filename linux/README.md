@@ -45,6 +45,19 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 $ sudo apt install net-tools
 ```
 
+查看网络接口的状态。
+
+```
+$ ifconfig
+```
+
+查看TCP/UDP监听端口的状态。
+
+```
+$ netstat -tul
+$ netstat -ntul
+```
+
 ## 远程连接
 
 安装依赖。
