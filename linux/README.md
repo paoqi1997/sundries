@@ -67,7 +67,7 @@ $ netstat -tul
 $ netstat -ntul
 ```
 
-不过现在我建议你使用iproute2工具提供的命令，相比net-tools，它在功能上更加强大，并且已经内置在大部分发行版中。
+不过现在我建议你使用iproute2工具提供的命令，相比net-tools，它在功能上更加强大，并且已经内置在大部分Linux发行版中。
 
 ```
 $ ip addr
