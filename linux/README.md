@@ -51,11 +51,31 @@ $ sudo apt install net-tools
 $ ifconfig
 ```
 
+查看ARP表。
+
+```
+$ arp -a
+$ arp -na
+$ arp -e
+$ arp -ne
+```
+
 查看TCP/UDP监听端口的状态。
 
 ```
 $ netstat -tul
 $ netstat -ntul
+```
+
+不过现在我建议你使用iproute2工具提供的命令，相比net-tools，它在功能上更加强大，并且已经内置在大部分发行版中。
+
+```
+$ ip addr
+
+$ ip neigh
+
+$ ss -tul
+$ ss -ntul
 ```
 
 ## 远程连接
