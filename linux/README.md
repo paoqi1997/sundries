@@ -122,6 +122,19 @@ export PATH=$PATH:/usr/local/go/bin
 $ source $HOME/.profile
 ```
 
+### [libevent](https://libevent.org/)
+
+提取相应的包。
+
+```
+$ tar -xzvf libevent-2.1.11-stable.tar.gz
+$ cd libevent-2.1.11-stable
+$ ./configure
+$ make
+$ sudo make install
+$ sudo ldconfig
+```
+
 ### [MariaDB](https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/)
 
 在root模式下执行以下命令。
