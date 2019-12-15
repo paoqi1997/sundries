@@ -90,6 +90,25 @@ $ sudo apt install openssh-server
 
 能不用包管理器就不用包管理器。
 
+### [Boost](https://www.boost.org/users/download/)
+
+提取相应的包。
+
+```
+$ tar -xzvf boost_1_72_0.tar.gz
+$ cd boost_1_72_0
+$ ./bootstrap.sh --show-libraries
+
+$ sudo ./b2 install    \
+$ --with-coroutine     \
+$ --with-date_time     \
+$ --with-regex         \
+$ --with-serialization \
+$ --with-system --with-thread
+
+$ sudo ldconfig
+```
+
 ### [CMake](https://cmake.org/download/)
 
 提取相应的包。
@@ -189,7 +208,7 @@ $ mysqladmin -uroot password 123456
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 ```
 
-### [OpenJDK](http://jdk.java.net/archive/)
+### [OpenJDK](https://jdk.java.net/archive/)
 
 提取相应的包。
 
@@ -260,7 +279,7 @@ $ rustup self uninstall
 
 ## 部分依赖apt/yum方式安装软件
 
-有些依赖用包管理器安装更方便一点。
+有时候不得不依赖包管理器。
 
 ### [Lua](https://www.lua.org/manual/5.3/readme.html)
 
