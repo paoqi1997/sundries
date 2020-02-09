@@ -6,11 +6,11 @@
 
 以下命令均在elementary OS 5.0下调试通过。
 
-# 常规操作
+# 基本操作
 
 照做，便是。
 
-## 更换软件镜像
+## mirror
 
 将默认软件镜像换成中科大的镜像：
 
@@ -37,7 +37,17 @@ $ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/source
 $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 ```
 
-## 网络工具
+## utils
+
+### find
+
+在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行。
+
+```
+$ find /usr/include -name *.h|xargs grep IPPROTO_TCP
+```
+
+## netdev
 
 安装依赖。
 
@@ -78,7 +88,7 @@ $ ss -tul
 $ ss -ntul
 ```
 
-## 远程连接
+## remotedev
 
 安装依赖。
 
