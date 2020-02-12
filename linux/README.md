@@ -218,6 +218,69 @@ $ mysqladmin -uroot password 123456
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
 ```
 
+### [MySQL](https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html)
+
+在root模式下执行以下命令。
+
+```
+$ groupadd mysql
+$ useradd -r -g mysql -s /bin/false mysql
+
+$ tar -C /usr/local -xvf mysql-8.0.19-linux-glibc2.12-x86_64.tar.xz
+
+$ mv /usr/local/mysql-8.0.19-linux-glibc2.12-x86_64 /usr/local/mysql
+
+$ cd /usr/local/mysql
+$ mkdir mysql-files
+$ chown mysql:mysql mysql-files
+$ chmod 750 mysql-files
+
+# please remember your temporary password.
+$ bin/mysqld --initialize --user=mysql
+
+$ bin/mysql_ssl_rsa_setup
+$ bin/mysqld_safe --user=mysql &
+```
+
+在~/.profile文件中添加以下命令。
+
+```
+export PATH=$PATH:/usr/local/mysql/bin
+```
+
+运行一下。
+
+```
+$ source ~/.profile
+```
+
+设置开机自启。
+
+```
+$ cp support-files/mysql.server /etc/init.d/mysql
+$ update-rc.d mysql defaults
+```
+
+修改密码。
+
+```
+# Need to enter your temporary password.
+$ mysqladmin -uroot -p password 123456
+```
+
+允许远程连接。
+
+```sql
+mysql> CREATE USER 'root'@'%' IDENTIFIED BY '123456';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+```
+
+按 MySQL 8 之前的加密规则修改密码。
+
+```sql
+mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+```
+
 ### [OpenJDK](https://jdk.java.net/archive/)
 
 提取相应的包。
