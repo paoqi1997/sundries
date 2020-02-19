@@ -170,12 +170,11 @@ $ sudo ldconfig
 
 ```
 $ groupadd mysql
-
 $ useradd -g mysql mysql
 
-$ tar -C /usr/local -xzvf mariadb-10.3.13-linux-x86_64.tar.gz
+$ tar -C /usr/local -xzvf mariadb-10.3.22-linux-x86_64.tar.gz
 
-$ mv /usr/local/mariadb-10.3.13-linux-x86_64 /usr/local/mysql
+$ mv /usr/local/mariadb-10.3.22-linux-x86_64 /usr/local/mysql
 
 $ cd /usr/local/mysql
 $ ./scripts/mysql_install_db --user=mysql
@@ -202,7 +201,6 @@ $ source ~/.profile
 
 ```
 $ cp support-files/mysql.server /etc/init.d/mysql
-
 $ update-rc.d mysql defaults
 ```
 
@@ -216,6 +214,15 @@ $ mysqladmin -uroot password 123456
 
 ```sql
 MariaDB [(none)]> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '123456' WITH GRANT OPTION;
+```
+
+删除匿名用户。
+
+```sql
+MariaDB [(none)]> USE mysql;
+
+MariaDB [mysql]> DELETE FROM user WHERE User = '';
+MariaDB [mysql]> FLUSH PRIVILEGES;
 ```
 
 ### [MySQL](https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html)
@@ -235,7 +242,7 @@ $ mkdir mysql-files
 $ chown mysql:mysql mysql-files
 $ chmod 750 mysql-files
 
-# please remember your temporary password.
+# Please remember your temporary password.
 $ bin/mysqld --initialize --user=mysql
 
 $ bin/mysql_ssl_rsa_setup
@@ -275,7 +282,7 @@ mysql> CREATE USER 'root'@'%' IDENTIFIED BY '123456';
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 ```
 
-按 MySQL 8 之前的加密规则修改密码。
+按 MySQL 8 之前的加密规则再次修改密码。
 
 ```sql
 mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
