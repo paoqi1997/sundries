@@ -39,8 +39,8 @@ $ ssh-add ~/.ssh/id_rsa
 $ ssh -T git@github.com
 ```
 
-以SSH方式从GitHub拉取pqtap项目到本地。
+以SSH方式从GitHub拉取pqnet项目到本地。
 
 ```
-$ git clone git@github.com:paoqi1997/pqtap.git
+$ git clone git@github.com:paoqi1997/pqnet.git
 ```

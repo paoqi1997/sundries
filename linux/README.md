@@ -96,6 +96,25 @@ $ ss -ntul
 $ sudo apt install openssh-server
 ```
 
+配置 SSH 免密码登录。
+
+```
+$ ssh-keygen -t rsa
+
+# Windows下可使用 Git Bash 进行操作
+$ ssh-copy-id -i ~/.ssh/id_rsa_aliyun.pub user@host
+```
+
+创建 ~/.ssh/config 文件并添加以下内容：
+
+```
+# See ssh_config(5).
+Host aliyun
+HostName host
+IdentityFile ~/.ssh/id_rsa_aliyun
+User user
+```
+
 ## 非apt/yum方式安装软件
 
 能不用包管理器就不用包管理器。
