@@ -96,6 +96,17 @@ $ ss -ntul
 $ sudo apt install openssh-server
 ```
 
+在 /etc/ssh/sshd_config 文件中启用以下配置：
+
+```
+# See sshd_config(5).
+
+# 如果ClientAliveInterval设置为15，ClientAliveCountMax设置为3，
+# 那么45s后将断开与 无响应的SSH客户端 之间的连接
+ClientAliveInterval 60
+ClientAliveCountMax 3
+```
+
 配置 SSH 免密码登录。
 
 ```
