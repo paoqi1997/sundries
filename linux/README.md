@@ -387,6 +387,18 @@ $ source ~/.cargo/env
 $ rustup self uninstall
 ```
 
+### [SQLite](https://www.sqlite.org/download.html)
+
+提取相应的包。
+
+```
+$ tar -xzvf sqlite-autoconf-3310100.tar.gz
+$ cd sqlite-autoconf-3310100
+$ ./configure
+$ make
+$ sudo make install
+```
+
 ## 部分依赖apt/yum方式安装软件
 
 有时候不得不依赖包管理器。
