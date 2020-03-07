@@ -255,6 +255,64 @@ MariaDB [mysql]> DELETE FROM user WHERE User = '';
 MariaDB [mysql]> FLUSH PRIVILEGES;
 ```
 
+### [MongoDB](https://www.mongodb.org/dl/linux/x86_64-ubuntu1804)
+
+提取相应的包。
+
+```
+$ tar -C /usr/local -xzvf mongodb-linux-x86_64-ubuntu1804-4.2.3.tgz
+
+$ mv /usr/local/mongodb-linux-x86_64-ubuntu1804-4.2.3 /usr/local/mongodb
+
+$ cd /usr/local/mongodb
+$ mkdir -p data/db
+$ mkdir log
+```
+
+创建 mongodb.conf 文件并添加以下内容：
+
+```
+dbpath=/usr/local/mongodb/data/db
+fork=true
+logpath=/usr/local/mongodb/log/mongodb.log
+```
+
+在~/.profile文件中添加以下命令。
+
+```
+export PATH=$PATH:/usr/local/mongodb/bin
+```
+
+运行一下。
+
+```
+$ source ~/.profile
+```
+
+创建 /etc/systemd/system/mongodb.service 文件并添加以下内容：
+
+```
+[Unit]
+Description=mongodb
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/mongodb.conf
+ExecStop=/usr/local/mongodb/bin/mongod --shutdown -f /usr/local/mongodb/mongodb.conf
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+执行以下命令：
+
+```
+$ sudo systemctl enable mongodb
+$ sudo systemctl start mongodb
+```
+
 ### [MySQL](https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html)
 
 在root模式下执行以下命令。
@@ -337,7 +395,7 @@ $ sudo make install
 
 ```
 [Unit]
-Description=nginx
+Description=The NGINX HTTP and reverse proxy server
 After=network.target
 
 [Service]
