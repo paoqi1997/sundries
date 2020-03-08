@@ -269,12 +269,12 @@ $ mkdir -p data/db
 $ mkdir log
 ```
 
-创建 mongodb.conf 文件并添加以下内容：
+创建 mongod.conf 文件并添加以下内容：
 
 ```
 dbpath=/usr/local/mongodb/data/db
 fork=true
-logpath=/usr/local/mongodb/log/mongodb.log
+logpath=/usr/local/mongodb/log/mongod.log
 ```
 
 在~/.profile文件中添加以下命令。
@@ -298,8 +298,8 @@ After=network.target
 
 [Service]
 Type=forking
-ExecStart=/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/mongodb.conf
-ExecStop=/usr/local/mongodb/bin/mongod --shutdown -f /usr/local/mongodb/mongodb.conf
+ExecStart=/usr/local/mongodb/bin/mongod -f /usr/local/mongodb/mongod.conf
+ExecStop=/usr/local/mongodb/bin/mongod --shutdown -f /usr/local/mongodb/mongod.conf
 Restart=on-failure
 
 [Install]
