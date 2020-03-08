@@ -49,48 +49,26 @@ $ find /usr/include -name *.h|xargs grep IPPROTO_TCP
 
 ## netdev
 
-安装依赖。
+默认没有的话请通过包管理器安装。
 
 ```
 $ sudo apt install net-tools
 ```
 
-查看网络接口的状态。
+使用一些功能时 ~~net-tools~~ 和 iproute2 对应的命令如下表所示：
 
-```
-$ ifconfig
-```
-
-查看ARP表。
-
-```
-$ arp -a
-$ arp -na
-$ arp -e
-$ arp -ne
-```
-
-查看TCP/UDP监听端口的状态。
-
-```
-$ netstat -tul
-$ netstat -ntul
-```
-
-不过现在我建议你使用iproute2工具提供的命令，相比net-tools，它在功能上更加强大，并且已经内置在大部分Linux发行版中。
-
-```
-$ ip addr
-
-$ ip neigh
-
-$ ss -tul
-$ ss -ntul
-```
+|说明|net-tools|iproute2|
+|--|--|--|
+|查看网络接口的状态|ifconfig|ip link<br>ip addr|
+|查看统计信息|ifconfig -s<br>netstat -i|ip -s link|
+|查看ARP表|arp -a<br>arp -an<br>arp -e<br>arp -en|ip neigh|
+|查看路由表|route<br>route -n<br>netstat -r<br>netstat -rn|ip route|
+|查看TCP/UDP监听端口的状态|netstat -tul<br>netstat -tunl|ss -tul<br>ss -tunl|
+|查看多播地址|ipmaddr<br>netstat -g|ip maddr|
 
 ## remotedev
 
-安装依赖。
+默认没有的话请通过包管理器安装。
 
 ```
 $ sudo apt install openssh-server
