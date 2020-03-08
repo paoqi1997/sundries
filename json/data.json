@@ -1,0 +1,10 @@
+{
+    "name": "nginx",
+    "version": "1.16.1",
+    "language": "c",
+    "www": {
+        "home": "https://nginx.org",
+        "dl": "https://nginx.org/en/download.html",
+        "doc": "https://nginx.org/en/docs/"
+    }
+}

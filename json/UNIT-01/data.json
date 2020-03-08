@@ -1,9 +1,0 @@
-{
-    "name": "paoqi",
-    "age": 22,
-    "extra": {
-        "country": "China",
-        "province": "Guangdong",
-        "city": "Shenzhen"
-    }
-}
