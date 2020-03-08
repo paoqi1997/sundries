@@ -271,10 +271,16 @@ $ mkdir log
 
 创建 mongod.conf 文件并添加以下内容：
 
-```
-dbpath=/usr/local/mongodb/data/db
-fork=true
-logpath=/usr/local/mongodb/log/mongod.log
+```yaml
+processManagement:
+  fork: true
+security:
+  authorization: enabled
+storage:
+  dbPath: /usr/local/mongodb/data/db
+systemLog:
+  destination: file
+  path: /usr/local/mongodb/log/mongod.log
 ```
 
 在~/.profile文件中添加以下命令。
@@ -311,6 +317,19 @@ WantedBy=multi-user.target
 ```
 $ sudo systemctl enable mongodb
 $ sudo systemctl start mongodb
+```
+
+创建用户。
+
+```sql
+> use admin
+> db.createUser({
+    user: "root",
+    pwd: "123456",
+    roles: [{ role: "userAdminAnyDatabase", db: "admin" }]
+})
+> db.auth("root", "123456")
+> db.getUser("root")
 ```
 
 ### [MySQL](https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html)
