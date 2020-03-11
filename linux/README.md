@@ -437,6 +437,20 @@ export PATH=$PATH:/usr/local/java/bin
 $ source $HOME/.profile
 ```
 
+### [protobuf](https://github.com/protocolbuffers/protobuf)
+
+提取相应的包。
+
+```
+$ tar -xzvf protobuf-cpp-3.11.4.tar.gz
+$ cd protobuf-3.11.4
+$ ./configure
+$ make
+$ make check
+$ sudo make install
+$ sudo ldconfig
+```
+
 ### [Redis](https://redis.io/download)
 
 提取相应的包。
