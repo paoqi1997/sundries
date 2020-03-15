@@ -139,6 +139,23 @@ $ make
 $ sudo make install
 ```
 
+### [Doxygen](http://www.doxygen.nl/download.html)
+
+提取相应的包。
+
+```
+$ tar -xzvf doxygen-1.8.17.linux.bin.tar.gz
+$ cd doxygen-1.8.17
+$ ./configure
+```
+
+这个时候执行 make 命令会失败，需要修改下 Makefile 文件。
+
+```
+# make = make install
+$ make
+```
+
 ### [Golang](https://golang.google.cn/doc/install)
 
 提取相应的包。
