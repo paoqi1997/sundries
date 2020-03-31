@@ -621,12 +621,11 @@ $ git clone https://github.com/pybind/pybind11.git
 $ cd pybind11
 ```
 
-略。
+编译并安装pybind11。
 
 ```
-$ mkdir build
+$ cmake -S . -B build
 $ cd build
-$ cmake ..
 $ make
 $ sudo make install
 ```
