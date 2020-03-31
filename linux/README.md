@@ -454,6 +454,18 @@ export PATH=$PATH:/usr/local/java/bin
 $ source $HOME/.profile
 ```
 
+### [OpenSSL](https://www.openssl.org/source/)
+
+提取相应的包。
+
+```
+$ tar -xzvf openssl-1.1.1d.tar.gz
+$ cd openssl-1.1.1d
+$ ./config zlib --debug --prefix=/usr/local/openssl
+$ make
+$ sudo make install
+```
+
 ### [protobuf](https://github.com/protocolbuffers/protobuf)
 
 提取相应的包。
@@ -601,7 +613,7 @@ $ sudo apt install python3-pip
 $ pip3 install pytest
 ```
 
-通过git获取源代码。
+通过 git 获取源代码。
 
 ```
 $ sudo apt install git
