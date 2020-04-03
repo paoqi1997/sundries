@@ -351,7 +351,7 @@ $ bin/mysql_ssl_rsa_setup
 $ bin/mysqld_safe --user=mysql &
 ```
 
-mysqld依赖libaio，如果没有请通过包管理器安装：
+mysqld依赖libaio，如果没有的话请通过包管理器安装：
 
 ```
 $ sudo apt install libaio1
@@ -525,13 +525,20 @@ $ sudo systemctl start redis
 
 ### [Rust](https://www.rust-lang.org/tools/install)
 
-安装前运行以下命令。
+安装前执行以下命令。
 
 ```
 # for toolchain
 $ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 # for rustup
 $ export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+```
+
+如果 os 为 Windows 就执行以下命令。
+
+```
+>set RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+>set RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 ```
 
 开始安装……
@@ -549,6 +556,7 @@ $ curl https://sh.rustup.rs -sSf | sh
 >2
 
 Default host triple?
+# WIN32 -> x86_64-pc-windows-gnu
 x86_64-unknown-linux-gnu
 
 Default toolchain? (stable/beta/nightly/none)
