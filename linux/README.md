@@ -351,6 +351,12 @@ $ bin/mysql_ssl_rsa_setup
 $ bin/mysqld_safe --user=mysql &
 ```
 
+mysqld依赖libaio，如果没有请通过包管理器安装：
+
+```
+$ sudo apt install libaio1
+```
+
 在~/.profile文件中添加以下命令。
 
 ```
