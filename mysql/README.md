@@ -12,6 +12,8 @@
 
 ## 热身
 
+相关SQL语句如下所示：
+
 ```sql
 -- Return a string that indicates the MySQL server version
 mysql> SELECT VERSION();
@@ -33,124 +35,84 @@ mysql> SELECT CURRENT_USER();
 mysql> SHOW STATUS;
 ```
 
-## 2. 操作数据库
+## 操作数据库
 
-获得可用数据库的一个列表：
+相关SQL语句如下所示：
 
 ```sql
+-- 返回可用数据库的一个列表
 mysql> SHOW DATABASES;
-```
 
-查看MySQL所支持的数据库引擎：
-
-```sql
+-- 查看MySQL所支持的数据库引擎
 mysql> SHOW ENGINES;
-```
 
-创建一个名为mydb的数据库：
-
-```sql
-mysql> CREATE DATABASE mydb;
-```
-
-显示创建数据库mydb时输入的语句：
-
-```sql
+-- 创建一个名为mydb的数据库
+mysql> CREATE DATABASE mydb CHARACTER SET utf8mb4;
+-- 显示创建数据库mydb时所输入的语句
 mysql> SHOW CREATE DATABASE mydb;
-```
 
-删除数据库mydb：
+-- 显示当前选择的数据库
+mysql> SELECT DATABASE();
 
-```sql
+-- 选择数据库mydb
+mysql> USE mydb;
+
+-- 删除数据库mydb
 mysql> DROP DATABASE mydb;
 ```
 
-选定数据库mydb：
+## 操作数据表
+
+相关SQL语句如下所示：
 
 ```sql
-mysql> USE mydb;
-```
-
-查看当前选定的数据库：
-
-```sql
-mysql> SELECT DATABASE();
-```
-
-## 3. 操作数据表
-
-获得可用数据表的一个列表：
-
-```sql
+-- 返回可用数据表的一个列表
 mysql> SHOW TABLES;
-```
 
-创建一张名为coders的数据表：
-
-```sql
-mysql> CREATE TABLE coders
+-- 创建一张名为libs的数据表
+mysql> CREATE TABLE libs
     -> (
-    -> num       INT         NOT NULL AUTO_INCREMENT,
-    -> name      VARCHAR(12) NOT NULL,
-    -> golang    BOOLEAN     NOT NULL DEFAULT 0,
-    -> cplusplus BOOLEAN     NOT NULL DEFAULT 0,
-    -> java      BOOLEAN     NOT NULL DEFAULT 0,
-    -> python    BOOLEAN     NOT NULL DEFAULT 0,
-    -> PRIMARY KEY (num)
-    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    -> id       INT         NOT NULL AUTO_INCREMENT,
+    -> name     VARCHAR(16) NOT NULL,
+    -> language VARCHAR(12) NOT NULL,
+    -> windows  BOOLEAN     NOT NULL DEFAULT 0,
+    -> linux    BOOLEAN     NOT NULL DEFAULT 0,
+    -> macos    BOOLEAN     NOT NULL DEFAULT 0,
+    -> PRIMARY KEY (id)
+    -> ) ENGINE InnoDB;
+
+-- 显示创建数据表libs时所输入的语句
+mysql> SHOW CREATE TABLE libs;
+
+-- 查看数据表libs的结构
+mysql> SHOW COLUMNS FROM libs;
+mysql> DESCRIBE libs;
+
+-- 将数据表libs重命名为libraries
+mysql> RENAME TABLE libs TO libraries;
+
+-- 删除数据表libs
+mysql> DROP TABLE libs;
 ```
 
-显示创建数据表coders时输入的语句：
+针对列的操作如下所示：
 
 ```sql
-mysql> SHOW CREATE TABLE coders;
-```
+-- 给表libs增加一个名为android的列
+mysql> ALTER TABLE libs
+    -> ADD android BOOLEAN NOT NULL DEFAULT 0;
 
-删除数据表coders：
+-- 将名为android的列重命名为ios
+mysql> ALTER TABLE libs
+    -> CHANGE android ios BOOLEAN NOT NULL DEFAULT 0;
 
-```sql
-mysql> DROP TABLE coders;
-```
+-- 将名为ios的列的数据类型修改为INT
+mysql> ALTER TABLE libs
+    -> MODIFY ios INT;
 
-查看表的结构：
-
-```sql
-mysql> SHOW COLUMNS FROM coders;
-mysql> DESCRIBE coders;
-```
-
-将表coders重命名为programmers：
-
-```sql
-mysql> RENAME TABLE coders TO programmers;
-```
-
-给表coders增加一个名为javascript的列：
-
-```sql
-mysql> ALTER TABLE coders
-    -> ADD javascript BOOLEAN;
-```
-
-将名为javascript的列重命名为js：
-
-```sql
-mysql> ALTER TABLE coders
-    -> CHANGE javascript js BOOLEAN;
-```
-
-将js列的数据类型修改为INT：
-
-```sql
-mysql> ALTER TABLE coders
-    -> MODIFY COLUMN js INT;
-```
-
-删去表coders中名为js的列：
-
-```sql
-mysql> ALTER TABLE coders
-    -> DROP COLUMN js;
+-- 删除表coders中名为ios的列
+mysql> ALTER TABLE libs
+    -> DROP ios;
 ```
 
 ## 4. 增（Create）操作
