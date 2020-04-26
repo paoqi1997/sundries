@@ -8,37 +8,28 @@
 
 # 语句
 
-那么，就让我们开始吧！祝你好运！
+从最基本的增删改查开始。
 
-## 1. 开胃小菜
-
-查看MySQL的版本：
+## 热身
 
 ```sql
+-- Return a string that indicates the MySQL server version
 mysql> SELECT VERSION();
-```
 
-查看当前日期：
-
-```sql
+-- Return the current date
+mysql> SELECT CURDATE();
 mysql> SELECT CURRENT_DATE;
-```
-
-查看当前时间：
-
-```sql
+mysql> SELECT CURRENT_DATE();
+-- Return the current date and time
 mysql> SELECT NOW();
-```
 
-查看当前用户：
-
-```sql
+-- The user name and host name provided by the client
 mysql> SELECT USER();
-```
+-- The authenticated user name and host name
+mysql> SELECT CURRENT_USER;
+mysql> SELECT CURRENT_USER();
 
-查看MySQL服务器的状态信息：
-
-```sql
+-- SHOW STATUS provides server status information
 mysql> SHOW STATUS;
 ```
 
