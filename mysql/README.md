@@ -115,159 +115,105 @@ mysql> ALTER TABLE libs
     -> DROP ios;
 ```
 
-## 4. 增（Create）操作
+## 增（Create）操作
 
-插入第一行数据：
+相关SQL语句如下所示：
 
 ```sql
-mysql> INSERT INTO coders
-    -> (name, golang, cplusplus, python)
+mysql> INSERT INTO libs
+    -> (name, language, windows, linux, macos)
     -> VALUES
-    -> ('paoqi', TRUE, TRUE, TRUE);
-```
+    -> ('libevent', 'c', TRUE, TRUE, TRUE);
 
-插入第二行数据：
-
-```sql
-mysql> INSERT INTO coders
-    -> (name, java, python)
+mysql> INSERT INTO libs
+    -> (name, language, linux)
     -> VALUES
-    -> ('hypo', TRUE, TRUE);
-```
+    -> ('muduo', 'cpp', TRUE);
 
-插入第三行数据：
-
-```sql
-mysql> INSERT INTO coders
-    -> (name)
+mysql> INSERT INTO libs
+    -> (name, language, linux, macos)
     -> VALUES
-    -> ('xiaoting');
+    -> ('handy', 'cpp', TRUE, TRUE);
 ```
 
-## 5. 删（Delete）操作
+## 删（Delete）操作
 
-删去name为paoqi的行：
+相关SQL语句如下所示：
 
 ```sql
-mysql> DELETE FROM coders
-    -> WHERE name = 'paoqi';
+-- 删除name为handy的行
+mysql> DELETE FROM libs
+    -> WHERE name = 'handy';
+
+-- 删除所有行
+mysql> TRUNCATE TABLE libs;
 ```
 
-删除所有数据：
+## 改（Update）操作
+
+相关SQL语句如下所示：
 
 ```sql
-mysql> TRUNCATE TABLE coders;
+mysql> UPDATE libs
+    -> SET name = 'libuv'
+    -> WHERE name = 'libevent';
 ```
 
-## 6. 改（Update）操作
+## 查（Retrieve）操作
 
-将name为paoqi的行的golang字段置为FALSE：
-
-```sql
-mysql> UPDATE coders
-    -> SET golang = FALSE
-    -> WHERE name = 'paoqi';
-```
-
-## 7. 查（Retrieve）操作
-
-查看name为paoqi的行的所有列：
+相关SQL语句如下所示：
 
 ```sql
-mysql> SELECT * FROM coders WHERE name = 'paoqi';
-```
+mysql> SELECT id, name FROM libs;
+-- 通过完全限定的表名和列名查看name列
+mysql> SELECT libs.name FROM mydb.libs;
 
-查看name为paoqi的行的cplusplus列：
+mysql> SELECT * FROM libs WHERE name = 'libevent';
+mysql> SELECT windows FROM libs WHERE name = 'libevent';
 
-```sql
-mysql> SELECT cplusplus FROM coders WHERE name = 'paoqi';
-```
+-- 查看从首行开始的2行数据
+mysql> SELECT * FROM libs LIMIT 2;
+mysql> SELECT * FROM libs LIMIT 0, 2;
+mysql> SELECT * FROM libs LIMIT 2 OFFSET 0;
 
-查看所有行的num和name列：
+-- 查看name不重复的name列
+mysql> SELECT DISTINCT name FROM libs;
 
-```sql
-mysql> SELECT num, name FROM coders;
-```
+-- 按name升序查看所有行
+mysql> SELECT * FROM libs ORDER BY name;
+-- 按name降序查看所有行
+mysql> SELECT * FROM libs ORDER BY name DESC;
+-- 按多个列升序查看所有行
+mysql> SELECT * FROM libs ORDER BY windows, linux;
 
-通过完全限定的表名和列名查看name列：
+mysql> SELECT * FROM libs WHERE windows = TRUE AND linux = TRUE;
+mysql> SELECT * FROM libs WHERE windows = TRUE OR linux = TRUE;
+mysql> SELECT * FROM libs WHERE windows != FALSE;
+mysql> SELECT * FROM libs WHERE windows <> FALSE;
+-- BETWEEN...AND...所形成的区间是闭区间
+mysql> SELECT * FROM libs WHERE windows BETWEEN 0 AND 1;
+-- IN(...)枚举圆括号中的所有值
+mysql> SELECT * FROM libs WHERE windows IN (0, 1);
+mysql> SELECT * FROM libs WHERE windows NOT IN (0, 1);
+mysql> SELECT * FROM libs WHERE windows IS NOT NULL;
 
-```sql
-mysql> SELECT coders.name FROM mydb.coders;
-```
+-- 利用通配符对数据进行过滤
+mysql> SELECT name FROM libs WHERE name LIKE 'lib%';
+mysql> SELECT name FROM libs WHERE name LIKE '%duo';
+mysql> SELECT name FROM libs WHERE name LIKE '%ev%';
+mysql> SELECT name FROM libs WHERE name LIKE '_____';
 
-查看从首行开始的两行数据：
+-- 利用正则表达式对数据进行过滤
+mysql> SELECT name FROM libs WHERE name REGEXP '^lib';
+mysql> SELECT name FROM libs WHERE name REGEXP 'duo$';
+mysql> SELECT name FROM libs WHERE name REGEXP 'ev';
+mysql> SELECT name FROM libs WHERE name REGEXP '.net';
+mysql> SELECT name FROM libs WHERE name REGEXP '^.....$';
 
-```sql
-mysql> SELECT * FROM coders LIMIT 2;
-mysql> SELECT * FROM coders LIMIT 0, 2;
-mysql> SELECT * FROM coders LIMIT 2 OFFSET 0;
-```
+-- 获取表libs的行数
+mysql> SELECT COUNT(*) FROM libs;
 
-查看name不重复的name列：
-
-```sql
-mysql> SELECT DISTINCT name FROM coders;
-```
-
-按name升序查看数据：
-
-```sql
-mysql> SELECT * FROM coders ORDER BY name;
-```
-
-按name降序查看数据：
-
-```sql
-mysql> SELECT * FROM coders ORDER BY name DESC;
-```
-
-按多个列升序查看数据：
-
-```sql
-mysql> SELECT * FROM coders ORDER BY cplusplus, python;
-```
-
-BETWEEN...AND...所形成的区间是闭区间，IN(...)枚举圆括号中的所有值。
-
-```sql
-mysql> SELECT * FROM coders WHERE cplusplus = TRUE AND python = TRUE;
-mysql> SELECT * FROM coders WHERE java = TRUE OR golang = TRUE;
-mysql> SELECT * FROM coders WHERE python != FALSE;
-mysql> SELECT * FROM coders WHERE python <> FALSE;
-mysql> SELECT * FROM coders WHERE cplusplus BETWEEN 0 AND 1;
-mysql> SELECT * FROM coders WHERE cplusplus IN (0, 1);
-mysql> SELECT * FROM coders WHERE cplusplus NOT IN (0, 1);
-mysql> SELECT * FROM coders WHERE cplusplus IS NOT NULL;
-```
-
-利用通配符对数据进行过滤：
-
-```sql
-mysql> SELECT name FROM coders WHERE name LIKE 'lai%';
-mysql> SELECT name FROM coders WHERE name LIKE '%qi';
-mysql> SELECT name FROM coders WHERE name LIKE '%ao%';
-mysql> SELECT name FROM coders WHERE name LIKE '________';
-```
-
-利用正则表达式对数据进行过滤：
-
-```sql
-mysql> SELECT name FROM coders WHERE name REGEXP '^lai';
-mysql> SELECT name FROM coders WHERE name REGEXP 'qi$';
-mysql> SELECT name FROM coders WHERE name REGEXP 'ao';
-mysql> SELECT name FROM coders WHERE name REGEXP '.ing';
-mysql> SELECT name FROM coders WHERE name REGEXP '^........$';
-```
-
-获取表coders的行数：
-
-```sql
-mysql> SELECT COUNT(*) FROM coders;
-```
-
-对数据进行分组：
-
-```sql
-mysql> SELECT python, COUNT(*) FROM coders GROUP BY python;
-mysql> SELECT cplusplus, python, COUNT(*) FROM coders GROUP BY cplusplus, python;
+-- 对数据进行分组
+mysql> SELECT language, COUNT(*) FROM libs GROUP BY language;
+mysql> SELECT name, language, COUNT(*) FROM libs GROUP BY name, language;
 ```
