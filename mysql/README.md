@@ -128,7 +128,7 @@ mysql> INSERT INTO libs
 mysql> INSERT INTO libs
     -> (name, language, linux)
     -> VALUES
-    -> ('muduo', 'cpp', TRUE);
+    -> ('muduo', 'cpp', TRUE), ('pqnet', 'cpp', TRUE);
 
 mysql> INSERT INTO libs
     -> (name, language, linux, macos)
@@ -200,14 +200,14 @@ mysql> SELECT * FROM libs WHERE windows IS NOT NULL;
 -- 利用通配符对数据进行过滤
 mysql> SELECT name FROM libs WHERE name LIKE 'lib%';
 mysql> SELECT name FROM libs WHERE name LIKE '%duo';
-mysql> SELECT name FROM libs WHERE name LIKE '%ev%';
+mysql> SELECT name FROM libs WHERE name LIKE '%d%';
 mysql> SELECT name FROM libs WHERE name LIKE '_____';
 
 -- 利用正则表达式对数据进行过滤
 mysql> SELECT name FROM libs WHERE name REGEXP '^lib';
 mysql> SELECT name FROM libs WHERE name REGEXP 'duo$';
-mysql> SELECT name FROM libs WHERE name REGEXP 'ev';
-mysql> SELECT name FROM libs WHERE name REGEXP '.net';
+mysql> SELECT name FROM libs WHERE name REGEXP 'd';
+mysql> SELECT name FROM libs WHERE name REGEXP 'p.net';
 mysql> SELECT name FROM libs WHERE name REGEXP '^.....$';
 
 -- 获取表libs的行数
