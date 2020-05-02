@@ -12,6 +12,12 @@
 
 ## Config
 
+查看配置。
+
+```
+$ git config -l
+```
+
 配置一下。
 
 ```
@@ -21,26 +27,33 @@ $ git config --global user.email "604869221@qq.com"
 
 ## Work with GitHub
 
-首先生成SSH Key，这里需要设置密码。
+首先生成SSH Key，如果需要的话，这里可以设置密码。
 
 ```
 $ ssh-keygen -t rsa -C "604869221@qq.com"
 ```
 
-将~/.ssh/id_rsa.pub文件中的内容添加到GitHub账户中，随后执行以下命令，这里会用到之前设置的密码。
+将 ~/.ssh/id_rsa_github.pub 文件中的内容添加到 GitHub 账户中，随后执行以下命令。
 
 ```
-$ ssh-add ~/.ssh/id_rsa
+# Could not open a connection to your authentication agent.
+# 如果出现了以上错误，请执行以下命令以启动ssh-agent
+$ ssh-agent bash
+
+# 如果你之前生成SSH Key的时候设置了密码，那么这里会用到它
+$ ssh-add ~/.ssh/id_rsa_github
+
+# 查看已添加的公钥
+$ ssh-add -L
+# 查看已添加的私钥
+$ ssh-add -l
 ```
 
 测试一下。
 
 ```
 $ ssh -T git@github.com
-```
 
-以SSH方式从GitHub拉取pqnet项目到本地。
-
-```
+# Clone paoqi1997/pqnet with SSH
 $ git clone git@github.com:paoqi1997/pqnet.git
 ```
