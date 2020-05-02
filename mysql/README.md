@@ -22,8 +22,14 @@ mysql> SELECT VERSION();
 mysql> SELECT CURDATE();
 mysql> SELECT CURRENT_DATE;
 mysql> SELECT CURRENT_DATE();
+-- Return the current time
+mysql> SELECT CURTIME();
+mysql> SELECT CURRENT_TIME;
+mysql> SELECT CURRENT_TIME();
 -- Return the current date and time
 mysql> SELECT NOW();
+mysql> SELECT CURRENT_TIMESTAMP;
+mysql> SELECT CURRENT_TIMESTAMP();
 
 -- The user name and host name provided by the client
 mysql> SELECT USER();
