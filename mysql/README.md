@@ -30,6 +30,10 @@ mysql> SELECT CURRENT_TIME();
 mysql> SELECT NOW();
 mysql> SELECT CURRENT_TIMESTAMP;
 mysql> SELECT CURRENT_TIMESTAMP();
+mysql> SELECT LOCALTIME;
+mysql> SELECT LOCALTIME();
+mysql> SELECT LOCALTIMESTAMP;
+mysql> SELECT LOCALTIMESTAMP();
 
 -- The user name and host name provided by the client
 mysql> SELECT USER();
@@ -222,4 +226,41 @@ mysql> SELECT COUNT(*) FROM libs;
 -- 对数据进行分组
 mysql> SELECT language, COUNT(*) FROM libs GROUP BY language;
 mysql> SELECT name, language, COUNT(*) FROM libs GROUP BY name, language;
+```
+
+创建数据表 player_charge 以学习接下来的查询操作。
+
+```sql
+mysql> CREATE TABLE player_charge
+    -> (
+    -> id     INT             NOT NULL AUTO_INCREMENT,
+    -> uid    INT(6) ZEROFILL NOT NULL,
+    -> name   VARCHAR(32)     NOT NULL,
+    -> method TINYINT         NOT NULL,
+    -> num    INT UNSIGNED    NOT NULL,
+    -> stime  DATETIME        NOT NULL,
+    -> utime  INT UNSIGNED    NOT NULL,
+    -> PRIMARY KEY (id)
+    -> ) ENGINE InnoDB;
+
+mysql> INSERT INTO player_charge
+    -> (uid, name, method, num, stime, utime)
+    -> VALUES
+    -> (2468, 'paoqi', 0, 128, NOW(), UNIX_TIMESTAMP()),
+    -> (2468, 'paoqi', 0, 328,
+    -> DATE_ADD(NOW(), INTERVAL 1 MINUTE),
+    -> UNIX_TIMESTAMP(DATE_ADD(NOW(), INTERVAL 1 MINUTE)));
+
+mysql> INSERT INTO player_charge
+    -> (uid, name, method, num, stime, utime)
+    -> VALUES
+    -> (4096, 'honolulu', 0, 648, NOW(), UNIX_TIMESTAMP());
+
+-- 拼接 name(uid) 字段
+mysql> SELECT CONCAT(name, '(', uid, ')') AS name_uid FROM player_charge;
+-- 八折充值
+mysql> SELECT name, num, num * 0.8 AS new_num FROM player_charge;
+-- 获取充值情况
+mysql> SELECT COUNT(num), MIN(num), MAX(num), SUM(num), AVG(num)
+    -> FROM player_charge WHERE name = 'paoqi';
 ```
