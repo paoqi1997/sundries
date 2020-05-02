@@ -3,8 +3,8 @@
 '''JSON Object & Array'''
 
 import json
-import platform
-import sys
+from platform import system
+from sys import path
 
 oDict = {
     'solution': 'db',
@@ -20,10 +20,12 @@ oDict = {
     }
 }
 
-if platform.system() is 'Windows':
-    sFileName = '{dir}\\data.json'.format(dir=sys.path[0])
-else:
-    sFileName = '{dir}/data.json'.format(dir=sys.path[0])
+# Separator
+Sep = '\\' if system() == 'Windows' else '/'
+
+sFileName = '{Dir}{Sep}{FileName}'.format(
+    Dir=path[0], Sep=Sep, FileName='data.json'
+)
 
 # json.dumps: Dict -> JSON String
 sJsonData = json.dumps(oDict)

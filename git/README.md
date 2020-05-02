@@ -12,17 +12,17 @@
 
 ## Config
 
-查看配置。
-
-```
-$ git config -l
-```
-
 配置一下。
 
 ```
 $ git config --global user.name "paoqi1997"
 $ git config --global user.email "604869221@qq.com"
+```
+
+查看配置。
+
+```
+$ git config -l
 ```
 
 ## Work with GitHub
@@ -43,9 +43,9 @@ $ ssh-agent bash
 # 如果你之前生成SSH Key的时候设置了密码，那么这里会用到它
 $ ssh-add ~/.ssh/id_rsa_github
 
-# 查看已添加的公钥
+# 查看代理中的私钥对应的公钥
 $ ssh-add -L
-# 查看已添加的私钥
+# 查看代理中的私钥
 $ ssh-add -l
 ```
 
