@@ -10,6 +10,8 @@
 
 什么都要会一点。
 
++ Docker
+
 + Git
 
 + JSON
