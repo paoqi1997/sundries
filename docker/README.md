@@ -66,3 +66,21 @@ $ sudo groupadd docker
 # your-user是你的用户名
 $ sudo usermod -aG docker your-user
 ```
+
+## 配置
+
+创建 [daemon.json](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) 文件。
+
+```
+$ sudo touch /etc/docker/daemon.json
+```
+
+your-id是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生成的ID。
+
+```json
+{
+    "registry-mirrors": [
+        "https://your-id.mirror.aliyuncs.com"
+    ]
+}
+```
