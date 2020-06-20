@@ -16,7 +16,7 @@
 
 ```
 $ sudo apt update
-# 安装相关软件包以允许 apt 通过 HTTPS 使用存储库
+# Install packages to allow apt to use a repository over HTTPS
 $ sudo apt install \
     apt-transport-https \
     ca-certificates \
@@ -30,7 +30,7 @@ $ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo apt-ke
 # 验证密钥
 $ sudo apt-key fingerprint 0EBFCD88
 
-# 添加软件源
+# Set up the stable repository
 $ sudo add-apt-repository \
    "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
    $(lsb_release -cs) \
@@ -42,7 +42,7 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io
 
 ### 2. Install from a package
 
-从[此处](https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/bionic/pool/stable/amd64)获取对应的deb包。
+从[此处](https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/bionic/pool/stable/amd64/)获取对应的deb包。
 
 |包名|deb名|
 |--|--|
@@ -60,7 +60,7 @@ $ sudo dpkg -i /path/to/package.deb
 
 ```
 $ curl -fsSL https://get.docker.com -o get-docker.sh
-$ sudo sh get-docker.sh
+$ sudo sh get-docker.sh --mirror Aliyun
 
 $ sudo groupadd docker
 # your-user是你的用户名

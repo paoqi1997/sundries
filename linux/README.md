@@ -117,12 +117,13 @@ $ tar -xzvf boost_1_72_0.tar.gz
 $ cd boost_1_72_0
 $ ./bootstrap.sh --show-libraries
 
-$ sudo ./b2 install    \
-$ --with-coroutine     \
-$ --with-date_time     \
-$ --with-regex         \
-$ --with-serialization \
-$ --with-system --with-thread
+$ sudo ./b2 install     \
+   --with-coroutine     \
+   --with-date_time     \
+   --with-regex         \
+   --with-serialization \
+   --with-system        \
+   --with-thread
 
 $ sudo ldconfig
 ```
@@ -405,7 +406,7 @@ $ tar -xzvf nginx-1.16.1.tar.gz
 $ cd nginx-1.16.1
 
 $ ./configure --with-http_ssl_module --with-http_stub_status_module \
-$ --with-openssl=../openssl-1.1.1d --with-pcre=../pcre-8.44 --with-zlib=../zlib-1.2.11
+    --with-openssl=../openssl-1.1.1d --with-pcre=../pcre-8.44 --with-zlib=../zlib-1.2.11
 
 $ make
 $ sudo make install
