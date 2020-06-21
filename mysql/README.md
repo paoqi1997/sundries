@@ -1,14 +1,10 @@
-# 简述
+# The manual of MySQL
 
 面向MySQL的基本教程。
 
-# 说明
+## 说明
 
-以下语句均在MySQL 5.7.21 on Windows下调试通过。
-
-# 语句
-
-从最基本的增删改查开始。
+以下语句均在 MySQL 5.7.21 on Windows 下调试通过。
 
 ## 热身
 

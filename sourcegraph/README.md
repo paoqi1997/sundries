@@ -1,4 +1,4 @@
-# The Manual of Sourcegraph
+# The manual of Sourcegraph
 
 面向Sourcegraph的基本教程。
 

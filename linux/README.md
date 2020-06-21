@@ -1,14 +1,10 @@
-# 简述
+# The manual of Linux
 
 面向Linux的基本教程。
 
-# 说明
+## 说明
 
-以下操作均在elementary OS 5.0下调试通过。
-
-# 基本操作
-
-照做，便是。
+以下操作均在 elementary OS 5.0 下调试通过。
 
 ## mirror
 

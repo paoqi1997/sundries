@@ -1,4 +1,4 @@
-# The Manual of Docker
+# The manual of Docker
 
 面向Docker的基本教程。
 
