@@ -1,10 +1,10 @@
-# Manual of Docker
+# The Manual of Docker
 
 面向Docker的基本教程。
 
 ## 说明
 
-以下操作均在Ubuntu 18.04下调试通过。
+以下操作均在 Ubuntu 18.04 bionic 下调试通过。
 
 ## [安装](https://docs.docker.com/engine/install/ubuntu/)
 

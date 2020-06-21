@@ -1,0 +1,54 @@
+# The Manual of Sourcegraph
+
+面向Sourcegraph的基本教程。
+
+## 说明
+
+以下操作均在 Ubuntu 18.04 bionic 下调试通过。
+
+## [安装](https://docs.sourcegraph.com/admin/install/docker)
+
+相关命令如下所示：
+
+```
+# --publish: Publish a container's port(s) to the host
+# -d: Run container in background and print container ID
+# --rm: Automatically remove the container when it exits
+# --volume: Bind mount a volume
+# 关于--rm选项，你可以启停容器并观察 /var/lib/docker/containers 的变化
+$ docker run \
+    --publish 12358:7080 -d --rm \
+    --volume ~/.sourcegraph/config:/etc/sourcegraph \
+    --volume ~/.sourcegraph/data:/var/opt/sourcegraph \
+    sourcegraph/server:3.17.0
+```
+
+## [配置](https://docs.sourcegraph.com/admin/config)
+
+初次注册后禁止注册。
+
+```json
+{
+    "auth.providers": [
+        {
+            "types": "builtin",
+            "allowSignup": "false"
+        }
+    ]
+}
+```
+
+从[此处](https://github.com/settings/tokens)获取token。
+
+```json
+{
+    "url": "https://github.com",
+    "token": "<access token>",
+    "orgs": [
+        "<owner>"
+    ],
+    "repos": [
+        "<owner>/<repository>"
+    ]
+}
+```
