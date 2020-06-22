@@ -32,7 +32,7 @@ $ docker run \
     "auth.providers": [
         {
             "types": "builtin",
-            "allowSignup": "false"
+            "allowSignup": false
         }
     ]
 }
