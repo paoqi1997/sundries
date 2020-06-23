@@ -52,3 +52,16 @@ $ docker run \
     ]
 }
 ```
+
+## 异常
+
+创建管理员后某次登录出现异常：
+
+```
+# Console
+POST http://ip:port/-/sign-in 403 (Forbidden)
+# Response
+Forbidden - CSRF token invalid
+```
+
+在GitHub上搜到相关的[issue](https://github.com/sourcegraph/sourcegraph/issues/65)，但目前对网站用户认证不太了解，先暂时搁置。
