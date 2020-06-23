@@ -46,8 +46,8 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io
 
 |包名|deb名|
 |--|--|
-|docker-ce|docker-ce_19.03.11~3-0~ubuntu-bionic_amd64.deb|
-|docker-ce-cli|docker-ce-cli_19.03.11~3-0~ubuntu-bionic_amd64.deb|
+|docker-ce|docker-ce_19.03.11\~3-0\~ubuntu-bionic_amd64.deb|
+|docker-ce-cli|docker-ce-cli_19.03.11\~3-0\~ubuntu-bionic_amd64.deb|
 |containerd.io|containerd.io_1.2.13-2_amd64.deb|
 
 ```
