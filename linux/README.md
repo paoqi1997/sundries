@@ -35,12 +35,20 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 
 ## utils
 
-### find
-
 在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行。
 
 ```
 $ find /usr/include -name *.h|xargs grep IPPROTO_TCP
+```
+
+每分钟记录一次内存使用情况。
+
+```
+# 创建 cmds.cron 文件并添加以下内容：
+* * * * * /bin/date +"\%F \%T" >> ~/mem.txt && /usr/bin/free -h >> ~/mem.txt
+
+# 加入到 cron 中
+$ crontab cmds.cron
 ```
 
 ## netdev
