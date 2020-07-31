@@ -595,6 +595,16 @@ $ make
 $ sudo make install
 ```
 
+### [Valgrind](https://www.valgrind.org/downloads/current.html)
+
+```
+$ tar -xjvf valgrind-3.15.0.tar.bz2
+$ cd valgrind-3.15.0
+$ ./configure --prefix=/usr/local/valgrind
+$ make
+$ sudo make install
+```
+
 ## 部分依赖apt/yum方式安装软件
 
 有时候不得不依赖包管理器。
