@@ -87,7 +87,7 @@ your-id是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生�
 
 ## Use Docker
 
-通过 Docker 搭建 MySQL 服务。
+通过 Docker 搭建 [MySQL](https://github.com/docker-library/docs/tree/master/mysql) 服务。
 
 ```
 $ docker pull mysql:8.0.19
