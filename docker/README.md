@@ -84,3 +84,27 @@ your-id是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生�
     ]
 }
 ```
+
+## Use Docker
+
+通过 Docker 搭建 MySQL 服务。
+
+```
+$ docker pull mysql:8.0.19
+
+$ docker image ls
+$ docker images
+
+$ docker run \
+    -p 127.0.0.1:3306:3306 -d --rm --name mysql8 \
+    -e MYSQL_ROOT_PASSWORD=123456 \
+    mysql:8.0.19
+
+$ docker container ls
+$ docker ps -a
+
+$ docker exec -it mysql8 bash
+$ mysql -uroot -p123456
+
+$ docker stop mysql8
+```
