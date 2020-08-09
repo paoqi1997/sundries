@@ -3,8 +3,8 @@
 '''JSON Object & Array'''
 
 import json
-from platform import system
-from sys import path
+import os
+import sys
 
 oDict = {
     'solution': 'db',
@@ -20,11 +20,8 @@ oDict = {
     }
 }
 
-# Separator
-Sep = '\\' if system() == 'Windows' else '/'
-
-sFileName = '{Dir}{Sep}{FileName}'.format(
-    Dir=path[0], Sep=Sep, FileName='data.json'
+sFileName = os.path.join(
+    sys.path[0], 'data.json'
 )
 
 # json.dumps: Dict -> JSON String
