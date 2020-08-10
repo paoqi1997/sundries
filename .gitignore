@@ -1,3 +1,4 @@
 # By-products
 data.json
 __pycache__
+*.tags

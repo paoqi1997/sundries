@@ -85,6 +85,19 @@ your-id是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生�
 }
 ```
 
+## [Registry API](https://docs.docker.com/registry/spec/api/)
+
+如果你想获取镜像列表，但又不想访问Docker Hub，那就要通过 Registry API 来实现。
+
+在访问 Docker Registry HTTP API V2 之前，你需要获取[token](https://docs.docker.com/registry/spec/auth/token/)。
+
+同级目录下的 listtags.py 用以获取镜像列表，希望它能帮到你。
+
+```
+# 顺利的话，相关结果会写入指定文件
+$ python3 listtags.py nginx
+```
+
 ## Use Docker
 
 通过 Docker 搭建 [MySQL](https://github.com/docker-library/docs/tree/master/mysql) 服务。
