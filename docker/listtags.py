@@ -7,7 +7,6 @@ import time
 from sys import argv, path
 
 import aiohttp
-import requests
 
 def sTime():
     fTime = time.time()
@@ -15,10 +14,10 @@ def sTime():
     return time.strftime('%Y-%m-%d %H:%M:%S', group)
 
 def printInfo(sInfo):
-    print('%s: %s'%(sTime(), sInfo))
+    print('[%s] %s'%(sTime(), sInfo))
 
-def writeToFile(sTag, lstTag):
-    sFileName = ('%s.tags'%sTag).replace('/', '.')
+def writeToFile(sImage, lstTag):
+    sFileName = ('%s.tags'%sImage).replace('/', '.')
     with open(os.path.join(path[0], sFileName), 'w') as oFile:
         oFile.writelines('\n'.join(lstTag))
 
@@ -31,17 +30,17 @@ class AsyncWorker:
     def __del__(self):
         self.m_Looper.close()
 
-    def run(self, lstTag):
-        for sTag in lstTag:
-            self.m_Tasks.append(self.pullTag(sTag))
+    def run(self, lstImage):
+        for sImage in lstImage:
+            self.m_Tasks.append(self.pullTags(sImage))
         self.m_Looper.run_until_complete(
             asyncio.wait(self.m_Tasks)
         )
 
-    async def getToken(self, sTag):
+    async def getToken(self, sImage):
         dParams = {
             'service': 'registry.docker.io',
-            'scope': 'repository:library/%s:pull'%sTag
+            'scope': 'repository:library/%s:pull'%sImage
         }
         async with aiohttp.ClientSession(timeout=self.m_Timeout) as oSession:
             try:
@@ -50,14 +49,14 @@ class AsyncWorker:
                 ) as oRep:
                     dResult = await oRep.json()
                     sToken = dResult['token']
-                    printInfo('Get token succ, tag: %s'%sTag)
+                    printInfo('Get token succ, image: %s'%sImage)
                     return sToken
             except asyncio.TimeoutError:
-                printInfo('Failed to get token, tag: %s'%sTag)
+                printInfo('Failed to get token, image: %s'%sImage)
                 return ""
 
-    async def pullTag(self, sTag):
-        sToken = await self.getToken(sTag)
+    async def pullTags(self, sImage):
+        sToken = await self.getToken(sImage)
         if sToken == "":
             return
         dHeaders = {
@@ -66,36 +65,36 @@ class AsyncWorker:
         async with aiohttp.ClientSession(timeout=self.m_Timeout) as oSession:
             try:
                 async with oSession.get(
-                    url='https://registry.hub.docker.com/v2/library/%s/tags/list'%sTag, headers=dHeaders
+                    url='https://registry.hub.docker.com/v2/library/%s/tags/list'%sImage, headers=dHeaders
                 ) as oRep:
                     if oRep.status == 200:
-                        printInfo('Request v2 api succ, tag: %s'%sTag)
+                        printInfo('Request v2 api succ, image: %s'%sImage)
                         dResult = await oRep.json()
                         lstTag = dResult['tags']
-                        writeToFile(sTag, lstTag)
+                        writeToFile(sImage, lstTag)
                     else:
-                        await self.reqV1API(sTag)
+                        await self.reqV1API(sImage)
             except asyncio.TimeoutError:
-                printInfo('Failed to request v2 api, tag: %s'%sTag)
+                printInfo('Failed to request v2 api, image: %s'%sImage)
 
-    async def reqV1API(self, sTag):
+    async def reqV1API(self, sImage):
         async with aiohttp.ClientSession(timeout=self.m_Timeout) as oSession:
             async with oSession.get(
-                url='https://registry.hub.docker.com/v1/repositories/%s/tags'%sTag
+                url='https://registry.hub.docker.com/v1/repositories/%s/tags'%sImage
             ) as oRep:
                 if oRep.status == 200:
-                    printInfo('Request v1 api succ, tag: %s'%sTag)
+                    printInfo('Request v1 api succ, image: %s'%sImage)
                     sText = await oRep.text()
                     sResult = '{\"result\": %s}'%sText
                     dResult = json.loads(sResult)
                     lstTag = [dElement['name'] for dElement in dResult['result']]
-                    writeToFile(sTag, lstTag)
+                    writeToFile(sImage, lstTag)
                 else:
-                    printInfo('Failed to request v1 api, tag: %s'%sTag)
+                    printInfo('Failed to request v1 api, image: %s'%sImage)
 
 if __name__ == '__main__':
     sHelp = '''Usage:
-    python3 main.py <tagname(s)>
+    python3 main.py <image(s)>
 Examples:
     python3 main.py nginx
     python3 main.py nginx,redis'''
@@ -105,9 +104,9 @@ Examples:
 
     printInfo('Begin.')
 
-    lstTagName = argv[1].split(',')
+    lstImage = argv[1].split(',')
 
     oAsyncWorker = AsyncWorker()
-    oAsyncWorker.run(lstTagName)
+    oAsyncWorker.run(lstImage)
 
     printInfo('End.')
