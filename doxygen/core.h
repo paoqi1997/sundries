@@ -13,14 +13,16 @@ namespace pqlib
 class Socket
 {
 public:
-    Socket() : sockfd(-1), type("nil") {
+    Socket() : sockfd(-1), type("nil")
+    {
         std::cout << "Socket::Socket" << std::endl;
     }
     Socket(int fd, const char *_type) : sockfd(fd), type(_type)
     {
         std::printf("Socket::Socket(%d, \"%s\")\n", fd, _type);
     }
-    virtual ~Socket() {
+    virtual ~Socket()
+    {
         std::cout << "Socket::~Socket" << std::endl;
     }
     /**
@@ -49,13 +51,16 @@ private:
 class TcpSocket : public Socket
 {
 public:
-    TcpSocket() {
+    TcpSocket()
+    {
         std::cout << "TcpSocket::TcpSocket" << std::endl;
     }
-    TcpSocket(int sockfd) : Socket(sockfd, "tcp") {
+    TcpSocket(int sockfd) : Socket(sockfd, "tcp")
+    {
         std::printf("TcpSocket::TcpSocket(%d)\n", sockfd);
     }
-    ~TcpSocket() {
+    ~TcpSocket()
+    {
         std::cout << "TcpSocket::~TcpSocket" << std::endl;
     }
 };
