@@ -595,6 +595,22 @@ $ make
 $ sudo make install
 ```
 
+### [SWIG](http://www.swig.org/download.html)
+
+提取相应的包。
+
+```
+$ tar -xzvf swig-4.0.2.tar.gz
+$ cd swig-4.0.2
+
+$ cp /path/to/pcre-8.44.tar.gz .
+$ sh Tools/pcre-build.sh
+
+$ ./configure --prefix=/usr/local/swig
+$ make
+$ sudo make install
+```
+
 ### [Valgrind](https://www.valgrind.org/downloads/current.html)
 
 ```
