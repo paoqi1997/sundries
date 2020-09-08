@@ -44,3 +44,10 @@ def getFloatPattern():
     sPattern2 = '-?0\.\d*[1-9]\d*'
     sPattern = '{p1}|{p2}'.format(p1=sPattern1, p2=sPattern2)
     return sPattern
+
+def getBracePattern():
+    # 匹配但不捕获
+    # (?<=pattern): 匹配以 匹配 pattern 的部分 开头
+    # (?=pattern): 匹配以 匹配 pattern 的部分 结尾
+    sPattern = '(?<={)[^}]*(?=})'
+    return sPattern

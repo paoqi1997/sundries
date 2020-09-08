@@ -38,3 +38,9 @@ if __name__ == '__main__':
     sText = 'Text: -0.33|0.66|0.99|2.33'
     for result in findAllText(getFloatPattern(), sText):
         print(result, end=' ')
+    print()
+
+    # 匹配从最左边开始一对花括号内的内容
+    sText = '{What do you mean{BOOST}?{}} {Emmm...}'
+    print(groupText(getBracePattern(), sText))
+
