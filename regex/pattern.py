@@ -51,3 +51,8 @@ def getBracePattern():
     # (?=pattern): 匹配以 匹配 pattern 的部分 结尾
     sPattern = '(?<={)[^}]*(?=})'
     return sPattern
+
+def getIPv4Pattern():
+    sSegPattern = '(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)'
+    sPattern = '(%s\.){3}%s'%(sSegPattern, sSegPattern)
+    return sPattern

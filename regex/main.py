@@ -44,3 +44,6 @@ if __name__ == '__main__':
     sText = '{What do you mean{BOOST}?{}} {Emmm...}'
     print(groupText(getBracePattern(), sText))
 
+    # 匹配 IPv4 地址
+    sText = '192.168.74.128'
+    print(groupText(getIPv4Pattern(), sText))
