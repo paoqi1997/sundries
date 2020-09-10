@@ -51,6 +51,18 @@ $ find /usr/include -name *.h|xargs grep IPPROTO_TCP
 $ crontab cmds.cron
 ```
 
+查看可打开的最大文件描述符数量。
+
+```
+$ ulimit -n
+```
+
+查看对应进程的文件打开情况。
+
+```
+$ lsof -p your-pid
+```
+
 ## netdev
 
 默认没有的话请通过包管理器安装。
@@ -69,6 +81,17 @@ $ sudo apt install net-tools
 |查看路由表|route<br>route -n<br>netstat -r<br>netstat -rn|ip route|
 |查看TCP/UDP监听端口的状态|netstat -tul<br>netstat -tunl|ss -tul<br>ss -tunl|
 |查看多播地址|ipmaddr<br>netstat -g|ip maddr|
+
+通过 iptables 控制端口开放情况。
+
+```
+# 查看规则
+$ sudo iptables -L -n
+# 禁用8080端口
+$ sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
+# 解除限制
+$ sudo iptables -D INPUT -p tcp --dport 8080 -j DROP
+```
 
 ## remotedev
 
