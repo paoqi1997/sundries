@@ -636,6 +636,8 @@ $ sudo make install
 
 ### [Valgrind](https://www.valgrind.org/downloads/current.html)
 
+提取相应的包。
+
 ```
 $ tar -xjvf valgrind-3.15.0.tar.bz2
 $ cd valgrind-3.15.0
