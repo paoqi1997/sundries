@@ -10,6 +10,8 @@
 
 什么都要会一点。
 
++ DevTools
+
 + Docker
 
 + Doxygen
@@ -27,5 +29,3 @@
 + Regular Expression
 
 + Sourcegraph
-
-+ Vim
