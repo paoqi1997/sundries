@@ -35,12 +35,6 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 
 ## utils
 
-在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行。
-
-```
-$ find /usr/include -name *.h|xargs grep IPPROTO_TCP
-```
-
 每分钟记录一次内存使用情况。
 
 ```
@@ -51,16 +45,48 @@ $ find /usr/include -name *.h|xargs grep IPPROTO_TCP
 $ crontab cmds.cron
 ```
 
-查看可打开的最大文件描述符数量。
+其他的一些命令放在这里。
 
 ```
+在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行
+$ find /usr/include -name *.h|xargs grep -n IPPROTO_TCP
+
+# 查看组
+$ cat /etc/group
+# 查看用户
+$ cat /etc/passwd
+# 查看 sudo 的权限控制情况
+$ cat /etc/sudoers
+
+# 查看当前工作目录
+$ pwd
+# 查看当前登录的用户
+$ whoami
+```
+
+## monitor
+
+查看系统。
+
+```
+# 查看 cpu 相关参数
+$ lscpu
+
+# 查看 processor 的数量
+$ cat /proc/cpuinfo|grep processor|wc -l
+
+# 查看可打开的最大文件描述符数量
 $ ulimit -n
 ```
 
-查看对应进程的文件打开情况。
+查看进程。
 
 ```
+# 查看对应进程的文件打开情况
 $ lsof -p your-pid
+
+$ 查看前10个占用内存最多的进程
+$ ps aux|sort -k4nr|head -n 10
 ```
 
 ## netdev
