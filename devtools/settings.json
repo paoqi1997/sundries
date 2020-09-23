@@ -15,6 +15,16 @@
             "acrylicOpacity": 0.8
         },
         {
+            // Make changes here to the powershell.exe profile
+            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+            "name": "Windows PowerShell",
+            "commandline": "powershell.exe",
+            "fontFace": "Consolas",
+            "colorScheme": "Desert",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
+        },
+        {
             // generate your guid: https://www.guidgen.com
             "guid": "{0f1244de-9193-423a-b77f-a6692690781b}",
             "name": "Aliyun",
@@ -27,11 +37,16 @@
             "acrylicOpacity": 0.8
         },
         {
-            // Make changes here to the powershell.exe profile
-            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-            "name": "Windows PowerShell",
-            "commandline": "powershell.exe",
-            "fontFace": "Consolas"
+            "guid": "{914a0d3c-9db4-56f8-a8ac-65f4b7ea8b09}",
+            "name": "openSUSE-Leap-15.2",
+            "commandline": "wsl -d openSUSE-Leap-15.2",
+            "source": "Windows.Terminal.Wsl",
+            "fontFace": "Consolas",
+            // change to the path of your icon
+            "icon": "/path/to/opensuse.png",
+            "colorScheme": "Desert",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
         },
         {
             "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
