@@ -35,6 +35,14 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 
 ## utils
 
+下面是一些我认为值得推荐的软件。
+
+|软件名|简介|
+|:--:|:--:|
+|[bat](https://github.com/sharkdp/bat)|更好的cat|
+|[tldr](https://github.com/tldr-pages/tldr)|更友好的man|
+|[screenfetch](https://github.com/KittyKatt/screenFetch)|展示系统信息|
+
 每分钟记录一次内存使用情况。
 
 ```
@@ -48,15 +56,22 @@ $ crontab cmds.cron
 其他的一些命令放在这里。
 
 ```
-在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行
+# 在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行
 $ find /usr/include -name *.h|xargs grep -n IPPROTO_TCP
 
 # 查看组
 $ cat /etc/group
+# 查看组加密信息
+$ cat /etc/gshadow
 # 查看用户
 $ cat /etc/passwd
+# 查看存储用户密码信息的文件
+$ cat /etc/shadow
+
 # 查看 sudo 的权限控制情况
 $ cat /etc/sudoers
+# 查看用于设置用户限制的文件
+$ cat /etc/login.defs
 
 # 查看当前工作目录
 $ pwd
