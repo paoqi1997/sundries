@@ -172,6 +172,22 @@ IdentityFile ~/.ssh/id_rsa_aliyun
 User user
 ```
 
+通过 scp 或其他命令上传/下载文件。
+
+```
+$ scp localfile user@host:remotefile
+$ scp user@host:remotefile localfile
+
+$ sftp user@host
+sftp> help
+# 获取远端文件列表
+sftp> ls
+# 获取本地文件列表
+sftp> lls
+sftp> get remotefile
+sftp> put localfile
+```
+
 ## 非apt/yum方式安装软件
 
 能不用包管理器就不用包管理器。
