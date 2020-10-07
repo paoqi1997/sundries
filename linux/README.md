@@ -192,6 +192,25 @@ sftp> put localfile
 
 能不用包管理器就不用包管理器。
 
+### [Apache httpd](https://httpd.apache.org)
+
+提取相应的包。
+
+```
+$ tar -xzvf httpd-2.4.46.tar.gz
+
+$ tar -C httpd-2.4.46/srclib -xzvf apr-1.7.0.tar.gz
+$ mv httpd-2.4.46/srclib/apr-1.7.0 httpd-2.4.46/srclib/apr
+
+$ tar -C httpd-2.4.46/srclib -xzvf apr-util-1.6.1.tar.gz
+$ mv httpd-2.4.46/srclib/apr-util-1.6.1 httpd-2.4.46/srclib/apr-util
+
+$ cd httpd-2.4.46
+$ ./configure
+$ make
+$ sudo make install
+```
+
 ### [Boost](https://www.boost.org/users/download/)
 
 提取相应的包。
@@ -261,7 +280,7 @@ export PATH=$PATH:/usr/local/go/bin
 $ source $HOME/.profile
 ```
 
-### [libevent](https://libevent.org/)
+### [libevent](https://libevent.org)
 
 提取相应的包。
 
