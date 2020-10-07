@@ -192,7 +192,7 @@ sftp> put localfile
 
 能不用包管理器就不用包管理器。
 
-### [Apache httpd](https://httpd.apache.org)
+### [Apache HTTP Server](https://httpd.apache.org)
 
 提取相应的包。
 
