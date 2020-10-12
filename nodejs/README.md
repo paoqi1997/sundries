@@ -33,3 +33,11 @@ Windows下直接通过 msi 安装即可。
 >npm config list
 >npm config list -l
 ```
+
+安装[Vue](https://www.npmjs.com/package/vue)。
+
+```
+>mkdir myproj
+>cd myproj
+>npm install vue@2.6.12
+```
