@@ -486,48 +486,6 @@ mysql> GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 mysql> ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
 ```
 
-### [nginx](https://nginx.org/en/download.html)
-
-获取[OpenSSL](https://www.openssl.org/source/)、[PCRE](https://ftp.pcre.org/pub/pcre/)及[zlib](https://zlib.net)的包后，提取nginx的包。
-
-```
-$ tar -xzvf nginx-1.16.1.tar.gz
-$ cd nginx-1.16.1
-
-$ ./configure --with-http_ssl_module --with-http_stub_status_module \
-    --with-openssl=../openssl-1.1.1d --with-pcre=../pcre-8.44 --with-zlib=../zlib-1.2.11
-
-$ make
-$ sudo make install
-```
-
-创建 /etc/systemd/system/[nginx.service](https://www.nginx.com/resources/wiki/start/topics/examples/systemd/) 文件并添加以下内容：
-
-```
-[Unit]
-Description=The NGINX HTTP and reverse proxy server
-After=network.target
-
-[Service]
-Type=forking
-ExecStartPre=/usr/local/nginx/sbin/nginx -t
-ExecStart=/usr/local/nginx/sbin/nginx
-ExecReload=/usr/local/nginx/sbin/nginx -s reload
-ExecStop=/usr/local/nginx/sbin/nginx -s quit
-Restart=on-failure
-PrivateTmp=true
-
-[Install]
-WantedBy=multi-user.target
-```
-
-执行以下命令：
-
-```
-$ sudo systemctl enable nginx
-$ sudo systemctl start nginx
-```
-
 ### [OpenJDK](https://jdk.java.net/archive/)
 
 提取相应的包。
