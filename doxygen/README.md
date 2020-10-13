@@ -2,6 +2,10 @@
 
 面向Doxygen的基本教程。
 
+## 说明
+
+以下操作均在 Ubuntu 18.04 bionic 下验证通过。
+
 ## [安装](http://www.doxygen.nl/download.html)
 
 提取相应的包。
