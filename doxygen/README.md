@@ -2,15 +2,30 @@
 
 面向Doxygen的基本教程。
 
-## 生成配置文件模板
+## [安装](http://www.doxygen.nl/download.html)
 
-相关命令如下所示：
+提取相应的包。
+
+```
+$ tar -xzvf doxygen-1.8.17.linux.bin.tar.gz
+$ cd doxygen-1.8.17
+$ ./configure
+```
+
+这个时候执行 make 命令会失败，需要修改下 Makefile 文件。
+
+```
+# make = make install
+$ make
+```
+
+## Use Doxygen
+
+生成配置文件模板。
 
 ```
 $ doxygen -g
 ```
-
-## 配置
 
 如果是C/C++工程，你需要在默认生成的 Doxyfile 的基础上添加以下配置：
 
@@ -46,9 +61,7 @@ GENERATE_TREEVIEW      = YES
 GENERATE_LATEX         = NO
 ```
 
-## 生成文档
-
-相关命令如下所示：
+生成文档。
 
 ```
 $ doxygen Doxyfile
