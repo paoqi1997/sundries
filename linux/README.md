@@ -265,19 +265,22 @@ $ make
 提取相应的包。
 
 ```
-$ sudo tar -C /usr/local -xzvf go1.10.7.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xzvf go1.14.9.linux-amd64.tar.gz
 ```
 
-在$HOME/.profile文件中添加以下命令。
+添加 bin 到环境变量。
 
 ```
-export PATH=$PATH:/usr/local/go/bin
-```
-
-运行一下。
-
-```
+$ echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.profile
 $ source $HOME/.profile
+```
+
+设置[代理](https://goproxy.cn)。
+
+```
+# 开启模块支持
+$ go env -w GO111MODULE=on
+$ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
 ### [libevent](https://libevent.org)
