@@ -47,3 +47,7 @@ if __name__ == '__main__':
     # 匹配 IPv4 地址
     sText = '192.168.74.128'
     print(groupText(getIPv4Pattern(), sText))
+
+    # 匹配中文字符
+    sText = '你好，我是paoqi'
+    print(findAllText(getChinesePattern(), sText))

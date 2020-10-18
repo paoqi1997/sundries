@@ -56,3 +56,8 @@ def getIPv4Pattern():
     sSegPattern = '(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)'
     sPattern = '(%s\.){3}%s'%(sSegPattern, sSegPattern)
     return sPattern
+
+def getChinesePattern():
+    # 适用于sublime的正则表达式为[\x{4e00}-\x{9fa5}]
+    sPattern = '[\u4e00-\u9fa5]+'
+    return sPattern
