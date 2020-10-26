@@ -51,3 +51,7 @@ if __name__ == '__main__':
     # 匹配中文字符
     sText = '你好，我是paoqi'
     print(findAllText(getChinesePattern(), sText))
+
+    # 匹配版本号
+    sText = 'nginx-1.18.0'
+    print(groupText(getVersionPattern(), sText))
