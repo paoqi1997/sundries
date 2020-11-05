@@ -6,12 +6,12 @@ import re
 from pattern import *
 
 def groupText(sPattern, sText):
-    result = re.search(sPattern, sText)
-    return result.group()
+    oMatch = re.search(sPattern, sText)
+    return oMatch.group()
 
 def findAllText(sPattern, sText):
-    results = re.findall(sPattern, sText)
-    return results
+    lstResult = re.findall(sPattern, sText)
+    return lstResult
 
 if __name__ == '__main__':
     # 匹配日期
@@ -30,14 +30,14 @@ if __name__ == '__main__':
 
     # 匹配整数
     sText = 'Text: -50m|100m|200m|400m'
-    for result in findAllText(getIntPattern(), sText):
-        print(result, end=' ')
+    for sResult in findAllText(getIntPattern(), sText):
+        print(sResult, end=' ')
     print()
 
     # 匹配浮点数
     sText = 'Text: -0.33|0.66|0.99|2.33'
-    for result in findAllText(getFloatPattern(), sText):
-        print(result, end=' ')
+    for sResult in findAllText(getFloatPattern(), sText):
+        print(sResult, end=' ')
     print()
 
     # 匹配从最左边开始一对花括号内的内容
