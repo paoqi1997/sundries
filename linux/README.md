@@ -40,8 +40,9 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 |软件名|简介|
 |:--:|:--:|
 |[bat](https://github.com/sharkdp/bat)|更好的cat|
-|[tldr](https://github.com/tldr-pages/tldr)|更友好的man|
 |[screenfetch](https://github.com/KittyKatt/screenFetch)|展示系统信息|
+|[tldr](https://github.com/tldr-pages/tldr)|更友好的man|
+|[viu](https://github.com/atanunq/viu)|在终端显示图片|
 
 每分钟记录一次内存使用情况。
 
