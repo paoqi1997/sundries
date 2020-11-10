@@ -46,8 +46,8 @@ class AsyncWorker:
             try:
                 async with oSession.get(
                     url='https://auth.docker.io/token', params=dParams
-                ) as oRep:
-                    dResult = await oRep.json()
+                ) as oResp:
+                    dResult = await oResp.json()
                     sToken = dResult['token']
                     printInfo('Get token succ, image: %s'%sImage)
                     return sToken
@@ -66,10 +66,10 @@ class AsyncWorker:
             try:
                 async with oSession.get(
                     url='https://registry.hub.docker.com/v2/library/%s/tags/list'%sImage, headers=dHeaders
-                ) as oRep:
-                    if oRep.status == 200:
+                ) as oResp:
+                    if oResp.status == 200:
                         printInfo('Request v2 api succ, image: %s'%sImage)
-                        dResult = await oRep.json()
+                        dResult = await oResp.json()
                         lstTag = dResult['tags']
                         writeToFile(sImage, lstTag)
                     else:
@@ -81,10 +81,10 @@ class AsyncWorker:
         async with aiohttp.ClientSession(timeout=self.m_Timeout) as oSession:
             async with oSession.get(
                 url='https://registry.hub.docker.com/v1/repositories/%s/tags'%sImage
-            ) as oRep:
-                if oRep.status == 200:
+            ) as oResp:
+                if oResp.status == 200:
                     printInfo('Request v1 api succ, image: %s'%sImage)
-                    sText = await oRep.text()
+                    sText = await oResp.text()
                     sResult = '{\"result\": %s}'%sText
                     dResult = json.loads(sResult)
                     lstTag = [dElement['name'] for dElement in dResult['result']]
