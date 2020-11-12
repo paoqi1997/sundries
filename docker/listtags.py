@@ -94,10 +94,10 @@ class AsyncWorker:
 
 if __name__ == '__main__':
     sHelp = '''Usage:
-    python3 main.py <image(s)>
+    python3 listtags.py <image(s)>
 Examples:
-    python3 main.py nginx
-    python3 main.py nginx,redis'''
+    python3 listtags.py nginx
+    python3 listtags.py nginx,redis'''
     if len(argv) <= 1:
         print(sHelp)
         exit(1)
