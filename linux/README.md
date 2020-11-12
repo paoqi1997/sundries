@@ -627,6 +627,17 @@ $ source ~/.cargo/env
 $ rustup self uninstall
 ```
 
+为设置镜像源，创建 ~/.cargo/config 文件并添加以下内容：
+
+```
+[source.crates-io]
+registry = "https://github.com/rust-lang/crates.io-index"
+replace-with = 'ustc'
+
+[source.ustc]
+registry = "https://mirrors.ustc.edu.cn/crates.io-index"
+```
+
 ### [SQLite](https://www.sqlite.org/download.html)
 
 提取相应的包。
