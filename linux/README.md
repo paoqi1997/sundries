@@ -581,11 +581,7 @@ $ sudo systemctl start redis
 $ export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 # for rustup
 $ export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
-```
 
-如果 os 为 Windows 就执行以下命令。
-
-```
 >set RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 >set RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 ```
@@ -593,7 +589,17 @@ $ export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 开始安装……
 
 ```
-$ curl https://sh.rustup.rs -sSf | sh
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+>curl -O https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe
+```
+
+如果速度比较慢可以通过国内镜像加速。
+
+```
+$ curl http://mirrors.rustcc.cn/rustup/archive/1.21.1/x86_64-unknown-linux-gnu/rustup-init -o rustup-init
+
+>curl -O http://mirrors.rustcc.cn/rustup/archive/1.21.1/x86_64-pc-windows-gnu/rustup-init.exe
 ```
 
 安装前配置一些选项。
@@ -605,11 +611,14 @@ $ curl https://sh.rustup.rs -sSf | sh
 >2
 
 Default host triple?
-# WIN32 -> x86_64-pc-windows-gnu
+# Windows: x86_64-pc-windows-gnu
 x86_64-unknown-linux-gnu
 
 Default toolchain? (stable/beta/nightly/none)
 stable
+
+Profile (which tools and data to install)? (minimal/default/complete)
+default
 
 Modify PATH variable? (y/n)
 y
@@ -632,7 +641,7 @@ $ rustup self uninstall
 ```
 [source.crates-io]
 registry = "https://github.com/rust-lang/crates.io-index"
-replace-with = 'ustc'
+replace-with = "ustc"
 
 [source.ustc]
 registry = "https://mirrors.ustc.edu.cn/crates.io-index"
