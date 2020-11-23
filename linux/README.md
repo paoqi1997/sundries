@@ -93,6 +93,9 @@ $ cat /proc/cpuinfo|grep processor|wc -l
 
 # 查看可打开的最大文件描述符数量
 $ ulimit -n
+
+# 查看消息队列、共享内存及信号量的信息
+$ ipcs
 ```
 
 查看进程。
