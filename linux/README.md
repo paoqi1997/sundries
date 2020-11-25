@@ -438,6 +438,14 @@ $ mkdir mysql-files
 $ chown mysql:mysql mysql-files
 $ chmod 750 mysql-files
 
+# for log_error
+$ mkdir log
+$ touch log/mysqld.err
+$ chown mysql log/mysqld.err
+# for pid_file
+$ mkdir /var/run/mysqld
+$ chown mysql /var/run/mysqld
+
 # Please remember your temporary password.
 $ bin/mysqld --initialize --user=mysql
 
