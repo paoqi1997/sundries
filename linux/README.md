@@ -453,7 +453,7 @@ $ bin/mysql_ssl_rsa_setup
 $ bin/mysqld_safe --user=mysql &
 ```
 
-mysqld依赖libaio，如果没有的话请通过包管理器安装：
+mysqld依赖[libaio1](https://pkgs.org/download/libaio1)，如果没有的话请通过包管理器安装：
 
 ```
 $ sudo apt install libaio1
