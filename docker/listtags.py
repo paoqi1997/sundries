@@ -9,9 +9,8 @@ from sys import argv, path
 import aiohttp
 
 def sTime():
-    fTime = time.time()
-    group = time.localtime(fTime)
-    return time.strftime('%Y-%m-%d %H:%M:%S', group)
+    oTimeStruct = time.localtime()
+    return time.strftime('%Y-%m-%d %H:%M:%S', oTimeStruct)
 
 def printInfo(sInfo):
     print('[%s] %s'%(sTime(), sInfo))
