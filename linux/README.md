@@ -33,7 +33,7 @@ $ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/source
 $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 ```
 
-## utils
+## util
 
 下面是一些我认为值得推荐的软件。
 
@@ -59,6 +59,11 @@ $ crontab cmds.cron
 ```
 # 在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行
 $ find /usr/include -name *.h|xargs grep -n IPPROTO_TCP
+
+# 查看 meminfo 文件的最后10行内容
+$ tail -n 10 /proc/meminfo
+# 清空 xxx.txt 文件
+$ cat /dev/null > xxx.txt
 
 # 查看组
 $ cat /etc/group
