@@ -48,6 +48,43 @@ $ sudo systemctl enable nginx
 $ sudo systemctl start nginx
 ```
 
+## 通过 logrotate 切分日志
+
+创建 /usr/local/nginx/conf/nginx.lr 文件并添加以下内容：
+
+```
+/var/www/access.log /var/www/error.log {
+    rotate 7   # 最多同时存储7个归档日志，access.log 的归档日志就是 access.log-xxx 文件
+    daily      # 每日切分一次
+    dateext    # 使用日期作为命名格式
+    missingok  # 忽略错误
+    notifempty # 空文件不切分
+    nocompress # 不压缩文件
+    postrotate
+        pidfile=/usr/local/nginx/logs/nginx.pid
+        if [ -f $pidfile ]; then
+            kill -USR1 $(cat $pidfile)
+        fi
+    endscript
+}
+```
+
+执行以下命令。
+
+```
+# 切分日志
+$ logrotate -vf /usr/local/nginx/conf/nginx.lr
+
+# 查看 logrotate 本身的日志
+$ cat /var/lib/logrotate/status
+```
+
+每天0点切分一次日志的 cron 表达式如下所示：
+
+```
+0 0 * * * /usr/sbin/logrotate -f /usr/local/nginx/conf/nginx.lr
+```
+
 ## 配置
 
 适用于不同的应用场景的 nginx.conf 如下所示。
