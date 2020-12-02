@@ -96,8 +96,8 @@ $ lscpu
 # 查看 processor 的数量
 $ cat /proc/cpuinfo|grep processor|wc -l
 
-# 查看可打开的最大文件描述符数量
-$ ulimit -n
+# 查看资源限制情况
+$ ulimit -a
 
 # 查看消息队列、共享内存及信号量的信息
 $ ipcs
@@ -109,8 +109,14 @@ $ ipcs
 # 查看对应进程的文件打开情况
 $ lsof -p your-pid
 
-$ 查看前10个占用内存最多的进程
+# 查看前10个占用内存最多的进程
 $ ps aux|sort -k4nr|head -n 10
+
+# 查看引用的so文件
+$ ldd /usr/local/bin/lua
+
+# 查看符号表
+$ nm -A /usr/local/lib/liblua.a
 ```
 
 ## netdev
@@ -141,6 +147,15 @@ $ sudo iptables -L -n
 $ sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 # 解除限制
 $ sudo iptables -D INPUT -p tcp --dport 8080 -j DROP
+```
+
+通过 telnet 测试端口的连通性。
+
+```
+# 可用
+$ telnet 220.181.38.148 80
+# 大概率不可用
+$ telnet 220.181.38.148 12358
 ```
 
 ## remotedev
