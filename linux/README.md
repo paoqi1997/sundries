@@ -54,6 +54,13 @@ $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 $ crontab cmds.cron
 ```
 
+通过 alias 设置命令的别名。
+
+```
+$ echo "alias psx='ps -ef|grep'" >> $HOME/.bashrc
+$ source $HOME/.bashrc
+```
+
 其他的一些命令放在这里。
 
 ```
