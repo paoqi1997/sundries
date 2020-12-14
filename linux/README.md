@@ -65,6 +65,16 @@ $ tail -n 10 /proc/meminfo
 # 清空 xxx.txt 文件
 $ cat /dev/null > xxx.txt
 
+# 打印 "123456" 的 base64 值
+$ echo -n "123456"|base64
+# 打印 bash 的 MD5 值
+$ md5sum /bin/bash
+
+# 按单字节输出来自 stdin 的数据
+$ echo "123456"|od -c
+# 随机生成长度为13个字符的密码
+$ echo $(cat /dev/urandom|tr -cd a-zA-Z0-9|head -c 13)
+
 # 查看组
 $ cat /etc/group
 # 查看组加密信息
@@ -101,6 +111,9 @@ $ ulimit -a
 
 # 查看消息队列、共享内存及信号量的信息
 $ ipcs
+
+# 打印系统信息
+$ uname -a
 ```
 
 查看进程。
