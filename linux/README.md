@@ -74,6 +74,15 @@ $ python3 main.py &
 $ nohup python3 main.py &
 ```
 
+通过以下命令查看 JSON 文件。
+
+```
+$ sudo apt install jq
+$ jq < xxx.json
+
+$ python3 -m json.tool xxx.json
+```
+
 其他的一些命令放在这里。
 
 ```
