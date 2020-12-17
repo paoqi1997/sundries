@@ -61,6 +61,19 @@ $ echo "alias psx='ps -ef|grep'" >> $HOME/.bashrc
 $ source $HOME/.bashrc
 ```
 
+通过 nohup 将进程以忽略挂起信号的方式运行。
+
+```
+# 准备 main.py 文件
+$ echo -e "import time\nwhile True: print(int(time.time()), flush=True); time.sleep(1)" > main.py
+
+# 不重定向 stdin 的情况下，终端退出后进程也随之退出
+$ python3 main.py &
+
+# 进程不受终端退出的影响
+$ nohup python3 main.py &
+```
+
 其他的一些命令放在这里。
 
 ```
