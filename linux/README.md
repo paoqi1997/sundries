@@ -254,6 +254,27 @@ sftp> get remotefile
 sftp> put localfile
 ```
 
+通过 openssl 命令进行一些操作。
+
+```sh
+# 生成1024位的私钥，用 AES-128-CBC 加密它，设置密码为123456，输出到 id_rsa.pri 文件
+$ openssl genrsa -out id_rsa.pri -passout pass:123456 -aes-128-cbc 2048
+# 从 id_rsa.pri 文件读取私钥，用密码123456解密，生成的公钥输出到 id_rsa.pub 文件
+$ openssl rsa -in id_rsa.pri -passin pass:123456 -pubout -out id_rsa.pub
+
+$ echo "Hi, Trump." > letter_lihua.txt
+# 用公钥加密 letter_lihua.txt 文件，输出到 letter.pkg 文件
+$ openssl rsautl -encrypt -pubin -inkey id_rsa.pub -in letter_lihua.txt -out letter.pkg
+# 用私钥解密 letter.pkg 文件，输出到 letter_trump.txt 文件
+$ openssl rsautl -decrypt -inkey id_rsa.pri -in letter.pkg -out letter_trump.txt
+
+$ echo "Hello World!" > letter_python.txt
+# 用私钥给 letter_python.txt 文件签名，输出到 letter.xyz 文件
+$ openssl rsautl -sign -inkey id_rsa.pri -in letter_python.txt -out letter.xyz
+# 用公钥验证 letter.xyz 文件的签名，输出到 letter_c.txt 文件
+$ openssl rsautl -verify -pubin -inkey id_rsa.pub -in letter.xyz -out letter_c.txt
+```
+
 ## 非apt/yum方式安装软件
 
 能不用包管理器就不用包管理器。
