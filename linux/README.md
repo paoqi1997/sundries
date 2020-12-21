@@ -159,6 +159,9 @@ $ ldd /usr/local/bin/lua
 
 # 查看符号表
 $ nm -A /usr/local/lib/liblua.a
+
+# 跟踪系统调用
+$ strace -ttT cat /proc/uptime
 ```
 
 ## netdev
@@ -200,6 +203,12 @@ $ telnet 220.181.38.148 80
 $ telnet 220.181.38.148 12358
 ```
 
+通过 tcpdump 抓包。
+
+```
+$ sudo tcpdump -i lo tcp port 12358
+```
+
 ## remotedev
 
 默认没有的话请通过包管理器安装。
@@ -212,6 +221,9 @@ $ sudo apt install openssh-server
 
 ```
 # See sshd_config(5).
+
+# 更换端口
+Port port
 
 # 如果ClientAliveInterval设置为15，ClientAliveCountMax设置为3，
 # 那么45s后将断开与 无响应的SSH客户端 之间的连接
@@ -234,6 +246,7 @@ $ ssh-copy-id -i ~/.ssh/id_rsa_aliyun.pub user@host
 # See ssh_config(5).
 Host aliyun
 HostName host
+Port port
 IdentityFile ~/.ssh/id_rsa_aliyun
 User user
 ```
