@@ -74,6 +74,14 @@ $ python3 main.py &
 $ nohup python3 main.py &
 ```
 
+查看不同优化级别的汇编代码。
+
+```
+$ echo "int main() { int m[10] = {0}; return 0; }" > main.cpp
+$ g++ -O0 -S main.cpp -o main.s
+$ g++ -O2 -S main.cpp -o main.S
+```
+
 通过以下命令查看 JSON 文件。
 
 ```
