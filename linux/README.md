@@ -269,7 +269,7 @@ sftp> put localfile
 
 通过 openssl 命令进行一些操作。
 
-```sh
+```
 # 生成1024位的私钥，用 AES-128-CBC 加密它，设置密码为123456，输出到 id_rsa.pri 文件
 $ openssl genrsa -out id_rsa.pri -passout pass:123456 -aes-128-cbc 2048
 # 从 id_rsa.pri 文件读取私钥，用密码123456解密，生成的公钥输出到 id_rsa.pub 文件
@@ -814,6 +814,14 @@ $ tar -xzvf lua-5.3.5.tar.gz
 $ cd lua-5.3.5
 $ make linux
 $ sudo make install
+```
+
+通过 luac 将 lua 文件编译为字节码。
+
+```
+$ echo -e '#!/usr/local/bin/lua\nprint("Hello World!")' > main.lua
+$ luac -o main.luo main.lua
+$ lua main.luo
 ```
 
 ### [pybind11](https://pybind11.readthedocs.io/en/master/basics.html)
