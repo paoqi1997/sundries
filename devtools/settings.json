@@ -25,13 +25,25 @@
             "acrylicOpacity": 0.8
         },
         {
-            // generate your guid: https://www.guidgen.com
-            "guid": "{0f1244de-9193-423a-b77f-a6692690781b}",
-            "name": "Aliyun",
-            "commandline": "ssh aliyun",
+            "guid": "{cfa4360a-5c53-45bb-858f-ef5574adea94}",
+            "name": "MSYS2",
+            // change to the path of your bash.exe
+            "commandline": "D:\\msys64\\usr\\bin\\bash.exe --login -i",
             "fontFace": "Consolas",
             // change to the path of your icon
-            "icon": "/path/to/aliyun.png",
+            "icon": "/path/to/msys2.ico",
+            "colorScheme": "Desert",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
+        },
+        {
+            "guid": "{3628a9e3-9cb8-4dd5-8103-39c10409110f}",
+            "name": "Git Bash",
+            // change to the path of your bash.exe
+            "commandline": "D:\\Git\\bin\\bash.exe --login -i",
+            "fontFace": "Consolas",
+            // change to the path of your icon
+            "icon": "/path/to/git.png",
             "colorScheme": "Desert",
             "useAcrylic": true,
             "acrylicOpacity": 0.8
@@ -44,6 +56,18 @@
             "fontFace": "Consolas",
             // change to the path of your icon
             "icon": "/path/to/opensuse.png",
+            "colorScheme": "Desert",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
+        },
+        {
+            // generate your guid: https://www.guidgen.com
+            "guid": "{0f1244de-9193-423a-b77f-a6692690781b}",
+            "name": "Aliyun",
+            "commandline": "ssh aliyun",
+            "fontFace": "Consolas",
+            // change to the path of your icon
+            "icon": "/path/to/aliyun.png",
             "colorScheme": "Desert",
             "useAcrylic": true,
             "acrylicOpacity": 0.8
