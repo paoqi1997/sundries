@@ -28,7 +28,8 @@
             "guid": "{cfa4360a-5c53-45bb-858f-ef5574adea94}",
             "name": "MSYS2",
             // change to the path of your bash.exe
-            "commandline": "D:\\msys64\\usr\\bin\\bash.exe --login -i",
+            "commandline": "D:\\msys64\\msys2_shell.cmd -defterm -here -no-start",
+            "startingDirectory": "C:\\Users\\%USERNAME%",
             "fontFace": "Consolas",
             // change to the path of your icon
             "icon": "/path/to/msys2.ico",
@@ -41,9 +42,10 @@
             "name": "Git Bash",
             // change to the path of your bash.exe
             "commandline": "D:\\Git\\bin\\bash.exe --login -i",
+            "startingDirectory": "C:\\Users\\%USERNAME%",
             "fontFace": "Consolas",
             // change to the path of your icon
-            "icon": "/path/to/git.png",
+            "icon": "/path/to/git.ico",
             "colorScheme": "Desert",
             "useAcrylic": true,
             "acrylicOpacity": 0.8
