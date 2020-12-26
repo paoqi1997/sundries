@@ -6,33 +6,6 @@
 
 以下操作均在 elementary OS 5.0 下调试通过。
 
-## mirror
-
-将默认软件镜像换成中科大的镜像：
-
-```
-$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
-$ sudo sed -i 's/cn.archive.ubuntu.com/mirrors.ustc.edu.cn/' /etc/apt/sources.list
-$ sudo sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/' /etc/apt/sources.list
-$ sudo sed -i 's/http/https/' /etc/apt/sources.list
-```
-
-针对elementary.list的操作：
-
-```
-$ sudo cp /etc/apt/sources.list.d/elementary.list /etc/apt/sources.list.d/elementary.list.bak
-$ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/sources.list.d/elementary.list
-$ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/elementary.list
-```
-
-针对patches.list的操作：
-
-```
-$ sudo cp /etc/apt/sources.list.d/patches.list /etc/apt/sources.list.d/patches.list.bak
-$ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/sources.list.d/patches.list
-$ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
-```
-
 ## util
 
 下面是一些我认为值得推荐的软件。
