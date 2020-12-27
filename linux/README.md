@@ -47,6 +47,17 @@ $ python3 main.py &
 $ nohup python3 main.py &
 ```
 
+通过以下命令查看 JSON 文件。
+
+```
+$ echo '{ "name": "paoqi" }' > who.json
+
+$ sudo apt install jq
+$ jq < who.json
+
+$ python3 -m json.tool who.json
+```
+
 查看不同优化级别的汇编代码。
 
 ```
@@ -55,13 +66,17 @@ $ g++ -O0 -S main.cpp -o main.s
 $ g++ -O2 -S main.cpp -o main.S
 ```
 
-通过以下命令查看 JSON 文件。
+产生并调试 core 文件。
 
 ```
-$ sudo apt install jq
-$ jq < xxx.json
+$ echo "int main() { char *p = nullptr; *p = 'c'; }" > main.cpp
+$ g++ main.cpp -o app
 
-$ python3 -m json.tool xxx.json
+$ ulimit -c unlimited
+$ ./app
+$ gdb app core
+
+(gdb) bt
 ```
 
 其他的一些命令放在这里。
@@ -101,8 +116,10 @@ $ cat /etc/login.defs
 
 # 查看当前工作目录
 $ pwd
-# 查看当前登录的用户
+# 查看当前登录的用户名
 $ whoami
+# 查看有谁登录在上面
+$ who -Hu
 ```
 
 ## monitor
@@ -290,6 +307,12 @@ $ cd httpd-2.4.46
 $ ./configure
 $ make
 $ sudo make install
+```
+
+对指定 URL 进行压测操作。
+
+```
+$ ./support/ab -c 10 -n 100 http://127.0.0.1:8080/
 ```
 
 ### [Boost](https://www.boost.org/users/download/)
