@@ -141,6 +141,28 @@ $ ipcs
 
 # 打印系统信息
 $ uname -a
+
+# 查看系统负载
+$ w
+$ uptime
+$ cat /proc/loadavg
+
+# 查看系统总共运行了多长时间
+$ uptime -p
+$ cat /proc/uptime
+```
+
+查看磁盘。
+
+```
+# 查看文件系统的磁盘使用情况
+$ df -h
+
+# 查看目录的大小
+$ du -h /var/www
+
+# 显示文件或目录的信息
+$ stat ~/.profile
 ```
 
 查看进程。
@@ -205,6 +227,17 @@ $ telnet 220.181.38.148 12358
 
 ```
 $ sudo tcpdump -i lo tcp port 12358
+```
+
+其他与网络相关的一些命令放在这里。
+
+```
+# 查看 DNS 配置
+$ cat /etc/resolv.conf
+
+# 查看 TCP 连接
+$ ss -ta
+$ lsof -i tcp
 ```
 
 ## remotedev
