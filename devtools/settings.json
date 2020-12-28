@@ -26,9 +26,9 @@
         },
         {
             "guid": "{cfa4360a-5c53-45bb-858f-ef5574adea94}",
-            "name": "MSYS2",
-            // change to the path of your bash.exe
-            "commandline": "D:\\msys64\\msys2_shell.cmd -defterm -here -no-start",
+            "name": "MINGW64 / MSYS2",
+            // change to the path of your msys2_shell.cmd
+            "commandline": "D:\\msys64\\msys2_shell.cmd -defterm -here -no-start -mingw64",
             "startingDirectory": "C:\\Users\\%USERNAME%",
             "fontFace": "Consolas",
             // change to the path of your icon
