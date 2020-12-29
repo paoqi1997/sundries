@@ -21,7 +21,7 @@ $ pacman -Sy yasm diffutils pkg-config
 $ tar -xzvf ffmpeg-4.3.1.tar.gz
 $ cd ffmpeg-4.3.1
 
-$ ./configure --enable-shared
+$ ./configure --enable-shared --arch=x86_64
 $ make -j4
 $ make install
 ```
@@ -42,7 +42,7 @@ In file included from /usr/include/w32api/dshow.h:33,
 make: *** [ffbuild/common.mak:59：libavcodec/mf_utils.o] 错误 1
 ```
 
-在 strsafe.h 文件中添加`#include <wchar.h>`后重新 make 即可。
+在 strsafe.h 文件中添加 `#include <wchar.h>` 后重新 make 即可，注意等出现报错再添加。
 
 ## Use FFmpeg
 
