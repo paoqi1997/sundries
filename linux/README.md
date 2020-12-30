@@ -100,6 +100,12 @@ $ echo "123456"|od -c
 # 随机生成长度为13个字符的密码
 $ echo $(cat /dev/urandom|tr -cd a-zA-Z0-9|head -c 13)
 
+# 查看 /bin/bash 的文件头信息
+$ readelf -h /bin/bash
+
+# 忽略重复的行
+$ echo -e 'Hello!\nHello!\nHi'|uniq
+
 # 查看组
 $ cat /etc/group
 # 查看组加密信息
@@ -163,6 +169,10 @@ $ du -h /var/www
 
 # 显示文件或目录的信息
 $ stat ~/.profile
+
+# 了解s及t特殊权限位，g+s在此并未列出
+$ stat /usr/bin/passwd # u+s
+$ stat /tmp            # o+t
 ```
 
 查看进程。
