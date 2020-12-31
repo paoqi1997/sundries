@@ -167,6 +167,8 @@ mysql> UPDATE libs
 
 ## 查（Retrieve）操作
 
+### 基础查询
+
 相关SQL语句如下所示：
 
 ```sql
@@ -220,7 +222,7 @@ mysql> SELECT name FROM libs WHERE name REGEXP '^.....$';
 mysql> SELECT COUNT(*) FROM libs;
 
 -- 对数据进行分组
-mysql> SELECT language, COUNT(*) FROM libs GROUP BY language;
+mysql> SELECT language, COUNT(*) FROM libs GROUP BY language HAVING COUNT(*) > 1;
 mysql> SELECT name, language, COUNT(*) FROM libs GROUP BY name, language;
 ```
 
@@ -259,4 +261,39 @@ mysql> SELECT name, num, num * 0.8 AS new_num FROM player_charge;
 -- 获取充值情况
 mysql> SELECT COUNT(num), MIN(num), MAX(num), SUM(num), AVG(num)
     -> FROM player_charge WHERE name = 'paoqi';
+```
+
+### 子查询
+
+创建数据表 player 以学习接下来的查询操作。
+
+```sql
+mysql> CREATE TABLE player
+    -> (
+    -> id      INT             NOT NULL AUTO_INCREMENT,
+    -> uid     INT(6) ZEROFILL NOT NULL,
+    -> name    VARCHAR(32)     NOT NULL,
+    -> level   INT UNSIGNED    NOT NULL,
+    -> regtime DATETIME        NOT NULL,
+    -> PRIMARY KEY (id)
+    -> ) ENGINE InnoDB;
+
+mysql> INSERT INTO player
+    -> (uid, name, level, regtime)
+    -> VALUES
+    -> (2468, 'paoqi', 32, '2020-09-16 20:32:03'),
+    -> (4096, 'honolulu', 28, '2020-10-12 13:56:18');
+```
+
+相关SQL语句如下所示：
+
+```sql
+-- 查询等级在30级及以上的玩家的充值记录
+mysql> SELECT uid, name, num, stime FROM player_charge
+    -> WHERE uid IN (SELECT uid FROM player WHERE level >= 30);
+
+-- 查询玩家的uid、名字、等级及充值总额
+mysql> SELECT uid, name, level,
+    -> (SELECT SUM(num) FROM player_charge WHERE player.uid = player_charge.uid) AS sum
+    -> FROM player;
 ```
