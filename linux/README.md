@@ -428,7 +428,7 @@ $ sudo ldconfig
 
 ### [MariaDB](https://mariadb.com/kb/en/library/installing-mariadb-binary-tarballs/)
 
-在root模式下执行以下命令。
+以 root 用户执行以下命令。
 
 ```
 $ groupadd mysql
@@ -566,7 +566,7 @@ $ sudo systemctl start mongodb
 
 ### [MySQL](https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html)
 
-在root模式下执行以下命令。
+以 root 用户执行以下命令。
 
 ```
 $ groupadd mysql
@@ -839,6 +839,14 @@ $ cd valgrind-3.15.0
 $ ./configure --prefix=/usr/local/valgrind
 $ make
 $ sudo make install
+```
+
+### [xmake](https://xmake.io/#/zh-cn/guide/installation)
+
+以非 root 用户执行以下命令。
+
+```
+$ bash <(curl -fsSL https://xmake.io/shget.text)
 ```
 
 ## 部分依赖apt/yum方式安装软件
