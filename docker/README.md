@@ -121,3 +121,18 @@ $ mysql -uroot -p123456
 
 $ docker stop mysql8
 ```
+
+通过 Docker 搭建 [Redis](https://github.com/docker-library/docs/tree/master/redis) 服务。
+
+```
+$ docker pull redis:5.0.7
+
+$ docker run \
+    -p 127.0.0.1:6379:6379 -d --rm --name redis5 \
+    redis:5.0.7
+
+$ docker exec -it redis5 bash
+$ redis-cli
+
+$ docker stop redis5
+```
