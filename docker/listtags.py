@@ -18,7 +18,8 @@ def printInfo(sInfo):
 def writeToFile(sImage, lstTag):
     sFileName = ('%s.tags'%sImage).replace('/', '.')
     with open(os.path.join(path[0], sFileName), 'w') as oFile:
-        oFile.writelines('\n'.join(lstTag))
+        sTags = '\n'.join(lstTag)
+        oFile.write(f'{sTags}\n')
 
 class AsyncWorker:
     def __init__(self):

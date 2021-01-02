@@ -42,7 +42,7 @@ In file included from /usr/include/w32api/dshow.h:33,
 make: *** [ffbuild/common.mak:59：libavcodec/mf_utils.o] 错误 1
 ```
 
-在 strsafe.h 文件中添加 `#include <wchar.h>` 后重新 make 即可，注意等出现报错再添加。
+在 strsafe.h 文件中添加 `#include <wchar.h>` 后重新 make 即可，注意等报错出现再添加。
 
 ## Use FFmpeg
 

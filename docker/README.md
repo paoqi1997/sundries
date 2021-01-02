@@ -100,7 +100,7 @@ $ python3 listtags.py nginx
 
 ## Use Docker
 
-以下是一些常用的命令：
+以下是常用的一些命令：
 
 ```
 # 查看镜像列表
