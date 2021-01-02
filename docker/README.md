@@ -100,21 +100,35 @@ $ python3 listtags.py nginx
 
 ## Use Docker
 
+以下是一些常用的命令：
+
+```
+# 查看镜像列表
+$ docker image ls
+$ docker images
+
+# 查看容器列表
+$ docker container ls
+$ docker ps -a
+
+# 移除指定镜像
+$ docker rmi -f your-image
+
+# 停止所有正在运行的容器
+$ docker stop $(docker ps -aq)
+# 删除所有容器
+$ docker rm $(docker ps -aq)
+```
+
 通过 Docker 搭建 [MySQL](https://github.com/docker-library/docs/tree/master/mysql) 服务。
 
 ```
 $ docker pull mysql:8.0.19
 
-$ docker image ls
-$ docker images
-
 $ docker run \
     -p 127.0.0.1:3306:3306 -d --rm --name mysql8 \
     -e MYSQL_ROOT_PASSWORD=123456 \
     mysql:8.0.19
-
-$ docker container ls
-$ docker ps -a
 
 $ docker exec -it mysql8 bash
 $ mysql -uroot -p123456
@@ -135,4 +149,22 @@ $ docker exec -it redis5 bash
 $ redis-cli
 
 $ docker stop redis5
+```
+
+## Use Dockerfile
+
+执行以下命令。
+
+```
+# 构建镜像
+$ docker build -t paoqi/centos:origin .
+
+$ docker run \
+    -d -it --rm --name centos7 \
+    paoqi/centos:origin
+
+$ docker exec -it centos7 bash
+
+# 查看 CentOS 版本
+$ cat /etc/centos-release
 ```
