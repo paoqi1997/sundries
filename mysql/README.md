@@ -411,3 +411,30 @@ mysql> SELECT content FROM intros WHERE Match(content) Against('best' WITH QUERY
 -- 匹配短语'best one'
 mysql> SELECT content FROM intros WHERE Match(content) Against('"best one"' IN BOOLEAN MODE);
 ```
+
+## 视图
+
+相关SQL语句如下所示：
+
+```sql
+mysql> CREATE VIEW iview AS
+    -> SELECT player.uid, player.name, num, stime, utime FROM player, player_charge
+    -> WHERE player.uid = player_charge.uid;
+
+mysql> SHOW TABLE STATUS WHERE Comment = 'VIEW';
+
+mysql> DESCRIBE iview;
+mysql> DESC iview;
+
+mysql> SELECT * FROM iview WHERE num >= 100;
+
+-- 修改视图结构但不影响基表
+mysql> ALTER VIEW iview AS
+    -> SELECT player.uid, player.name FROM player, player_charge
+    -> WHERE player.uid = player_charge.uid;
+
+mysql> UPDATE iview SET stime = NOW(), utime = UNIX_TIMESTAMP()
+    -> WHERE name = 'souryuu' AND num = 30;
+
+mysql> DROP VIEW iview;
+```
