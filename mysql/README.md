@@ -90,6 +90,9 @@ mysql> CREATE TABLE libs
 -- 显示创建数据表libs时所输入的语句
 mysql> SHOW CREATE TABLE libs;
 
+-- 查看数据表libs的状态
+mysql> SHOW TABLE STATUS FROM mydb WHERE Name = 'libs';
+
 -- 查看数据表libs的结构
 mysql> SHOW COLUMNS FROM libs;
 mysql> DESCRIBE libs;
@@ -222,8 +225,11 @@ mysql> SELECT name FROM libs WHERE name REGEXP '^.....$';
 mysql> SELECT COUNT(*) FROM libs;
 
 -- 对数据进行分组
-mysql> SELECT language, COUNT(*) FROM libs GROUP BY language HAVING COUNT(*) > 1;
+mysql> SELECT language, COUNT(*) FROM libs GROUP BY language;
 mysql> SELECT name, language, COUNT(*) FROM libs GROUP BY name, language;
+
+mysql> SELECT windows, COUNT(*) FROM libs GROUP BY windows;
+mysql> SELECT windows, COUNT(*) FROM libs GROUP BY windows HAVING COUNT(*) > 1;
 ```
 
 创建数据表 player_charge 以学习接下来的查询操作。
@@ -421,7 +427,7 @@ mysql> CREATE VIEW iview AS
     -> SELECT player.uid, player.name, num, stime, utime FROM player, player_charge
     -> WHERE player.uid = player_charge.uid;
 
-mysql> SHOW TABLE STATUS WHERE Comment = 'VIEW';
+mysql> SHOW TABLE STATUS FROM mydb WHERE Comment = 'VIEW';
 
 mysql> DESCRIBE iview;
 mysql> DESC iview;
