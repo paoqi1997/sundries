@@ -297,3 +297,78 @@ mysql> SELECT uid, name, level,
     -> (SELECT SUM(num) FROM player_charge WHERE player.uid = player_charge.uid) AS sum
     -> FROM player;
 ```
+
+### 联结
+
+以内联结的方式查询玩家的uid、名字及充值记录。
+
+```sql
+mysql> SELECT player.uid, player.name, num, stime FROM player, player_charge
+    -> WHERE player.uid = player_charge.uid ORDER BY player.uid, player.name, num;
+
+mysql> SELECT player.uid, player.name, num, stime FROM player INNER JOIN player_charge
+    -> ON player.uid = player_charge.uid;
+```
+
+接下来准备要用到的数据：
+
+```sql
+mysql> INSERT INTO player_charge
+    -> (uid, name, method, num, stime, utime)
+    -> VALUES
+    -> (4096, 'honolulu', 1, 68,
+    -> DATE_ADD(NOW(), INTERVAL 3 HOUR),
+    -> UNIX_TIMESTAMP(DATE_ADD(NOW(), INTERVAL 3 HOUR)));
+
+mysql> INSERT INTO player
+    -> (uid, name, level, regtime)
+    -> VALUES
+    -> (6779, 'souryuu', 26, '2020-11-03 08:22:47');
+
+mysql> INSERT INTO player_charge
+    -> (uid, name, method, num, stime, utime)
+    -> VALUES
+    -> (6779, 'souryuu', 1, 6, NOW(), UNIX_TIMESTAMP()),
+    -> (6779, 'souryuu', 2, 30,
+    -> DATE_ADD(NOW(), INTERVAL 1 DAY),
+    -> UNIX_TIMESTAMP(DATE_ADD(NOW(), INTERVAL 1 DAY)));
+```
+
+查询充值过648块的玩家的充值记录。
+
+```sql
+-- 子查询
+mysql> SELECT uid, name, method, num, stime FROM player_charge
+    -> WHERE uid = (SELECT uid FROM player_charge WHERE num = 648);
+
+-- 自联结
+mysql> SELECT p1.uid, p1.name, p1.method, p1.num, p1.stime
+    -> FROM player_charge AS p1, player_charge AS p2
+    -> WHERE p1.uid = p2.uid AND p2.num = 648;
+```
+
+以外联结的方式查询玩家的uid、名字及充值记录。
+
+```sql
+-- 左外联结
+mysql> SELECT player.uid, player.name, num, stime FROM player LEFT OUTER JOIN player_charge
+    -> ON player.uid = player_charge.uid;
+
+-- 右外联结
+mysql> SELECT player.uid, player.name, num, stime FROM player RIGHT OUTER JOIN player_charge
+    -> ON player.uid = player_charge.uid;
+```
+
+### 组合查询
+
+相关SQL语句如下所示：
+
+```sql
+mysql> SELECT uid, name FROM player WHERE level >= 30
+    -> UNION
+    -> SELECT uid, name FROM player_charge WHERE num <= 30;
+
+mysql> SELECT uid, name FROM player WHERE level >= 30
+    -> UNION ALL
+    -> SELECT uid, name FROM player_charge WHERE num <= 30;
+```
