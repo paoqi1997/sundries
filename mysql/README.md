@@ -372,3 +372,42 @@ mysql> SELECT uid, name FROM player WHERE level >= 30
     -> UNION ALL
     -> SELECT uid, name FROM player_charge WHERE num <= 30;
 ```
+
+### 全文本搜索
+
+创建数据表 intros 以学习接下来的查询操作。
+
+```sql
+-- 无论是 MyISAM 还是 InnoDB 全文本搜索都有点问题，可能是别的原因所致
+mysql> CREATE TABLE intros
+    -> (
+    -> id         INT         NOT NULL AUTO_INCREMENT,
+    -> name       VARCHAR(16) NOT NULL,
+    -> content    TEXT        NOT NULL,
+    -> intro_time DATETIME    NOT NULL,
+    -> PRIMARY KEY (id),
+    -> FULLTEXT (content)
+    -> ) ENGINE MyISAM;
+
+mysql> INSERT INTO intros
+    -> (name, content, intro_time)
+    -> VALUES
+    -> ('paoqi', 'Be the best.', NOW()),
+    -> ('VAN', 'My name is VAN.', DATE_SUB(NOW(), INTERVAL 5 MINUTE)),
+    -> ('Jimmy', 'I think I am the best one for this position.',
+    -> DATE_SUB(NOW(), INTERVAL '0:30' HOUR_MINUTE));
+```
+
+相关SQL语句如下所示：
+
+```sql
+mysql> SELECT content FROM intros WHERE Match(content) Against('best');
+
+mysql> SELECT content, Match(content) Against('best') AS rank FROM intros;
+
+-- 使用查询扩展
+mysql> SELECT content FROM intros WHERE Match(content) Against('best' WITH QUERY EXPANSION);
+
+-- 匹配短语'best one'
+mysql> SELECT content FROM intros WHERE Match(content) Against('"best one"' IN BOOLEAN MODE);
+```
