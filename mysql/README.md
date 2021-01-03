@@ -93,6 +93,9 @@ mysql> SHOW CREATE TABLE libs;
 -- 查看数据表libs的状态
 mysql> SHOW TABLE STATUS FROM mydb WHERE Name = 'libs';
 
+-- 查看数据表libs所使用的存储引擎
+mysql> SELECT ENGINE FROM information_schema.TABLES WHERE TABLE_NAME = 'libs';
+
 -- 查看数据表libs的结构
 mysql> SHOW COLUMNS FROM libs;
 mysql> DESCRIBE libs;
