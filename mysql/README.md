@@ -447,3 +447,36 @@ mysql> UPDATE iview SET stime = NOW(), utime = UNIX_TIMESTAMP()
 
 mysql> DROP VIEW iview;
 ```
+
+## 存储过程
+
+相关SQL语句如下所示：
+
+```sql
+mysql> DELIMITER #
+    -> CREATE PROCEDURE showAll()
+    -> BEGIN
+    ->     SELECT * FROM player_charge;
+    -> END; #
+    -> DELIMITER ;
+
+mysql> CALL showAll();
+
+mysql> DELIMITER #
+    -> CREATE PROCEDURE analyseNum(
+    ->     OUT nl DECIMAL(8, 2),
+    ->     OUT nh DECIMAL(8, 2),
+    ->     OUT na DECIMAL(8, 2)
+    -> )
+    -> BEGIN
+    ->     SELECT MIN(num) INTO nl FROM player_charge;
+    ->     SELECT MAX(num) INTO nh FROM player_charge;
+    ->     SELECT AVG(num) INTO na FROM player_charge;
+    -> END; #
+    -> DELIMITER ;
+
+mysql> CALL analyseNum(@nl, @nh, @na);
+mysql> SELECT @nl, @nh, @na;
+
+mysql> DROP PROCEDURE analyseNum;
+```
