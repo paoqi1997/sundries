@@ -460,6 +460,11 @@ mysql> DELIMITER #
     -> END; #
     -> DELIMITER ;
 
+mysql> SHOW PROCEDURE STATUS LIKE 'showAll';
+
+mysql> SELECT ROUTINE_NAME FROM information_schema.ROUTINES
+    -> WHERE ROUTINE_SCHEMA = 'mydb' AND ROUTINE_TYPE = 'PROCEDURE';
+
 mysql> CALL showAll();
 
 mysql> DELIMITER #
@@ -478,5 +483,27 @@ mysql> DELIMITER #
 mysql> CALL analyseNum(@nl, @nh, @na);
 mysql> SELECT @nl, @nh, @na;
 
-mysql> DROP PROCEDURE analyseNum;
+mysql> DELIMITER #
+    -> CREATE PROCEDURE calNetIncome(
+    ->     IN  take_a_cut BOOLEAN,
+    ->     IN  rate       DECIMAL(8, 2),
+    ->     OUT net_income DECIMAL(8, 2)
+    -> ) COMMENT 'Calculate the net income.'
+    -> BEGIN
+    ->     DECLARE total DECIMAL(8, 2);
+    ->     SELECT SUM(num) INTO total FROM player_charge;
+    ->     IF take_a_cut THEN
+    ->         SELECT total * (1 - rate) INTO net_income;
+    ->     ELSE
+    ->         SELECT total INTO net_income;
+    ->     END IF;
+    -> END; #
+    -> DELIMITER ;
+
+mysql> SHOW CREATE PROCEDURE calNetIncome;
+
+mysql> CALL calNetIncome(TRUE, 0.3, @income);
+mysql> SELECT @income;
+
+mysql> DROP PROCEDURE calNetIncome;
 ```
