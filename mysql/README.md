@@ -507,3 +507,56 @@ mysql> SELECT @income;
 
 mysql> DROP PROCEDURE calNetIncome;
 ```
+
+### 游标
+
+相关SQL语句如下所示：
+
+```sql
+mysql> DELIMITER #
+    -> CREATE PROCEDURE discount(
+    ->     IN  num     INT UNSIGNED,
+    ->     IN  rate    DECIMAL(8, 2),
+    ->     OUT new_num DECIMAL(8, 2)
+    -> )
+    -> BEGIN
+    ->     SELECT num * rate INTO new_num;
+    -> END; #
+    -> DELIMITER ;
+
+mysql> DELIMITER #
+    -> CREATE PROCEDURE showDiscountedNums(
+    ->     IN rate DECIMAL(8, 2)
+    -> )
+    -> BEGIN
+    ->     DECLARE done BOOLEAN DEFAULT 0;
+    ->     DECLARE n INT UNSIGNED;
+    ->     DECLARE new_n DECIMAL(8, 2);
+    ->     --
+    ->     DECLARE numcur CURSOR
+    ->     FOR SELECT num FROM player_charge;
+    ->     --
+    ->     DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done=1;
+    ->     --
+    ->     CREATE TABLE IF NOT EXISTS tbl_new_nums(
+    ->         num     INT UNSIGNED,
+    ->         new_num DECIMAL(8, 2)
+    ->     );
+    ->     --
+    ->     OPEN numcur;
+    ->     REPEAT
+    ->         FETCH numcur INTO n;
+    ->         IF done != 1 THEN
+    ->             CALL discount(n, rate, new_n);
+    ->             INSERT INTO tbl_new_nums (num, new_num) VALUES (n, new_n);
+    ->         END IF;
+    ->     UNTIL done END REPEAT;
+    ->     CLOSE numcur;
+    ->     --
+    ->     SELECT * FROM tbl_new_nums;
+    ->     DROP TABLE IF EXISTS tbl_new_nums;
+    -> END; #
+    -> DELIMITER ;
+
+mysql> CALL showDiscountedNums(0.8);
+```
