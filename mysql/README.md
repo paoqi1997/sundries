@@ -57,6 +57,29 @@ mysql> SHOW CHARACTER SET;
 mysql> SHOW COLLATION;
 ```
 
+## 管理用户
+
+相关SQL语句如下所示：
+
+```sql
+mysql> USE mysql;
+mysql> SELECT User, Host FROM user;
+
+mysql> CREATE USER 'paoqi'@'localhost' IDENTIFIED BY '123456';
+mysql> RENAME USER 'paoqi'@'localhost' TO 'pq'@'localhost';
+
+mysql> SHOW GRANTS\G
+mysql> SHOW GRANTS FOR 'pq'@'localhost';
+
+mysql> GRANT SELECT ON mydb.* TO 'pq'@'localhost';
+mysql> REVOKE SELECT ON mydb.* FROM 'pq'@'localhost';
+
+mysql> SET PASSWORD FOR 'pq'@'localhost' = 'password';
+mysql> ALTER USER 'pq'@'localhost' IDENTIFIED BY 'password';
+
+mysql> DROP USER 'pq'@'localhost';
+```
+
 ## 操作数据库
 
 相关SQL语句如下所示：
