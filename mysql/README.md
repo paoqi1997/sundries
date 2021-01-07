@@ -45,6 +45,16 @@ mysql> SELECT CURRENT_USER();
 
 -- SHOW STATUS provides server status information
 mysql> SHOW STATUS;
+
+-- 查看MySQL所支持的数据库引擎
+mysql> SHOW ENGINES;
+-- 查看默认存储引擎
+mysql> SHOW VARIABLES LIKE 'default_storage_engine';
+
+-- 查看MySQL所支持的字符集
+mysql> SHOW CHARACTER SET;
+-- 查看MySQL所支持的校对（即不同字符之间如何比较）
+mysql> SHOW COLLATION;
 ```
 
 ## 操作数据库
@@ -54,9 +64,6 @@ mysql> SHOW STATUS;
 ```sql
 -- 返回可用数据库的一个列表
 mysql> SHOW DATABASES;
-
--- 查看MySQL所支持的数据库引擎
-mysql> SHOW ENGINES;
 
 -- 创建一个名为mydb的数据库
 mysql> CREATE DATABASE mydb CHARACTER SET utf8mb4;
@@ -79,7 +86,7 @@ mysql> DROP DATABASE mydb;
 
 ```sql
 -- 返回可用数据表的一个列表
-mysql> SHOW TABLES;
+mysql> SHOW TABLES FROM mydb;
 
 -- 创建一张名为libs的数据表
 mysql> CREATE TABLE libs
@@ -125,12 +132,10 @@ mysql> ALTER TABLE libs
     -> CHANGE android ios BOOLEAN NOT NULL DEFAULT 0;
 
 -- 将名为ios的列的数据类型修改为INT
-mysql> ALTER TABLE libs
-    -> MODIFY ios INT;
+mysql> ALTER TABLE libs MODIFY ios INT;
 
 -- 删除表coders中名为ios的列
-mysql> ALTER TABLE libs
-    -> DROP ios;
+mysql> ALTER TABLE libs DROP ios;
 ```
 
 ## 增（Create）操作
@@ -538,17 +543,17 @@ mysql> DELIMITER #
     ->     DECLARE done BOOLEAN DEFAULT 0;
     ->     DECLARE n INT UNSIGNED;
     ->     DECLARE new_n DECIMAL(8, 2);
-    ->     --
+    ->     -- Declare the cursor
     ->     DECLARE numcur CURSOR
     ->     FOR SELECT num FROM player_charge;
-    ->     --
+    ->     -- Declare continue handler
     ->     DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET done=1;
-    ->     --
+    ->     -- Create a table to store the results
     ->     CREATE TABLE IF NOT EXISTS tbl_new_nums(
     ->         num     INT UNSIGNED,
     ->         new_num DECIMAL(8, 2)
     ->     );
-    ->     --
+    ->     -- Open the cursor
     ->     OPEN numcur;
     ->     REPEAT
     ->         FETCH numcur INTO n;
@@ -558,7 +563,7 @@ mysql> DELIMITER #
     ->         END IF;
     ->     UNTIL done END REPEAT;
     ->     CLOSE numcur;
-    ->     --
+    ->     -- Select the results
     ->     SELECT * FROM tbl_new_nums;
     ->     DROP TABLE IF EXISTS tbl_new_nums;
     -> END; #
@@ -600,6 +605,12 @@ mysql> SELECT COUNT(*) FROM player_charge;
     -> SELECT COUNT(*) FROM player_charge;
     -> ROLLBACK;
     -> SELECT COUNT(*) FROM player_charge;
+
+mysql> SHOW PROCESSLIST;
+mysql> SELECT * FROM information_schema.PROCESSLIST;
+
+-- 查看当前在 InnoDB 中执行的每个事务
+mysql> SELECT * FROM information_schema.INNODB_TRX\G
 
 mysql> SELECT COUNT(*) FROM player_charge;
     -> START TRANSACTION;
