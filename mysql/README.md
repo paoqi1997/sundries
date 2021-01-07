@@ -8,6 +8,12 @@
 
 ## 热身
 
+获取帮助。
+
+```bat
+mysql> help
+```
+
 相关SQL语句如下所示：
 
 ```sql
@@ -508,7 +514,7 @@ mysql> SELECT @income;
 mysql> DROP PROCEDURE calNetIncome;
 ```
 
-### 游标
+## 游标
 
 相关SQL语句如下所示：
 
@@ -561,7 +567,7 @@ mysql> DELIMITER #
 mysql> CALL showDiscountedNums(0.8);
 ```
 
-### 触发器
+## 触发器
 
 相关SQL语句如下所示：
 
@@ -581,4 +587,34 @@ mysql> INSERT INTO player_charge
 mysql> SELECT * FROM player_charge WHERE id = (SELECT MAX(id) FROM player_charge);
 
 mysql> DROP TRIGGER cut;
+```
+
+## 事务
+
+相关SQL语句如下所示：
+
+```sql
+mysql> SELECT COUNT(*) FROM player_charge;
+    -> START TRANSACTION;
+    -> DELETE FROM player_charge;
+    -> SELECT COUNT(*) FROM player_charge;
+    -> ROLLBACK;
+    -> SELECT COUNT(*) FROM player_charge;
+
+mysql> SELECT COUNT(*) FROM player_charge;
+    -> START TRANSACTION;
+    -> DELETE FROM player_charge WHERE id > 6;
+    -> COMMIT;
+    -> SELECT COUNT(*) FROM player_charge;
+
+mysql> SELECT COUNT(*) FROM player_charge;
+    -> START TRANSACTION;
+    -> SAVEPOINT sp;
+    -> INSERT INTO player_charge
+    -> (uid, name, method, num, stime, utime)
+    -> VALUES
+    -> (6779, 'souryuu', 0, 68, NOW(), UNIX_TIMESTAMP());
+    -> SELECT COUNT(*) FROM player_charge;
+    -> ROLLBACK TO sp;
+    -> SELECT COUNT(*) FROM player_charge;
 ```
