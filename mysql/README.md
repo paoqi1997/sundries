@@ -560,3 +560,25 @@ mysql> DELIMITER #
 
 mysql> CALL showDiscountedNums(0.8);
 ```
+
+### 触发器
+
+相关SQL语句如下所示：
+
+```sql
+mysql> CREATE TRIGGER cut BEFORE INSERT ON player_charge
+    -> FOR EACH ROW SET NEW.num = FLOOR(NEW.num * 0.7);
+
+mysql> SHOW TRIGGERS;
+mysql> SELECT TRIGGER_NAME FROM information_schema.TRIGGERS
+    -> WHERE TRIGGER_SCHEMA = 'mydb';
+
+mysql> INSERT INTO player_charge
+    -> (uid, name, method, num, stime, utime)
+    -> VALUES
+    -> (6779, 'souryuu', 0, 68, NOW(), UNIX_TIMESTAMP());
+
+mysql> SELECT * FROM player_charge WHERE id = (SELECT MAX(id) FROM player_charge);
+
+mysql> DROP TRIGGER cut;
+```
