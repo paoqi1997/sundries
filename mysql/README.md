@@ -141,6 +141,17 @@ mysql> RENAME TABLE libs TO libraries;
 
 -- 删除数据表libs
 mysql> DROP TABLE libs;
+
+-- ANALYZE TABLE performs a key distribution analysis
+-- and stores the distribution for the named table or tables.
+mysql> ANALYZE TABLE libs;
+-- CHECK TABLE checks a table or tables for errors.
+mysql> CHECK TABLE libs;
+
+-- OPTIMIZE TABLE reorganizes the physical storage of table data
+-- and associated index data, to reduce storage space
+-- and improve I/O efficiency when accessing the table.
+mysql> OPTIMIZE TABLE libs;
 ```
 
 针对列的操作如下所示：
