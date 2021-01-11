@@ -689,43 +689,6 @@ $ sudo make install
 $ sudo ldconfig
 ```
 
-### [Redis](https://redis.io/download)
-
-提取相应的包。
-
-```
-$ tar -xzvf redis-5.0.7.tar.gz
-$ cd redis-5.0.7
-$ make
-$ sudo make install PREFIX=/usr/local/redis
-
-$ mkdir /usr/local/redis/etc
-$ cp redis.conf /usr/local/redis/etc
-```
-
-创建 /etc/systemd/system/redis.service 文件并添加以下内容：
-
-```
-[Unit]
-Description=redis
-After=network.target
-
-[Service]
-ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
-ExecStop=/usr/local/redis/bin/redis-cli shutdown
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-```
-
-执行以下命令：
-
-```
-$ sudo systemctl enable redis
-$ sudo systemctl start redis
-```
-
 ### [Rust](https://www.rust-lang.org/tools/install)
 
 安装前执行以下命令。

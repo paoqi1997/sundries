@@ -30,6 +30,8 @@
 
 + Node.js
 
++ Redis
+
 + Regular Expression
 
 + Sourcegraph
