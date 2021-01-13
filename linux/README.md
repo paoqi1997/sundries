@@ -13,6 +13,7 @@
 |软件名|简介|
 |:--:|:--:|
 |[bat](https://github.com/sharkdp/bat)|更好的cat|
+|[htop](https://github.com/htop-dev/htop)|更好的top|
 |[screenfetch](https://github.com/KittyKatt/screenFetch)|展示系统信息|
 |[tldr](https://github.com/tldr-pages/tldr)|更友好的man|
 |[viu](https://github.com/atanunq/viu)|在终端显示图片|
@@ -126,6 +127,16 @@ $ pwd
 $ whoami
 # 查看有谁登录在上面
 $ who -Hu
+
+# 显示用户的 ID 及所属用户组的ID
+$ id your-user
+# 显示用户所属的组
+$ groups your-user
+
+# 打印当前主机的数字化标识
+$ hostid
+# 显示主机名
+$ hostname
 ```
 
 ## monitor
@@ -135,6 +146,8 @@ $ who -Hu
 ```
 # 查看 cpu 相关参数
 $ lscpu
+# 显示内核模块的状态信息
+$ sh -c lsmod
 
 # 查看 processor 的数量
 $ cat /proc/cpuinfo|grep processor|wc -l
@@ -248,6 +261,9 @@ $ cat /etc/resolv.conf
 # 查看 TCP 连接
 $ ss -ta
 $ lsof -i tcp
+
+# 查询DNS
+$ host baidu.com
 ```
 
 ## remotedev
