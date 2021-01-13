@@ -2,5 +2,6 @@
     "font_size": 12,
     "show_encoding": true,
     "draw_white_space": "all",
-    "translate_tabs_to_spaces": true
+    "translate_tabs_to_spaces": true,
+    "save_on_focus_lost": true
 }

@@ -4,6 +4,9 @@
 
 " 1. 字符编码
 set encoding=utf-8
+set termencoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,gbk,gb2312,big5,latin1
 
 " 2. 显示行号
 set nu
