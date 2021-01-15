@@ -13,6 +13,7 @@
 |软件名|简介|
 |:--:|:--:|
 |[bat](https://github.com/sharkdp/bat)|更好的cat|
+|[cloc](https://github.com/AlDanial/cloc)|统计代码行数|
 |[htop](https://github.com/htop-dev/htop)|更好的top|
 |[screenfetch](https://github.com/KittyKatt/screenFetch)|展示系统信息|
 |[tldr](https://github.com/tldr-pages/tldr)|更友好的man|
@@ -31,7 +32,7 @@ $ crontab cmds.cron
 通过 alias 设置命令的别名。
 
 ```
-$ echo "alias psx='ps -ef|grep'" >> $HOME/.bashrc
+$ echo "alias psx='ps -ef|grep -v grep|grep'" >> $HOME/.bashrc
 $ source $HOME/.bashrc
 ```
 
@@ -80,12 +81,26 @@ $ gdb app core
 (gdb) bt
 ```
 
-其他的一些命令放在这里。
+通过 find 命令进行一些操作。
 
 ```
 # 在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行
 $ find /usr/include -name *.h|xargs grep -n IPPROTO_TCP
 
+# 统计 pqnet 目录下C++代码的行数
+$ find pqnet -regex '.*\.\(cpp\|h\)' -type f|xargs cat|wc -l
+$ find pqnet -regex '.*.(cpp|h)' -regextype posix-extended -type f|xargs cat|wc -l
+
+# 查找大于500KB且小于10MB的文件
+$ find /bin -size +500k -size -10M
+
+# 查找最近30天内被访问过的文件
+$ find /usr/local/bin -atime -30 -type f
+```
+
+其他的一些命令放在这里。
+
+```
 # 查看 meminfo 文件的最后10行内容
 $ tail -n 10 /proc/meminfo
 # 清空 xxx.txt 文件
