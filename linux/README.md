@@ -87,15 +87,19 @@ $ gdb app core
 # 在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行
 $ find /usr/include -name *.h|xargs grep -n IPPROTO_TCP
 
-# 统计 pqnet 目录下C++代码的行数
+# 统计 pqnet 目录下 C++ 代码的行数
 $ find pqnet -regex '.*\.\(cpp\|h\)' -type f|xargs cat|wc -l
-$ find pqnet -regex '.*.(cpp|h)' -regextype posix-extended -type f|xargs cat|wc -l
+$ find pqnet -regextype posix-extended -regex '.*.(cpp|h)' -type f|xargs cat|wc -l
 
 # 查找大于500KB且小于10MB的文件
-$ find /bin -size +500k -size -10M
+$ find /bin -size +500k -size -10M -exec ls -lh {} \;
 
 # 查找最近30天内被访问过的文件
-$ find /usr/local/bin -atime -30 -type f
+$ find /usr/local/bin -atime -30 -type f -exec stat -c "%x %n" {} \;
+
+# 查找 pqnet 目录及其子目录下的 cpp 文件，但不包括 tests 目录
+$ find pqnet -path */tests -prune -o -name '*.cpp' -print
+$ find pqnet -name '*.cpp' -not -path '*/tests/*'
 ```
 
 其他的一些命令放在这里。
