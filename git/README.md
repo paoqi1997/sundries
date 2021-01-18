@@ -33,10 +33,10 @@ $ ssh-keygen -t rsa -C "604869221@qq.com"
 
 ```
 # Could not open a connection to your authentication agent.
-# 如果出现了以上错误，请执行以下命令以启动ssh-agent
+# 如果出现了以上错误，请执行以下命令以启动ssh-agent。
 $ ssh-agent bash
 
-# 如果你之前生成SSH Key的时候设置了密码，那么这里会用到它
+# 如果你之前生成 SSH Key 的时候设置了密码，那么这里会用到它。
 $ ssh-add ~/.ssh/id_rsa_github
 
 # 查看代理中的私钥对应的公钥
@@ -50,8 +50,15 @@ $ ssh-add -l
 ```
 $ ssh -T git@github.com
 
-# Clone paoqi1997/pqnet with SSH
-$ git clone git@github.com:paoqi1997/pqnet.git
+# Clone paoqi1997/enpa with SSH
+$ git clone git@github.com:paoqi1997/enpa.git
+```
+
+如果嫌配置麻烦，可以直接通过 HTTPS 获取 repo。
+
+```
+# Clone paoqi1997/enpa with HTTPS
+$ git clone https://github.com/paoqi1997/enpa.git
 ```
 
 ## Learn Git
