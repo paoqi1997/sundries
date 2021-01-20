@@ -158,6 +158,14 @@ $ who -Hu
 $ id your-user
 # 显示用户所属的组
 $ groups your-user
+# T掉指定用户
+$ pkill -t your-tty
+
+# 将用户添加到指定组
+$ usermod -aG your-group your-user
+$ gpasswd -a your-user your-group
+# 将用户从指定组删除
+$ gpasswd -d your-user your-group
 
 # 打印当前主机的数字化标识
 $ hostid
@@ -203,8 +211,8 @@ $ cat /proc/uptime
 # 查看文件系统的磁盘使用情况
 $ df -h
 
-# 查看目录的大小
-$ du -h /var/www
+# 查看当前目录下所有文件及文件夹的大小
+$ du -sh ./*
 
 # 显示文件或目录的信息
 $ stat ~/.profile
@@ -231,6 +239,9 @@ $ nm -A /usr/local/lib/liblua.a
 
 # 跟踪系统调用
 $ strace -ttT cat /proc/uptime
+
+# 1s获取一次进程状态
+$ top -d 1
 ```
 
 ## netdev
