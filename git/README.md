@@ -61,6 +61,32 @@ $ git clone git@github.com:paoqi1997/enpa.git
 $ git clone https://github.com/paoqi1997/enpa.git
 ```
 
+## Use GitHub CLI
+
+获取 [GitHub CLI](https://cli.github.com) 并安装，随后进行身份验证，需要从[此处](https://github.com/settings/tokens)获取token。
+
+```
+$ gh auth login
+
+$ gh auth status
+```
+
+执行以下命令。
+
+```
+# 查看repo
+$ gh repo view godotengine/godot
+
+# 获取repo
+$ gh repo clone paoqi1997/enpa
+
+$ cd enpa
+
+# 查看issues
+$ gh issue list
+$ gh issue view 1
+```
+
 ## Learn Git
 
 创建一个 Git 仓库。
