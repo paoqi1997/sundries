@@ -17,7 +17,10 @@ def printInfo(sInfo):
 
 def writeToFile(sImage, lstTag):
     sFileName = ('%s.tags'%sImage).replace('/', '.')
-    with open(os.path.join(path[0], sFileName), 'w') as oFile:
+    sDir = os.path.join(path[0], 'tags')
+    if not os.path.exists(sDir):
+        os.mkdir(sDir)
+    with open(os.path.join(sDir, sFileName), 'w') as oFile:
         sTags = '\n'.join(lstTag)
         oFile.write(f'{sTags}\n')
 
