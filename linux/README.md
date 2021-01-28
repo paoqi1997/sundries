@@ -121,6 +121,12 @@ $ cat /dev/null > xxx.txt
 $ echo -n "123456"|base64
 # 打印 bash 的 MD5 值
 $ md5sum /bin/bash
+# 打印 bash 的 SHA1 值
+$ sha1sum /bin/bash
+# 打印 bash 的校验和及文件所占用的磁盘块数
+$ sum /bin/bash
+# 打印 bash 的 CRC 值及文件大小的字节数
+$ cksum /bin/bash
 
 # 按单字节输出来自 stdin 的数据
 $ echo "123456"|od -c
