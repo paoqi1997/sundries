@@ -61,6 +61,23 @@ $ git clone git@github.com:paoqi1997/enpa.git
 $ git clone https://github.com/paoqi1997/enpa.git
 ```
 
+## Use proxy
+
+这里是为了[免密登录](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%87%AD%E8%AF%81%E5%AD%98%E5%82%A8)。
+
+```
+# 这里将用户名中的'@'转义为%40
+$ echo 'https://604869221%40qq.com:your-password@github.com.cnpmjs.org' > ~/.git-credentials
+
+$ git config --global credential.helper store
+```
+
+测试一下。
+
+```
+$ git clone https://github.com.cnpmjs.org/paoqi1997/enpa.git
+```
+
 ## Use GitHub CLI
 
 获取 [GitHub CLI](https://cli.github.com) 并安装，随后进行身份验证，需要从[此处](https://github.com/settings/tokens)获取token。
