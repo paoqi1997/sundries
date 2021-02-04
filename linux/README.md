@@ -85,7 +85,7 @@ $ gdb app core
 
 ```
 # 在 /usr/include 目录及其子目录中搜索包含 IPPROTO_TCP 的行
-$ find /usr/include -name *.h|xargs grep -n IPPROTO_TCP
+$ find /usr/include -name *.h|xargs grep -n --color IPPROTO_TCP
 
 # 统计 pqnet 目录下 C++ 代码的行数（不包括空行）
 $ find pqnet -regex '.*\.\(cpp\|h\)' -type f|xargs cat|grep -v ^$|wc -l
@@ -298,6 +298,8 @@ $ sudo tcpdump -i lo tcp port 12358
 其他与网络相关的一些命令放在这里。
 
 ```
+# 查看hosts
+$ cat /etc/hosts
 # 查看 DNS 配置
 $ cat /etc/resolv.conf
 
@@ -307,6 +309,8 @@ $ lsof -i tcp
 
 # 查询DNS
 $ host baidu.com
+$ nslookup baidu.com
+$ dig baidu.com
 ```
 
 ## remotedev
