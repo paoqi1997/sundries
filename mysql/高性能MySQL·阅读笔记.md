@@ -94,3 +94,72 @@ ACID表示原子性（atomicity）、一致性（consistency）、隔离性（is
 + 持久性（durability）
 
 一旦事务提交，其所做的修改就会永久保存到数据库中。
+
+#### 1.3.1 隔离级别
+
+在SQL标准中定义了四种隔离级别，每一种级别都规定了一个事务中所做的修改，
+哪些在事务内和事务间是可见的，哪些是不可见的。
+
+四种隔离级别如下所示：
+
++ READ UNCOMMITTED（未提交读）
+
+在 READ UNCOMMITTED 级别，事务中的修改即使没有提交，对其他事务也都是不可见的。
+这也被称为脏读（Dirty Read）。
+
+|事务A|事务B|
+|:--:|:--:|
+|read(X)=10|...|
+|write(X)=20|...|
+|...|read(X)=20|
+|rollback(X)=10|...|
+
++ READ COMMITTED（提交读）
+
+大多数数据库系统的默认隔离级别都是 READ COMMITTED（但MySQL不是）。
+
+READ COMMITTED 满足前面提到的隔离性的简单定义：一个事务开始时，只能“看见”已经提交的事务所做的修改。
+换句话说，一个事务从开始直到提交之前，所做的任何修改对其他事务都是不可见的。
+
+这个级别有时候也叫做不可重复读（norepeatable read），因为两次执行同样的查询，可能会得到不一样的结果。
+
+|事务A|事务B|
+|:--:|:--:|
+|read(X)=10|...|
+|...|read(X)=10|
+|...|write(X)=20|
+|...|commit|
+|read(X)=20|...|
+
++ REPEATABLE READ（可重复读）
+
+REPEATABLE READ 解决了脏读的问题。该级别保证了在同一个事务中多次读取同样记录的结果是一致的。
+
+但是理论上，可重复读隔离级别还是无法解决另外一个幻读（Phantom Read）的问题。
+所谓幻读，指的是当某个事务在读取某个范围内的记录时，另外一个事务又在该范围内插入了新的记录，
+当之前的事务再次读取该范围的记录时，会产生幻行（Phantom Row）。
+
+InnoDB 和 XtraDB 存储引擎通过多版本并发控制（MVCC, Multiversion Concurrency Control）解决了幻读的问题。
+
+可重复读是MySQL的默认事务隔离级别。
+
+```sql
+mysql> SELECT @@tx_isolation;
+
+mysql> SELECT @@GLOBAL.tx_isolation;
+mysql> SELECT @@SESSION.tx_isolation;
+
+mysql> SHOW VARIABLES LIKE '%tx%';
+```
+
++ SERIALIZABLE（可串行化）
+
+SERIALIZABLE 是最高的隔离级别，它通过强制事务串行执行，避免了前面所说的幻读问题。
+简单来说，SERIALIZABLE 会在读取的每一行数据上都加锁，所以可能导致大量的超时和锁争用的问题。
+
+|隔离级别|脏读可能性|不可重复读可能性|幻读可能性|加锁读|
+|:--:|:--:|:--:|:--:|:--:|
+|READ UNCOMMITTED|√|√|√|×|
+|READ COMMITTED|×|√|√|×|
+|REPEATABLE READ|×|×|√|×|
+|SERIALIZABLE|×|×|×|√|
