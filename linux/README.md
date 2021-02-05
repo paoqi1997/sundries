@@ -139,14 +139,14 @@ $ readelf -h /bin/bash
 # 忽略重复的行
 $ echo -e 'Hello!\nHello!\nHi'|uniq
 
-# 查看组
-$ cat /etc/group
-# 查看组加密信息
-$ cat /etc/gshadow
 # 查看用户
 $ cat /etc/passwd
 # 查看存储用户密码信息的文件
 $ cat /etc/shadow
+# 查看组
+$ cat /etc/group
+# 查看组加密信息
+$ cat /etc/gshadow
 
 # 查看 sudo 的权限控制情况
 $ cat /etc/sudoers
@@ -172,6 +172,11 @@ $ usermod -aG your-group your-user
 $ gpasswd -a your-user your-group
 # 将用户从指定组删除
 $ gpasswd -d your-user your-group
+
+# 切换到其他用户组（用户隶属2个或以上的组）
+$ newgrp your-group
+# 以指定组 ID 执行命令（应为用户所属的组）
+$ sg your-group -c your-command
 
 # 打印当前主机的数字化标识
 $ hostid
@@ -293,6 +298,15 @@ $ telnet 220.181.38.148 12358
 
 ```
 $ sudo tcpdump -i lo tcp port 12358
+```
+
+通过 iperf 测试网络性能。
+
+```
+# 启动服务端
+$ iperf -s 127.0.0.1
+# 启动客户端
+$ iperf -c 127.0.0.1
 ```
 
 其他与网络相关的一些命令放在这里。
