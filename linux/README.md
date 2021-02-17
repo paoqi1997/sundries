@@ -92,7 +92,7 @@ $ find pqnet -regex '.*\.\(cpp\|h\)' -type f|xargs cat|grep -v ^$|wc -l
 $ find pqnet -regextype posix-extended -regex '.*.(cpp|h)' -type f|xargs cat|grep -v ^$|wc -l
 
 # 查找大于500KB且小于10MB的文件
-$ find /bin -size +500k -size -10M -exec ls -lh {} \;
+$ find /bin -size +500k -size -10M -type f -exec ls -lh {} \;
 
 # 查找最近30天内被访问过的文件
 $ find /usr/local/bin -atime -30 -type f -exec stat -c "%x %n" {} \;
