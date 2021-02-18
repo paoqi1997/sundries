@@ -278,6 +278,18 @@ mysql> SELECT name, language, COUNT(*) FROM libs GROUP BY name, language;
 
 mysql> SELECT windows, COUNT(*) FROM libs GROUP BY windows;
 mysql> SELECT windows, COUNT(*) FROM libs GROUP BY windows HAVING COUNT(*) > 1;
+
+-- CASE Syntax
+mysql> SELECT id, name, language,
+    -> CASE windows WHEN 1 THEN 'yes' ELSE 'no' END AS windows
+    -> FROM libs;
+
+mysql> SELECT id, name,
+    -> CASE
+    -> WHEN language = 'cpp' THEN 'C++'
+    -> WHEN language = 'java' THEN 'Java'
+    -> ELSE language END AS language, windows
+    -> FROM libs;
 ```
 
 创建数据表 player_charge 以学习接下来的查询操作。
