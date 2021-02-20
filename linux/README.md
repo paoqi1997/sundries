@@ -15,8 +15,8 @@
 |[bat](https://github.com/sharkdp/bat)|更好的cat|
 |[cloc](https://github.com/AlDanial/cloc)|统计代码行数|
 |[htop](https://github.com/htop-dev/htop)|更好的top|
-|[screenfetch](https://github.com/KittyKatt/screenFetch)|展示系统信息|
-|[tldr](https://github.com/tldr-pages/tldr)|更友好的man|
+|[screenfetch](https://github.com/KittyKatt/screenFetch)|显示系统信息|
+|[tldr](https://github.com/tldr-pages/tldr)|直观地展示一个命令的常见用法|
 |[viu](https://github.com/atanunq/viu)|在终端显示图片|
 
 每分钟记录一次内存使用情况。
@@ -191,11 +191,13 @@ $ hostname
 ```
 # 查看 cpu 相关参数
 $ lscpu
-# 显示内核模块的状态信息
-$ sh -c lsmod
-
 # 查看 processor 的数量
 $ cat /proc/cpuinfo|grep processor|wc -l
+
+# 显示内核模块的状态信息
+$ sh -c lsmod
+# 查看内核参数
+$ sysctl -a
 
 # 查看资源限制情况
 $ ulimit -a
