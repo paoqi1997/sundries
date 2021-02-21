@@ -22,13 +22,13 @@
 127.0.0.1:6379> SET java jedis
 127.0.0.1:6379> SET php phpredis
 
-# 查看所有键
+# 获取所有键
 127.0.0.1:6379> KEYS *
 
 # 插入一个类型为列表的键值对（值由多个元素组成）
 127.0.0.1:6379> RPUSH mylist 0 1 2 3 4
 
-# 查看键总数
+# 获取键总数
 127.0.0.1:6379> DBSIZE
 
 # 确认键是否存在
@@ -169,7 +169,7 @@ Redis 官方给出了[使用 setnx 实现分布式锁](https://redis.io/topics/d
 127.0.0.1:6379> SET s c
 127.0.0.1:6379> OBJECT ENCODING s # "embstr"
 
-# > 44bytes
+# >= 45bytes
 127.0.0.1:6379> SET s '123456789012345678901234567890123456789012345'
 127.0.0.1:6379> OBJECT ENCODING s # "raw"
 ```
@@ -185,11 +185,154 @@ Redis 官方给出了[使用 setnx 实现分布式锁](https://redis.io/topics/d
 
 ### 2.3 哈希
 
+在 Redis 中，哈希类型是指键对应的值本身又是键值对结构。
 
+#### 2.3.1 命令
+
+相关命令如下所示：
+
+```
+127.0.0.1:6379> HSET clients c hiredis
+127.0.0.1:6379> HSET clients java jedis
+
+127.0.0.1:6379> HGET clients c
+
+127.0.0.1:6379> HDEL clients c
+
+# 计算 field 个数
+127.0.0.1:6379> HLEN clients
+
+127.0.0.1:6379> HMSET clients php phpredis go go-redis
+127.0.0.1:6379> HMGET clients php go
+
+# 确认 field 是否存在
+127.0.0.1:6379> HEXISTS clients php
+
+# 获取所有field
+127.0.0.1:6379> HKEYS clients
+
+# 获取所有value
+127.0.0.1:6379> HVALS clients
+
+# 获取所有field-value
+127.0.0.1:6379> HGETALL clients
+
+# 自增
+127.0.0.1:6379> HINCRBY clients counter 2
+127.0.0.1:6379> HINCRBYFLOAT clients counter 3.1
+
+# 计算 value 长度
+127.0.0.1:6379> HSTRLEN clients php
+```
+
+#### 2.3.2 内部编码
+
+哈希类型的内部编码有两种：
+
+1. ziplist（压缩列表）：
+   当元素个数 <= hash-max-ziplist-entries（默认为512）同时所有值 <= hash-max-ziplist-value（默认为64）时，
+   Redis 会使用 ziplist 作为哈希的内部实现，ziplist 使用更加紧凑的结构实现多个元素的连续存储，
+   所以在节省内存方面比 hashtable 更加优秀。
+
+2. hashtable（哈希表）：
+   当哈希类型无法满足 ziplist 的条件时，Redis 会使用 hashtable 作为哈希的内部实现，
+   因为此时 ziplist 的读写效率会下降，而 hashtable 的读写时间复杂度为O(1)。
+
+```
+# <= 64bytes
+127.0.0.1:6379> HSET clients s '1234567890123456789012345678901234567890123456789012345678901234'
+127.0.0.1:6379> OBJECT ENCODING clients # "ziplist"
+
+# >= 65bytes
+127.0.0.1:6379> HSET clients s '12345678901234567890123456789012345678901234567890123456789012345'
+127.0.0.1:6379> OBJECT ENCODING clients # "hashtable"
+```
+
+#### 2.3.3 使用场景
+
+可用于缓存用户信息等。
 
 ### 2.4 列表
 
+列表（list）类型用来存储多个有序的字符串，一个列表最多可以存储 2^32 - 1 个元素。
 
+列表类型有两个特点：第一，列表中的元素是有序的，这里的序是指插入顺序；第二，列表中的元素是可以重复的。
+
+#### 2.4.1 命令
+
+相关命令如下所示：
+
+```
+127.0.0.1:6379> RPUSH mylist c b a
+127.0.0.1:6379> LPUSH mylist d e f
+
+# 在元素a前面插入1
+127.0.0.1:6379> LINSERT mylist before a 1
+
+# 获取[0, 3]的元素
+127.0.0.1:6379> LRANGE mylist before 0 3
+# 获取[-3, -1]的元素
+127.0.0.1:6379> LRANGE mylist before -3 -1
+
+# 获取指定索引的元素
+127.0.0.1:6379> LINDEX mylist 5
+127.0.0.1:6379> LINDEX mylist -2
+
+127.0.0.1:6379> LLEN mylist
+
+127.0.0.1:6379> LPOP mylist
+127.0.0.1:6379> RPOP mylist
+
+# 删除所有值为1的元素
+127.0.0.1:6379> LREM mylist 0 1
+
+# 只保留[1, 3]的元素
+127.0.0.1:6379> LTRIM mylist 1 3
+
+# 将第一个元素修改为p
+127.0.0.1:6379> LSET mylist 0 p
+
+# 阻塞式弹出
+127.0.0.1:6379> BLPOP mylist 1
+127.0.0.1:6379> BRPOP mylist 3
+```
+
+当列表为空的时候，若 timeout = 3，那么客户端要等到3s后返回，如果 timeout = 0，
+那么客户端会一直阻塞等下去。如果期间插入了元素，客户端将立即返回。
+
+当列表不为空的时候，客户端会立即返回。
+
+在使用 BRPOP 的时候，如果是多个键，那么 BRPOP 会从左到右遍历键，
+一旦有一个键能弹出元素，客户端将立即返回。
+
+如果多个客户端对同一个键执行 BRPOP 命令，那么最先执行 BRPOP 命令的客户端可以获取到弹出的值。
+
+#### 2.4.2 内部编码
+
+列表类型的内部编码有两种：
+
+1. ziplist（压缩列表）：同哈希。
+
+2. linkedlist（链表）：
+   当列表类型无法满足 ziplist 的条件时，Redis 会使用 linkedlist 作为列表的内部实现。
+
+Redis 3.2 提供了 quicklist 内部编码，简单来说它是以一个 ziplist 为节点的 linkedlist，
+它结合了 ziplist 和 linkedlist 两者的优势，为列表类型提供了一种更为优秀的内部编码实现。
+它的设计原理可以参考 Redis 的另一个作者 Matt Stancliff 的[博客](https://matt.sh/redis-quicklist)。
+
+#### 2.4.3 使用场景
+
+主要有以下几个使用场景：
+
+1. 消息队列
+
+   Redis 的 LPUSH + BRPOP 命令组合即可实现阻塞队列，生产者客户端使用 LPUSH 命令从左侧插入元素，
+   多个消费者客户端使用 BRPOP 命令阻塞式地“抢”列表尾部的元素。
+
+2. 文章列表
+
+   每个用户有属于自己的文章列表，现需要分页展示文章列表。
+   此时可以考虑使用列表，因为列表不但是有序的，还支持按照索引范围获取元素。
 
 ### 2.5 集合
 
