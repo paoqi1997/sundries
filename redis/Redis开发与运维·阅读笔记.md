@@ -311,7 +311,11 @@ Redis 官方给出了[使用 setnx 实现分布式锁](https://redis.io/topics/d
 
 列表类型的内部编码有两种：
 
-1. ziplist（压缩列表）：同哈希。
+1. ziplist（压缩列表）：
+   在 [Redis 3.0](https://raw.githubusercontent.com/redis/redis/3.0/redis.conf) 版本，
+   当元素个数 <= list-max-ziplist-entries（默认为512）同时所有值 <= list-max-ziplist-value（默认为64）时，
+   Redis 会使用 ziplist 作为列表的内部实现以减少内存的使用。
+   但从 [Redis 3.2](https://raw.githubusercontent.com/redis/redis/3.2/redis.conf) 版本开始不再支持这两个配置选项。
 
 2. linkedlist（链表）：
    当列表类型无法满足 ziplist 的条件时，Redis 会使用 linkedlist 作为列表的内部实现。
@@ -336,12 +340,89 @@ Redis 3.2 提供了 quicklist 内部编码，简单来说它是以一个 ziplist
 
 ### 2.5 集合
 
+集合（set）类型用来保存多个字符串元素，但和列表类型不一样的是，
+集合中不允许有重复元素，并且集合中的元素是无序的，不能通过索引下标获取元素。
 
+一个集合最多可以存储 2^32 - 1 个元素。
+
+Redis 除了支持集合内的增删改查，还支持多个集合间取交集、并集及差集。
+
+#### 2.5.1 命令
+
+集合内操作的相关命令如下所示：
+
+```
+127.0.0.1:6379> SADD myset a b c
+127.0.0.1:6379> SREM myset a b
+
+# 计算元素个数
+127.0.0.1:6379> SCARD myset
+
+# 确认元素是否在集合中
+127.0.0.1:6379> SISMEMBER myset c
+
+# 随机返回集合中指定个数的元素
+127.0.0.1:6379> SRANDMEMBER myset 3
+
+# 随机从集合弹出元素
+127.0.0.1:6379> SPOP myset 1
+
+# 获取所有元素
+127.0.0.1:6379> SMEMBERS myset
+```
+
+集合间操作的相关命令如下所示：
+
+```
+127.0.0.1:6379> SADD user:1:follow music news sport vlog
+127.0.0.1:6379> SADD user:2:follow food game news vlog
+
+# 交集
+127.0.0.1:6379> SINTER user:1:follow user:2:follow
+# 并集
+127.0.0.1:6379> SUNION user:1:follow user:2:follow
+# 差集（返回所有给定 key 与第一个 key 的差集，这里的结果为属于1但不属于2的元素）
+127.0.0.1:6379> SDIFF user:1:follow user:2:follow
+
+# 保存交集的结果
+127.0.0.1:6379> SINTERSTORE user:1_2:inter user:1:follow user:2:follow
+# 保存并集的结果
+127.0.0.1:6379> SUNIONSTORE user:1_2:union user:1:follow user:2:follow
+# 保存差集的结果
+127.0.0.1:6379> SDIFFSTORE user:1_2:diff user:1:follow user:2:follow
+```
+
+#### 2.5.2 内部编码
+
+集合类型的内部编码有两种：
+
+1. intset（整数集合）：
+   当集合中的元素都是整数且元素个数 <= set-max-intset-entries（默认为512）时，
+   Redis 会使用 intset 作为集合的内部实现，从而减少内存的使用。
+
+2. hashtable（哈希表）：
+   当集合类型无法满足 intset 的条件时，Redis 会使用 hashtable 作为集合的内部实现。
+
+#### 2.5.3 使用场景
+
+主要有以下几个使用场景：
+
+1. SADD = Tagging（标签）
+2. SPOP/SRANDMEMBER = Random item（生成随机数，比如抽奖）
+3. SADD + SINTER = Social Graph（社交需求）
 
 ### 2.6 有序集合
 
+#### 2.6.1 命令
 
+#### 2.6.2 内部编码
+
+#### 2.6.3 使用场景
 
 ### 2.7 键管理
 
+#### 2.7.1 单个键管理
 
+#### 2.7.2 遍历键
+
+#### 2.7.3 数据库管理
