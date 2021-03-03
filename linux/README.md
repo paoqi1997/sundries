@@ -112,10 +112,10 @@ $ cat /proc/cgroups|grep -E 'cpu|net'
 其他的一些命令放在这里。
 
 ```
-# 查看 meminfo 文件的最后10行内容
-$ tail -n 10 /proc/meminfo
 # 清空 xxx.txt 文件
 $ cat /dev/null > xxx.txt
+# 查看 meminfo 文件最后10行的内容
+$ tail -n 10 /proc/meminfo
 
 # 打印 "123456" 的 base64 值
 $ echo -n "123456"|base64
@@ -216,6 +216,9 @@ $ cat /proc/loadavg
 # 查看系统总共运行了多长时间
 $ uptime -p
 $ cat /proc/uptime
+
+# 查看 mounts 文件第10到20行的内容（没有'+'就是第11行）
+$ cat -n /proc/mounts|head -n 20|tail -n +10
 ```
 
 查看磁盘。
@@ -255,6 +258,12 @@ $ strace -ttT cat /proc/uptime
 
 # 1s获取一次进程状态
 $ top -d 1
+
+# 调用 bash 内置的 time 命令测量耗时
+$ time ps -ef
+# 调用 /usr/bin/time 测量耗时
+$ \time -v ps -ef
+$ /usr/bin/time -v ps -ef
 ```
 
 ## netdev
