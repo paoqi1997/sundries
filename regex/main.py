@@ -14,6 +14,17 @@ def findAllText(sPattern, sText):
     return lstResult
 
 if __name__ == '__main__':
+    sContent = 'regex-i1'
+
+    oPattern = re.compile('-i\d+')
+    oMatch1 = oPattern.match(sContent)
+    oMatch2 = oPattern.search(sContent)
+
+    sResult1 = oMatch1 and oMatch1.group()
+    sResult2 = oMatch2 and oMatch2.group()
+
+    print(f'result1: {sResult1}, result2: {sResult2}')
+
     # 匹配日期
     sText = 'Text: 1970-01-01'
     print(groupText(getDatePattern(), sText))
