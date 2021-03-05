@@ -107,6 +107,10 @@ $ find pqnet -name '*.cpp' -not -path '*/tests/*'
 ```
 $ cat /proc/cgroups|grep -e cpu -e net
 $ cat /proc/cgroups|grep -E 'cpu|net'
+
+# egrep(/bin/egrep) == grep -E "$@"
+# fgrep(/bin/fgrep) == grep -F "$@"
+$ pgrep -fal ssh
 ```
 
 其他的一些命令放在这里。
@@ -258,6 +262,8 @@ $ strace -ttT cat /proc/uptime
 
 # 1s获取一次进程状态
 $ top -d 1
+# 以批处理模式获取一次进程状态
+$ top -bc -w 512 -n 1
 
 # 调用 bash 内置的 time 命令测量耗时
 $ time ps -ef
