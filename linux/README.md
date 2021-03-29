@@ -113,6 +113,27 @@ $ cat /proc/cgroups|grep -E 'cpu|net'
 $ pgrep -fal ssh
 ```
 
+操作用户/组。
+
+```
+# 创建组/用户
+$ groupadd team
+$ useradd -m -g team -s /bin/bash pq
+
+# 将用户添加到指定组
+$ usermod -aG team pq
+$ gpasswd -a pq team
+# 将用户从指定组删除
+$ gpasswd -d pq team
+
+# 修改组名
+$ groupmod -n teamX team
+
+# 删除用户/组
+$ userdel -r pq
+$ groupdel teamX
+```
+
 其他的一些命令放在这里。
 
 ```
@@ -161,21 +182,18 @@ $ cat /etc/login.defs
 $ pwd
 # 查看当前登录的用户名
 $ whoami
+
+# 显示系统当前登录的所有用户名
+$ users
 # 查看有谁登录在上面
 $ who -Hu
+# T掉指定用户
+$ pkill -t your-tty
 
 # 显示用户的 ID 及所属用户组的ID
 $ id your-user
 # 显示用户所属的组
 $ groups your-user
-# T掉指定用户
-$ pkill -t your-tty
-
-# 将用户添加到指定组
-$ usermod -aG your-group your-user
-$ gpasswd -a your-user your-group
-# 将用户从指定组删除
-$ gpasswd -d your-user your-group
 
 # 切换到其他用户组（用户隶属2个或以上的组）
 $ newgrp your-group
