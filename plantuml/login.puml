@@ -1,0 +1,15 @@
+@startuml login
+
+scale 1.5
+title login
+
+Player -> LoginServer: 提交用户信息
+LoginServer -> Player: 返回验证结果
+
+LoginServer -> GameServer: 若玩家验证成功，通知游戏服务器预建立玩家对象
+note over LoginServer, GameServer: 若玩家长时间未连接至游戏服务器，清除缓存
+
+Player -> GameServer: 首次连接至游戏服务器，之后持续发起C2S请求
+GameServer -> Player: 返回S2C响应
+
+@enduml
