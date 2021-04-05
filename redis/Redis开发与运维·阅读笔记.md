@@ -413,11 +413,100 @@ Redis 除了支持集合内的增删改查，还支持多个集合间取交集�
 
 ### 2.6 有序集合
 
+有序集合保留了集合不能有重复成员的特性，但与集合不同的是，有序集合中的元素可以排序。
+
+但它和列表使用索引下标作为排序依据不同的是，它给每个元素设置一个分数（score）作为排序依据。
+
 #### 2.6.1 命令
+
+集合内操作的相关命令如下所示：
+
+```
+127.0.0.1:6379> ZADD ranking 138 paoqi 96 jessica 113 chen 124 lucia 74 daisy
+127.0.0.1:6379> ZREM ranking jessica
+
+# 计算成员个数
+127.0.0.1:6379> ZCARD ranking
+
+# 获取指定成员的分数
+127.0.0.1:6379> ZSCORE ranking paoqi
+# 增加指定成员的分数
+127.0.0.1:6379> ZINCRBY ranking 4 paoqi
+
+# 按分数从低到高的顺序，获取指定成员的排名
+127.0.0.1:6379> ZRANK ranking paoqi
+# 按分数从高到低的顺序，获取指定成员的排名
+127.0.0.1:6379> ZREVRANK ranking paoqi
+
+# 按分数从低到高的顺序，获取第0个到第2个成员
+127.0.0.1:6379> ZRANGE ranking 0 2 WITHSCORES
+# 按分数从高到低的顺序，获取第0个到第2个成员
+127.0.0.1:6379> ZREVRANGE ranking 0 2 WITHSCORES
+
+# 按分数从低到高的顺序，获取90到120分的成员
+127.0.0.1:6379> ZRANGEBYSCORE ranking 90 120 WITHSCORES
+# 按分数从高到低的顺序，获取120到90分的成员
+127.0.0.1:6379> ZREVRANGEBYSCORE ranking 120 90 WITHSCORES
+
+# 按分数从低到高的顺序，获取所有成员
+127.0.0.1:6379> ZRANGEBYSCORE ranking -inf +inf WITHSCORES
+
+# 获取指定分数范围的成员个数
+127.0.0.1:6379> ZCOUNT ranking 100 140
+
+# 按分数从低到高的顺序，删除第0个到第2个成员
+127.0.0.1:6379> ZREMRANGEBYRANK ranking 0 2
+# 按分数从低到高的顺序，删除90分以下（不包括90分）的成员
+127.0.0.1:6379> ZREMRANGEBYSCORE ranking -inf (90
+```
+
+集合间操作的相关命令如下所示：
+
+```
+127.0.0.1:6379> ZADD course1 128 paoqi 147 wendy 106 jimmy 112 liu
+127.0.0.1:6379> ZADD course2 124 paoqi 102 wendy 143 jimmy 96 jackson
+
+# 对 course1 和 course2 做交集，其中1的权重为1，2的权重为0.8，用 SUM 方法做汇总
+127.0.0.1:6379> ZINTERSTORE course:1_inter_2 2 course1 course2 WEIGHTS 1 0.8 AGGREGATE SUM
+127.0.0.1:6379> ZRANGEBYSCORE course:1_inter_2 -inf +inf WITHSCORES
+
+# 对 course1 和 course2 做并集，其中1的权重为0.95，2的权重为1.15，用 SUM 方法做汇总
+127.0.0.1:6379> ZUNIONSTORE course:1_union_2 2 course1 course2 WEIGHTS 0.95 1.15 AGGREGATE SUM
+127.0.0.1:6379> ZRANGEBYSCORE course:1_union_2 -inf +inf WITHSCORES
+```
 
 #### 2.6.2 内部编码
 
+有序集合类型的内部编码有两种：
+
+1. ziplist（压缩列表）：
+   当元素个数 <= zset-max-ziplist-entries（默认为512）同时所有值 <= zset-max-ziplist-value（默认为64）时，
+   Redis 会使用 ziplist 作为有序集合的内部实现，ziplist 可以有效减少内存的使用。
+
+2. skiplist（跳跃表）：
+   当哈希类型无法满足 ziplist 的条件时，Redis 会使用 skiplist 作为哈希的内部实现，
+   因为此时 ziplist 的读写效率会下降。
+
+```
+# <= 64bytes
+127.0.0.1:6379> ZADD myzset 1 '1234567890123456789012345678901234567890123456789012345678901234'
+127.0.0.1:6379> OBJECT ENCODING myzset # "ziplist"
+
+127.0.0.1:6379> ZRANGEBYSCORE myzset -inf +inf WITHSCORES
+
+# >= 65bytes
+127.0.0.1:6379> ZADD myzset 1 '12345678901234567890123456789012345678901234567890123456789012345'
+127.0.0.1:6379> OBJECT ENCODING myzset # "skiplist"
+```
+
 #### 2.6.3 使用场景
+
+对于视频网站来说，主要有以下几个使用场景：
+
+1. ZADD + ZINCRBY = 用户上传视频并获得播放量
+2. ZREM = 下架用户视频
+3. ZREVRANGE = 前N个播放量最多的视频
+4. ZSCORE/ZREVRANK = 获取指定视频的播放量/播放量排名
 
 ### 2.7 键管理
 
