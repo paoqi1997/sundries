@@ -91,6 +91,24 @@ $ go env -w GO111MODULE=on
 $ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
+### [googletest](https://github.com/google/googletest)
+
+通过 git 获取源代码。
+
+```
+$ git clone https://github.com/google/googletest.git
+$ cd googletest
+```
+
+编译并安装googletest。
+
+```
+$ cmake -S . -B build
+$ cd build
+$ make -j2
+$ sudo make install
+```
+
 ### [libevent](https://libevent.org)
 
 提取相应的包。
@@ -520,7 +538,7 @@ $ luac -o main.luo main.lua
 $ lua main.luo
 ```
 
-### [pybind11](https://pybind11.readthedocs.io/en/master/basics.html)
+### [pybind11](https://pybind11.readthedocs.io/en/stable/basics.html)
 
 安装Python的开发包。
 
