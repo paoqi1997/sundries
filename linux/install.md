@@ -78,11 +78,16 @@ $ echo "export PATH=$PATH:/usr/local/go/bin" >> $HOME/.profile
 $ source $HOME/.profile
 ```
 
-设置[代理](https://goproxy.cn)。
+设置 GOPATH 等。
 
 ```
-# 开启模块支持
+$ go env -w GOPATH=$HOME/ws
 $ go env -w GO111MODULE=on
+```
+
+设置[模块代理](https://goproxy.cn)。
+
+```
 $ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 

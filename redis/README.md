@@ -20,7 +20,7 @@ $ mkdir /usr/local/redis/etc
 $ cp redis.conf /usr/local/redis/etc
 ```
 
-创建 /etc/systemd/system/redis.service 文件并添加以下内容：
+创建 /lib/systemd/system/redis.service 文件并添加以下内容：
 
 ```
 [Unit]
@@ -28,6 +28,7 @@ Description=redis
 After=network.target
 
 [Service]
+# 如果 redis.conf 将 daemonize 设置为 yes 的话，这里需要设置 Type=forking。
 ExecStart=/usr/local/redis/bin/redis-server /usr/local/redis/etc/redis.conf
 ExecStop=/usr/local/redis/bin/redis-cli shutdown
 Restart=on-failure
