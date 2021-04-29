@@ -91,7 +91,7 @@ $ go env -w GO111MODULE=on
 $ go env -w GOPROXY=https://goproxy.cn,direct
 ```
 
-### [googletest](https://github.com/google/googletest)
+### [GoogleTest](https://github.com/google/googletest)
 
 通过 git 获取源代码。
 
@@ -101,6 +101,24 @@ $ cd googletest
 ```
 
 编译并安装googletest。
+
+```
+$ cmake -S . -B build
+$ cd build
+$ make -j2
+$ sudo make install
+```
+
+### [KCP](https://github.com/skywind3000/kcp)
+
+通过 git 获取源代码。
+
+```
+$ git clone https://github.com/skywind3000/kcp.git
+$ cd kcp
+```
+
+编译并安装kcp。
 
 ```
 $ cmake -S . -B build
