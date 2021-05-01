@@ -63,7 +63,7 @@ $ make
 $ sudo make install
 ```
 
-### [Golang](https://golang.google.cn/doc/install)
+### [Go](https://golang.google.cn/doc/install)
 
 提取相应的包。
 
@@ -504,6 +504,22 @@ $ sh Tools/pcre-build.sh
 $ ./configure --prefix=/usr/local/swig
 $ make
 $ sudo make install
+```
+
+### [V](https://github.com/vlang/v)
+
+通过 git 获取源代码。
+
+```
+$ git clone https://github.com.cnpmjs.org/vlang/v
+$ cd v
+```
+
+将 Makefile 中的 github.com 改为 github.com.cnpmjs.org，然后执行以下命令：
+
+```
+$ make
+$ sudo ./v symlink
 ```
 
 ### [Valgrind](https://www.valgrind.org/downloads/current.html)
