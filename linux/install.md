@@ -478,6 +478,21 @@ replace-with = "ustc"
 registry = "https://mirrors.ustc.edu.cn/crates.io-index"
 ```
 
+### [Skynet](https://github.com/cloudwu/skynet)
+
+通过 git 获取源代码。
+
+```
+$ git clone https://github.com.cnpmjs.org/cloudwu/skynet
+$ cd skynet
+```
+
+将 .gitmodules 中的 github.com 改为 github.com.cnpmjs.org，然后执行以下命令：
+
+```
+$ make linux
+```
+
 ### [SQLite](https://www.sqlite.org/download.html)
 
 提取相应的包。
