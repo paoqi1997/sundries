@@ -484,7 +484,7 @@ Redis 除了支持集合内的增删改查，还支持多个集合间取交集�
    Redis 会使用 ziplist 作为有序集合的内部实现，ziplist 可以有效减少内存的使用。
 
 2. skiplist（跳跃表）：
-   当哈希类型无法满足 ziplist 的条件时，Redis 会使用 skiplist 作为哈希的内部实现，
+   当有序集合类型无法满足 ziplist 的条件时，Redis 会使用 skiplist 作为有序集合的内部实现，
    因为此时 ziplist 的读写效率会下降。
 
 ```
