@@ -267,7 +267,7 @@ $ stat /tmp            # o+t
 $ lsof -p your-pid
 
 # 查看前10个占用内存最多的进程
-$ ps aux|sort -k4nr|head -n 10
+$ ps aux|sort -k6nr|head -n 10
 
 # 查看引用的so文件
 $ ldd /usr/local/bin/lua
