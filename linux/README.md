@@ -227,8 +227,12 @@ $ ulimit -a
 # 查看消息队列、共享内存及信号量的信息
 $ ipcs
 
-# 打印系统信息
+# 打印内核信息
 $ uname -a
+# 查看发行版信息
+$ cat /etc/issue
+# 获取系统位数
+$ getconf LONG_BIT
 
 # 查看系统负载
 $ w
@@ -288,6 +292,9 @@ $ time ps -ef
 # 调用 /usr/bin/time 测量耗时
 $ \time -v ps -ef
 $ /usr/bin/time -v ps -ef
+
+# 查看进程的内存映射关系
+$ sudo pmap -dp your-pid
 ```
 
 ## netdev
