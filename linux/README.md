@@ -295,6 +295,10 @@ $ /usr/bin/time -v ps -ef
 
 # 查看进程的内存映射关系
 $ sudo pmap -dp your-pid
+
+$ sysdig -cl
+$ sudo sysdig -c topprocs_cpu   # Top processes by CPU usage
+$ sudo sysdig -c topfiles_bytes # Top files by R+W bytes
 ```
 
 ## netdev
