@@ -142,6 +142,9 @@ $ cat /dev/null > xxx.txt
 # 查看 meminfo 文件最后10行的内容
 $ tail -n 10 /proc/meminfo
 
+# 为 redis-cli 建立软链接
+$ ln -snf /usr/local/redis/bin/redis-cli rdc
+
 # 打印 "123456" 的 base64 值
 $ echo -n "123456"|base64
 # 打印 bash 的 MD5 值
