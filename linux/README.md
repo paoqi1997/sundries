@@ -163,6 +163,12 @@ $ echo $(cat /dev/urandom|tr -cd a-zA-Z0-9|head -c 13)
 
 # 查看 /bin/bash 的文件头信息
 $ readelf -h /bin/bash
+$ objdump -f /bin/bash
+# 对 app.out 进行反汇编
+$ objdump -ld app.out
+
+# 将给定地址翻译为对应行
+$ addr2line -fe app.out addr1 addr2
 
 # 忽略重复的行
 $ echo -e 'Hello!\nHello!\nHi'|uniq
