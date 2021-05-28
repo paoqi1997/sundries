@@ -1,12 +1,12 @@
 # The manual of RabbitMQ
 
-面向RabbitMQ的基本教程。
+面向 RabbitMQ 的基本教程。
 
 ## 说明
 
 以下操作均在 elementary OS 5.1 下调试通过。
 
-## [安装](https://rabbitmq.com/download.html)
+## [安装](https://rabbitmq.com/install-debian.html)
 
 安装依赖。
 

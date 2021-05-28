@@ -286,7 +286,7 @@ $ sudo systemctl start mongodb
 $ groupadd mysql
 $ useradd -r -g mysql -s /bin/false mysql
 
-$ tar -C /usr/local -xvf mysql-8.0.19-linux-glibc2.12-x86_64.tar.xz
+$ tar -C /usr/local -xJvf mysql-8.0.19-linux-glibc2.12-x86_64.tar.xz
 
 $ mv /usr/local/mysql-8.0.19-linux-glibc2.12-x86_64 /usr/local/mysql
 
@@ -310,13 +310,13 @@ $ bin/mysql_ssl_rsa_setup
 $ bin/mysqld_safe --user=mysql &
 ```
 
-mysqld依赖[libaio1](https://pkgs.org/download/libaio1)，如果没有的话请通过包管理器安装：
+mysqld 依赖 [libaio1](https://pkgs.org/download/libaio1)，如果没有的话请通过包管理器安装：
 
 ```
 $ sudo apt install libaio1
 ```
 
-在~/.profile文件中添加以下命令。
+在 ~/.profile 文件中添加以下命令。
 
 ```
 export PATH=$PATH:/usr/local/mysql/bin

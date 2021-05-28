@@ -32,9 +32,9 @@ $ sudo apt-key fingerprint 0EBFCD88
 
 # Set up the stable repository
 $ sudo add-apt-repository \
-   "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
+    "deb [arch=amd64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
 
 $ sudo apt update
 $ sudo apt install docker-ce docker-ce-cli containerd.io

@@ -32,6 +32,8 @@
 
 + PlantUML
 
++ RabbitMQ
+
 + Redis
 
 + Regular Expression
