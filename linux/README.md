@@ -173,6 +173,9 @@ $ addr2line -fe app.out addr1 addr2
 # 忽略重复的行
 $ echo -e 'Hello!\nHello!\nHi'|uniq
 
+# 一边跟踪命令输出一边将其记录到文件中
+$ ping bilibili.com|tee ping.log
+
 # 查看用户
 $ cat /etc/passwd
 # 查看存储用户密码信息的文件
@@ -242,6 +245,10 @@ $ uname -a
 $ cat /etc/issue
 # 获取系统位数
 $ getconf LONG_BIT
+
+$ sudo apt install lsb-core
+# 打印 LSB 和特定于发行版的信息
+$ lsb_release -a
 
 # 查看系统负载
 $ w
