@@ -27,6 +27,7 @@ mysql> CREATE TABLE tbl_bill
     -> category VARCHAR(32)  NOT NULL DEFAULT 'others',
     -> time     DATETIME     NOT NULL,
     -> CONSTRAINT tbl_bill_pk PRIMARY KEY (id, time),
+    -> INDEX tbl_bill_idx_method (method),
     -> INDEX tbl_bill_idx_category (category(4))
     -> ) ENGINE InnoDB;
 
@@ -37,6 +38,8 @@ mysql> INSERT INTO tbl_bill
     -> (-22.89, 0, 'food and drink', '2021-05-29 11:53:12'),
     -> (-3.5, 0, 'food and drink', '2021-05-29 20:48:35'),
     -> (-328, 0, 'game recharge', '2021-05-30 22:36:07');
+
+mysql> DROP TABLE tbl_bill;
 ```
 
 创建索引。
@@ -59,4 +62,9 @@ mysql> ALTER TABLE tbl_bill DROP INDEX tbl_bill_idx_time;
 
 ```sql
 mysql> SHOW INDEX FROM tbl_bill;
+
+mysql> EXPLAIN SELECT method FROM tbl_bill;
+mysql> EXPLAIN SELECT category FROM tbl_bill;
+mysql> EXPLAIN SELECT category FROM tbl_bill WHERE id = 0;
+mysql> EXPLAIN SELECT category FROM tbl_bill WHERE amount >= 200;
 ```
