@@ -72,7 +72,7 @@ $ g++ -O2 -S main.cpp -o main.S
 
 ```
 $ echo "int main() { char *p = nullptr; *p = 'c'; }" > main.cpp
-$ g++ main.cpp -o app
+$ g++ -g main.cpp -o app
 
 $ ulimit -c unlimited
 $ ./app
