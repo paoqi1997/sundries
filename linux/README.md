@@ -15,6 +15,7 @@
 |[bat](https://github.com/sharkdp/bat)|更好的cat|
 |[cloc](https://github.com/AlDanial/cloc)|统计代码行数|
 |[htop](https://github.com/htop-dev/htop)|更好的top|
+|[lnav](https://github.com/tstack/lnav)|高亮显示日志行|
 |[screenfetch](https://github.com/KittyKatt/screenFetch)|显示系统信息|
 |[tldr](https://github.com/tldr-pages/tldr)|直观地展示一个命令的常见用法|
 |[viu](https://github.com/atanunq/viu)|在终端显示图片|
