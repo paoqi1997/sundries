@@ -10,15 +10,15 @@
 
 下面是一些我认为值得推荐的软件。
 
-|软件名|简介|
-|:--:|:--:|
-|[bat](https://github.com/sharkdp/bat)|更好的cat|
-|[cloc](https://github.com/AlDanial/cloc)|统计代码行数|
-|[htop](https://github.com/htop-dev/htop)|更好的top|
-|[lnav](https://github.com/tstack/lnav)|高亮显示日志行|
-|[screenfetch](https://github.com/KittyKatt/screenFetch)|显示系统信息|
-|[tldr](https://github.com/tldr-pages/tldr)|直观地展示一个命令的常见用法|
-|[viu](https://github.com/atanunq/viu)|在终端显示图片|
+|软件名|主要编程语言|用途|
+|:--:|:--:|:--:|
+|[bat](https://github.com/sharkdp/bat)|Rust|更好的cat|
+|[cloc](https://github.com/AlDanial/cloc)|Perl|统计代码行数|
+|[htop](https://github.com/htop-dev/htop)|C|更好的top|
+|[lnav](https://github.com/tstack/lnav)|C++|高亮显示日志行|
+|[screenfetch](https://github.com/KittyKatt/screenFetch)|Shell|显示系统信息|
+|[tldr](https://github.com/tldr-pages/tldr)|Markdown|直观地展示一个命令的常见用法|
+|[viu](https://github.com/atanunq/viu)|Rust|在终端显示图片|
 
 每分钟记录一次内存使用情况。
 
