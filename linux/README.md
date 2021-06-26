@@ -6,7 +6,7 @@
 
 以下操作均在 elementary OS 5.0 下调试通过。
 
-## util
+## recommendations
 
 下面是一些我认为值得推荐的软件。
 
@@ -14,11 +14,14 @@
 |:--:|:--:|:--:|
 |[bat](https://github.com/sharkdp/bat)|Rust|更好的cat|
 |[cloc](https://github.com/AlDanial/cloc)|Perl|统计代码行数|
+|[fd](https://github.com/sharkdp/fd)|Rust|更好的find|
 |[htop](https://github.com/htop-dev/htop)|C|更好的top|
 |[lnav](https://github.com/tstack/lnav)|C++|高亮显示日志行|
 |[screenfetch](https://github.com/KittyKatt/screenFetch)|Shell|显示系统信息|
 |[tldr](https://github.com/tldr-pages/tldr)|Markdown|直观地展示一个命令的常见用法|
 |[viu](https://github.com/atanunq/viu)|Rust|在终端显示图片|
+
+## util
 
 每分钟记录一次内存使用情况。
 
