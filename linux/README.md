@@ -14,6 +14,7 @@
 |:--:|:--:|:--:|
 |[bat](https://github.com/sharkdp/bat)|Rust|更好的cat|
 |[cloc](https://github.com/AlDanial/cloc)|Perl|统计代码行数|
+|[dust](https://github.com/bootandy/dust)|Rust|更好的du|
 |[fd](https://github.com/sharkdp/fd)|Rust|更好的find|
 |[htop](https://github.com/htop-dev/htop)|C|更好的top|
 |[lnav](https://github.com/tstack/lnav)|C++|高亮显示日志行|
