@@ -65,6 +65,18 @@ $ jq < who.json
 $ python3 -m json.tool who.json
 ```
 
+利用 callgrind 分析程序中各个调用的情况。
+
+```
+$ valgrind --tool=callgrind ./httpserver
+
+$ pip3 install gprof2dot
+
+$ gprof2dot -f callgrind -n10 -s callgrind.out.17440 > callgrind.dot
+
+$ dot -Tpng callgrind.dot -o callgrind.png
+```
+
 查看不同优化级别的汇编代码。
 
 ```
