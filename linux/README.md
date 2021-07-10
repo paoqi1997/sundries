@@ -65,14 +65,15 @@ $ jq < who.json
 $ python3 -m json.tool who.json
 ```
 
-利用 callgrind 分析程序中各个调用的情况。
+利用 valgrind 的 callgrind 工具分析程序中各个调用的耗时情况。
 
 ```
+# 假定生成的文件是 callgrind.out.17440
 $ valgrind --tool=callgrind ./httpserver
 
 $ pip3 install gprof2dot
 
-$ gprof2dot -f callgrind -n10 -s callgrind.out.17440 > callgrind.dot
+$ gprof2dot -f callgrind -n 0.8 -s callgrind.out.17440 > callgrind.dot
 
 $ dot -Tpng callgrind.dot -o callgrind.png
 ```
