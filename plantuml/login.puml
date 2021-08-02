@@ -4,12 +4,20 @@ scale 1.5
 title login
 
 Player -> LoginServer: 提交用户信息
+activate Player
+activate LoginServer
+
 LoginServer -> Player: 返回验证结果
 
-LoginServer -> GameServer: 若玩家验证成功，通知游戏服务器预建立玩家对象
+LoginServer -> GameServer: 若玩家验证成功，\n通知游戏服务器预建立玩家对象
+deactivate LoginServer
+activate GameServer
+
 note over LoginServer, GameServer: 若玩家长时间未连接至游戏服务器，清除缓存
 
-Player -> GameServer: 首次连接至游戏服务器，之后持续发起C2S请求
-GameServer -> Player: 返回S2C响应
+Player -> GameServer: 首次连接至游戏服务器，之后持续发起 C2S 请求
+GameServer -> Player: 返回 S2C 响应
+deactivate GameServer
+deactivate Player
 
 @enduml
