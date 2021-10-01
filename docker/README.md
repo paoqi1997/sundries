@@ -67,6 +67,21 @@ $ sudo groupadd docker
 $ sudo usermod -aG docker your-user
 ```
 
+## 卸载
+
+执行以下命令即可。
+
+```
+# 通过 apt 卸载
+$ sudo apt purge docker-ce docker-ce-cli containerd.io
+# 通过 dpkg 卸载
+$ sudo dpkg -r docker-ce docker-ce-cli containerd.io
+
+# 删除镜像、容器、卷等
+$ sudo rm -rf /var/lib/docker
+$ sudo rm -rf /var/lib/containerd
+```
+
 ## 配置
 
 创建 [daemon.json](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) 文件。
