@@ -54,12 +54,12 @@ $ sudo systemctl start nginx
 
 ```
 /var/www/access.log /var/www/error.log {
-    rotate 7   # 最多同时存储7个归档日志，access.log 的归档日志就是 access.log-xxx 文件
-    daily      # 每日切分一次
-    dateext    # 使用日期作为命名格式
-    missingok  # 忽略错误
-    notifempty # 空文件不切分
-    nocompress # 不压缩文件
+    daily      # 每日转储一次
+    dateext    # 使用 YYYYMMDD 作为命名格式
+    missingok  # 日志文件丢了也没关系
+    nocompress # 不压缩日志文件
+    notifempty # 不转储空文件
+    rotate 7   # 最多保留7个归档日志，access.log 的归档日志就是 access.log-xxx 文件
     postrotate
         pidfile=/usr/local/nginx/logs/nginx.pid
         if [ -f $pidfile ]; then
