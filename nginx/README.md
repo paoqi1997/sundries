@@ -53,13 +53,14 @@ $ sudo systemctl start nginx
 创建 /usr/local/nginx/conf/nginx.lr 文件并添加以下内容：
 
 ```
+# 实际上 logrotate 并没有注释这种说法，正式使用时记得将#及后面的内容删掉
 /var/www/access.log /var/www/error.log {
-    daily      # 每日转储一次
+    daily      # 每天转储一次
     dateext    # 使用 YYYYMMDD 作为命名格式
     missingok  # 日志文件丢了也没关系
     nocompress # 不压缩日志文件
     notifempty # 不转储空文件
-    rotate 7   # 最多保留7个归档日志，access.log 的归档日志就是 access.log-xxx 文件
+    rotate 7   # 最多保留7个归档日志，access.log 的归档日志就是 access.log-YYYYMMDD 文件
     postrotate
         pidfile=/usr/local/nginx/logs/nginx.pid
         if [ -f $pidfile ]; then
