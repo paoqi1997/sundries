@@ -17,6 +17,11 @@ set cursorline
 " 4. 使鼠标可用
 set mouse=a
 
+" 4.1. solve -- (insert) VISUAL --
+if has('mouse')
+    set mouse-=a
+endif
+
 " 5. 将tab转换为空格
 set expandtab
 
