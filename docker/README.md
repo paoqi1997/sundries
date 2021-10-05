@@ -12,7 +12,29 @@
 
 ### 1. Install using the repository
 
-相关命令如下所示：
+相关命令（2021-10-05 的安装方式）如下所示：
+
+```
+$ sudo apt update
+$ sudo apt install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+# Add Docker’s official GPG key
+$ curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+$ echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+$ sudo apt update
+$ sudo apt install docker-ce docker-ce-cli containerd.io
+```
+
+相关命令（更早的安装方式）如下所示：
 
 ```
 $ sudo apt update
