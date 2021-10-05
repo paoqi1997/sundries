@@ -68,11 +68,11 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io
 
 |包名|deb名|何时安装|
 |--|--:|:--:|
-|docker-ce|docker-ce_20.10.9~3-0~ubuntu-bionic_amd64.deb|2021-10-05|
-|docker-ce-cli|docker-ce-cli_20.10.9~3-0~ubuntu-bionic_amd64.deb|2021-10-05|
+|docker-ce|docker-ce_20.10.9\~3-0~ubuntu-bionic_amd64.deb|2021-10-05|
+|docker-ce-cli|docker-ce-cli_20.10.9\~3-0~ubuntu-bionic_amd64.deb|2021-10-05|
 |containerd.io|containerd.io_1.4.11-1_amd64.deb|2021-10-05|
-|docker-ce|docker-ce_19.03.11~3-0~ubuntu-bionic_amd64.deb|更早|
-|docker-ce-cli|docker-ce-cli_19.03.11~3-0~ubuntu-bionic_amd64.deb|更早|
+|docker-ce|docker-ce_19.03.11\~3-0~ubuntu-bionic_amd64.deb|更早|
+|docker-ce-cli|docker-ce-cli_19.03.11\~3-0~ubuntu-bionic_amd64.deb|更早|
 |containerd.io|containerd.io_1.2.13-2_amd64.deb|更早|
 
 ```
