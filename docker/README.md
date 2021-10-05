@@ -64,13 +64,16 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io
 
 ### 2. Install from a package
 
-从[此处](https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/bionic/pool/stable/amd64/)获取对应的deb包。
+从[此处](https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/bionic/pool/stable/amd64/)获取对应的 deb 包。
 
-|包名|deb名|
-|--|--|
-|docker-ce|docker-ce_19.03.11\~3-0\~ubuntu-bionic_amd64.deb|
-|docker-ce-cli|docker-ce-cli_19.03.11\~3-0\~ubuntu-bionic_amd64.deb|
-|containerd.io|containerd.io_1.2.13-2_amd64.deb|
+|包名|deb名|何时安装|
+|--|--:|:--:|
+|docker-ce|docker-ce_20.10.9~3-0~ubuntu-bionic_amd64.deb|2021-10-05|
+|docker-ce-cli|docker-ce-cli_20.10.9~3-0~ubuntu-bionic_amd64.deb|2021-10-05|
+|containerd.io|containerd.io_1.4.11-1_amd64.deb|2021-10-05|
+|docker-ce|docker-ce_19.03.11~3-0~ubuntu-bionic_amd64.deb|更早|
+|docker-ce-cli|docker-ce-cli_19.03.11~3-0~ubuntu-bionic_amd64.deb|更早|
+|containerd.io|containerd.io_1.2.13-2_amd64.deb|更早|
 
 ```
 $ sudo dpkg -i /path/to/package.deb
@@ -112,7 +115,7 @@ $ sudo rm -rf /var/lib/containerd
 $ sudo touch /etc/docker/daemon.json
 ```
 
-your-id是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生成的ID。
+your-id 是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生成的 ID。
 
 ```json
 {
@@ -124,9 +127,9 @@ your-id是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生�
 
 ## [Registry API](https://docs.docker.com/registry/spec/api/)
 
-如果你想获取镜像列表，但又不想访问Docker Hub，那就要通过 Registry API 来实现。
+如果你想获取镜像列表，但又不想访问 Docker Hub，那就要通过 Registry API 来实现。
 
-在访问 Docker Registry HTTP API V2 之前，你需要获取[token](https://docs.docker.com/registry/spec/auth/token/)。
+在访问 Docker Registry HTTP API V2 之前，你需要获取 [token](https://docs.docker.com/registry/spec/auth/token/)。
 
 同级目录下的 listtags.py 用以获取镜像列表，希望它能帮到你。
 
