@@ -406,7 +406,7 @@ $ netperf -p 7751 -l 3
 其他与网络相关的一些命令放在这里。
 
 ```
-# 查看hosts
+# 查看 hosts
 $ cat /etc/hosts
 # 查看 DNS 配置
 $ cat /etc/resolv.conf
@@ -415,10 +415,13 @@ $ cat /etc/resolv.conf
 $ ss -ta
 $ lsof -i tcp
 
-# 查询DNS
+# 查询 DNS
 $ host baidu.com
 $ nslookup baidu.com
 $ dig baidu.com
+
+# 查看去 baidu.com 的路上经过了哪些自治系统（Autonomous System, AS）
+$ mtr -z baidu.com
 ```
 
 ## remotedev
