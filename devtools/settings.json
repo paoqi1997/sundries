@@ -69,7 +69,18 @@
             "commandline": "ssh aliyun",
             "fontFace": "Consolas",
             // change to the path of your icon
-            "icon": "/path/to/aliyun.png",
+            "icon": "/path/to/aliyun.ico",
+            "colorScheme": "Desert",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
+        },
+        {
+            "guid": "{04cd7c95-538d-4a69-8bed-d79e6e0bbde5}",
+            "name": "Tencent Cloud",
+            "commandline": "ssh tc",
+            "fontFace": "Consolas",
+            // change to the path of your icon
+            "icon": "/path/to/tc.ico",
             "colorScheme": "Desert",
             "useAcrylic": true,
             "acrylicOpacity": 0.8
