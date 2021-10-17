@@ -1,6 +1,6 @@
 # The manual of Linux
 
-面向Linux的基本教程。
+面向 Linux 的基本教程。
 
 ## 说明
 
@@ -312,7 +312,7 @@ $ lsof -p your-pid
 # 查看前10个占用内存最多的进程
 $ ps aux|sort -k6nr|head -n 10
 
-# 查看引用的so文件
+# 查看引用的 so 文件
 $ ldd /usr/local/bin/lua
 
 # 查看符号表
@@ -440,8 +440,8 @@ $ sudo apt install openssh-server
 # 更换端口
 Port port
 
-# 如果ClientAliveInterval设置为15，ClientAliveCountMax设置为3，
-# 那么45s后将断开与 无响应的SSH客户端 之间的连接
+# 如果 ClientAliveInterval 设置为15，ClientAliveCountMax 设置为3，
+# 那么45s后将断开与 无响应的 SSH 客户端 之间的连接
 ClientAliveInterval 60
 ClientAliveCountMax 3
 ```
@@ -451,7 +451,7 @@ ClientAliveCountMax 3
 ```
 $ ssh-keygen -t rsa
 
-# Windows下可使用 Git Bash 进行操作
+# Windows 下可使用 Git Bash 进行操作
 $ ssh-copy-id -i ~/.ssh/id_rsa_aliyun.pub user@host
 ```
 
