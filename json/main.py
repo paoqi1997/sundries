@@ -6,7 +6,7 @@ import json
 import os
 import sys
 
-oDict = {
+dData = {
     'solution': 'db',
     'type': {
         'relational': [{
@@ -20,23 +20,21 @@ oDict = {
     }
 }
 
-sFileName = os.path.join(
-    sys.path[0], 'data.json'
-)
+sFileName = os.path.join(sys.path[0], 'data.json')
 
-# json.dumps: Dict -> JSON String
-sJsonData = json.dumps(oDict)
-print(sJsonData)
+# json.dumps: dict -> str
+sData = json.dumps(dData)
+print(sData)
 
-# json.loads: JSON String -> Dict
-oResDict = json.loads(sJsonData)
-print(oResDict)
+# json.loads: str -> dict
+dData = json.loads(sData)
+print(dData)
 
-# json.dump: Dict -> JSON File
+# json.dump: dict -> data.json
 with open(sFileName, 'w') as oFile:
-    json.dump(oDict, oFile)
+    json.dump(dData, oFile)
 
-# json.load: JSON File -> Dict
+# json.load: data.json -> dict
 with open(sFileName, 'r') as oFile:
-    oResDict = json.load(oFile)
-    print(oResDict)
+    dData = json.load(oFile)
+    print(dData)
