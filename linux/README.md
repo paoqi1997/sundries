@@ -292,8 +292,13 @@ $ cat -n /proc/mounts|head -n 20|tail -n +10
 # 查看文件系统的磁盘使用情况
 $ df -h
 
+# 查看当前目录的总大小
+$ du -sh .
+$ du -ahd 0 .
 # 查看当前目录下所有文件及文件夹的大小
-$ du -sh ./*
+$ du -sh *
+$ du -ahd 0 *
+$ du -ahd 1 .
 
 # 显示文件或目录的信息
 $ stat ~/.profile
