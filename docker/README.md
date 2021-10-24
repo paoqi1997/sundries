@@ -1,6 +1,6 @@
 # The manual of Docker
 
-面向Docker的基本教程。
+面向 Docker 的基本教程。
 
 ## 说明
 
@@ -8,7 +8,7 @@
 
 ## [安装](https://docs.docker.com/engine/install/ubuntu/)
 
-你可通过以下途径安装Docker。
+你可通过以下途径安装 Docker。
 
 ### 1. Install using the repository
 
@@ -137,13 +137,13 @@ your-id 是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生
 同级目录下的 listtags.py 用以获取镜像列表，希望它能帮到你。
 
 ```
-# 顺利的话，相关结果会写入指定文件
+# 顺利的话，相关结果会写入 nginx.tags 文件
 $ python3 listtags.py nginx
 ```
 
-## Use Docker
+## [基本命令](https://docs.docker.com/engine/reference/commandline/docker/)
 
-以下是常用的一些命令：
+以下是一些基本的命令：
 
 ```
 # 查看镜像列表
@@ -194,9 +194,29 @@ $ redis-cli
 $ docker stop redis5
 ```
 
-## Use Dockerfile
+通过 Docker 搭建在 [nginx](https://github.com/docker-library/docs/tree/master/nginx) 上运行的 [LearnOpenGL](https://github.com/LearnOpenGL-CN/LearnOpenGL-CN) 在线服务。
 
-执行以下命令。
+```
+$ git clone https://github.com.cnpmjs.org/LearnOpenGL-CN/LearnOpenGL-CN
+$ cd LearnOpenGL-CN
+
+$ python3 setup.py install
+$ pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple mkdocs
+$ mkdocs build
+
+$ docker pull nginx:1.20.1
+
+$ docker run \
+    -p 12358:80 -d --rm --name ngx-lo \
+    -v $PWD/site:/usr/share/nginx/html:ro \
+    nginx:1.20.1
+
+$ curl 127.0.0.1:12358
+```
+
+## [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+
+执行以下命令即可。
 
 ```
 # 构建镜像
