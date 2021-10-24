@@ -557,6 +557,17 @@ $ sudo make install
 $ bash <(curl -fsSL https://xmake.io/shget.text)
 ```
 
+### [zstd](https://github.com/facebook/zstd)
+
+通过 git 获取源代码。
+
+```
+$ git clone https://github.com.cnpmjs.org/facebook/zstd
+$ cd zstd
+$ make -j2
+$ sudo make install
+```
+
 ## 部分依赖apt/yum方式安装软件
 
 有时候不得不依赖包管理器。
