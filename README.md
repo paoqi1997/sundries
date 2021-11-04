@@ -44,4 +44,4 @@
 
 ## Tips
 
-1. 使用 [VirtualBox](https://www.virtualbox.org) 时可通过 **网络 -> 网络地址转换(NAT) -> 端口转发** 将虚拟机的服务端口暴露给宿主机。
+1. 使用 [VirtualBox](https://www.virtualbox.org) 时可通过 **设置 -> 网络 -> 网络地址转换(NAT) -> 端口转发** 将虚拟机的服务端口暴露给宿主机。
