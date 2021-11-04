@@ -41,6 +41,6 @@ Windows下直接通过 msi 安装即可。
 >mkdir myproj
 >cd myproj
 
-# 确认从当前目录开始一直到根目录都没有 node_modules 目录，否则将安装到已存在的 node_modules 目录
+# 确认从当前目录开始一直往上到根目录都没有 node_modules 目录，否则将安装到已存在的 node_modules 目录
 >npm install vue@2.6.12
 ```
