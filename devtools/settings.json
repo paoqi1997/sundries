@@ -51,6 +51,18 @@
             "acrylicOpacity": 0.8
         },
         {
+            "guid": "{6d6cb9a9-c123-41c3-a42f-67598edd3ba3}",
+            "name": "Ubuntu",
+            // https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh
+            "commandline": "ssh -t vm \"cd && exec bash -l\"",
+            "fontFace": "Consolas",
+            // change to the path of your icon
+            "icon": "/path/to/ubuntu.png",
+            "colorScheme": "Desert",
+            "useAcrylic": true,
+            "acrylicOpacity": 0.8
+        },
+        {
             "guid": "{914a0d3c-9db4-56f8-a8ac-65f4b7ea8b09}",
             "name": "openSUSE-Leap-15.2",
             "commandline": "wsl -d openSUSE-Leap-15.2",
