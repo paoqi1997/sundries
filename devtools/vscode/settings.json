@@ -1,0 +1,8 @@
+{
+    // 文件修改后自动保存
+    "files.autoSave": "afterDelay",
+    // 显示空格
+    "editor.renderWhitespace": "all",
+    // 通过鼠标滚轮切换选项卡
+    "workbench.editor.scrollToSwitchTabs": true
+}
