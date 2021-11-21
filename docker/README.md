@@ -231,3 +231,20 @@ $ docker exec -it centos7 bash
 # 查看 CentOS 版本
 $ cat /etc/centos-release
 ```
+
+## [Docker Compose](https://docs.docker.com/compose/)
+
+执行以下命令以安装 Docker Compose。
+
+```
+$ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+
+搭建 [photoprism](https://photoprism.app) 服务。
+
+```
+$ wget https://dl.photoprism.org/docker/docker-compose.yml
+
+$ docker-compose up -d
+```
