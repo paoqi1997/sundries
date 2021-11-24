@@ -1,10 +1,20 @@
 # mirrors
 
-更新镜像源的相关指引。
+修改镜像源。
 
-## elementary OS
+## 镜像站
 
-将默认软件镜像换成中科大的镜像：
+1. [中国科学技术大学](https://mirrors.ustc.edu.cn)
+
+2. [清华大学](https://mirrors.tuna.tsinghua.edu.cn)
+
+3. [阿里](https://developer.aliyun.com/mirror/)
+
+4. [网易](https://mirrors.163.com)
+
+## [elementary OS](https://mirrors.ustc.edu.cn/help/ubuntu.html)
+
+将默认软件源换成中科大的。
 
 ```
 $ sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
@@ -13,7 +23,7 @@ $ sudo sed -i 's/security.ubuntu.com/mirrors.ustc.edu.cn/' /etc/apt/sources.list
 $ sudo sed -i 's/http/https/' /etc/apt/sources.list
 ```
 
-针对elementary.list的操作：
+针对 elementary.list 的操作如下所示：
 
 ```
 $ sudo cp /etc/apt/sources.list.d/elementary.list /etc/apt/sources.list.d/elementary.list.bak
@@ -21,7 +31,7 @@ $ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/source
 $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/elementary.list
 ```
 
-针对patches.list的操作：
+针对 patches.list 的操作如下所示：
 
 ```
 $ sudo cp /etc/apt/sources.list.d/patches.list /etc/apt/sources.list.d/patches.list.bak
@@ -29,7 +39,7 @@ $ sudo sed -i 's/ppa.launchpad.net/launchpad.proxy.ustclug.org/' /etc/apt/source
 $ sudo sed -i 's/http/https/' /etc/apt/sources.list.d/patches.list
 ```
 
-## MSYS2
+## [MSYS2](https://mirrors.ustc.edu.cn/help/msys2.html)
 
 将以下内容设置在对应文件的开头。
 
@@ -50,7 +60,7 @@ Server = https://mirrors.ustc.edu.cn/msys2/msys/$arch
 $ pacman -Sy gcc
 ```
 
-## openSUSE
+## [openSUSE](https://mirrors.ustc.edu.cn/help/opensuse.html)
 
 执行以下命令。
 
@@ -58,7 +68,7 @@ $ pacman -Sy gcc
 # 查看软件源
 $ zypper lr -u
 
-# 禁用当前所有的软件源
+# 禁用当前所有软件源
 $ zypper mr -da
 
 # 添加软件源
