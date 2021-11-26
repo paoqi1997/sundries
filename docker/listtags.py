@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
+from sys import argv, path
+
 import asyncio
 import json
 import os
 import time
-from sys import argv, path
 
 import aiohttp
 
@@ -16,11 +17,14 @@ def printInfo(sInfo):
     print('[%s] %s'%(sTime(), sInfo))
 
 def writeToFile(sImage, lstTag):
-    sFileName = ('%s.tags'%sImage).replace('/', '.')
     sDir = os.path.join(path[0], 'tags')
     if not os.path.exists(sDir):
         os.mkdir(sDir)
-    with open(os.path.join(sDir, sFileName), 'w') as oFile:
+
+    sFileName = ('%s.tags'%sImage).replace('/', '.')
+    sFilePath = os.path.join(sDir, sFileName)
+
+    with open(sFilePath, 'w') as oFile:
         sTags = '\n'.join(lstTag)
         oFile.write(f'{sTags}\n')
 
@@ -36,9 +40,7 @@ class AsyncWorker:
     def run(self, lstImage):
         for sImage in lstImage:
             self.m_Tasks.append(self.pullTags(sImage))
-        self.m_Looper.run_until_complete(
-            asyncio.wait(self.m_Tasks)
-        )
+        self.m_Looper.run_until_complete(asyncio.wait(self.m_Tasks))
 
     async def getToken(self, sImage):
         dParams = {
@@ -56,11 +58,11 @@ class AsyncWorker:
                     return sToken
             except asyncio.TimeoutError:
                 printInfo('Failed to get token, image: %s'%sImage)
-                return ""
+                return ''
 
     async def pullTags(self, sImage):
         sToken = await self.getToken(sImage)
-        if sToken == "":
+        if sToken == '':
             return
         dHeaders = {
             'Authorization': 'Bearer %s'%sToken
