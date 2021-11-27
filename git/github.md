@@ -2,7 +2,7 @@
 
 ## Add SSH Key
 
-首先生成SSH Key，如果需要的话，这里可以设置密码。
+首先生成 SSH Key，如果需要的话，这里可以设置密码。
 
 ```
 $ ssh-keygen -t rsa -C "604869221@qq.com"
@@ -12,7 +12,7 @@ $ ssh-keygen -t rsa -C "604869221@qq.com"
 
 ```
 # Could not open a connection to your authentication agent.
-# 如果出现了以上错误，请执行以下命令以启动ssh-agent。
+# 如果出现了以上错误，请执行以下命令以启动 ssh-agent。
 $ ssh-agent bash
 
 # 如果你之前生成 SSH Key 的时候设置了密码，那么这里会用到它。
@@ -42,7 +42,7 @@ $ git clone https://github.com/paoqi1997/enpa.git
 
 ## Use proxy
 
-这里是为了[免密登录](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%87%AD%E8%AF%81%E5%AD%98%E5%82%A8)，稍后需要从[此处](https://github.com/settings/tokens)获取token。
+这里是为了[免密登录](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%87%AD%E8%AF%81%E5%AD%98%E5%82%A8)，稍后需要从[此处](https://github.com/settings/tokens)获取 token。
 
 ```
 # 这里将用户名中的'@'转义为%40
@@ -57,9 +57,9 @@ $ git config --global credential.helper store
 $ git clone https://github.com.cnpmjs.org/paoqi1997/enpa.git
 ```
 
-## Use GitHub CLI
+## GitHub CLI
 
-获取 [GitHub CLI](https://cli.github.com) 并安装，随后进行身份验证，需要从[此处](https://github.com/settings/tokens)获取token。
+获取 [GitHub CLI](https://cli.github.com) 并安装，随后进行身份验证，需要从[此处](https://github.com/settings/tokens)获取 token。
 
 ```
 $ gh auth login
@@ -83,10 +83,12 @@ $ gh issue list
 $ gh issue view 1
 ```
 
-## Use GitHub Desktop
+## GitHub Desktop
 
 点击[这里](https://desktop.github.com)获取。
 
-## Use GitHub for mobile
+## GitHub for mobile
 
 点击[这里](https://github.com/mobile)获取。
+
+当然 GitHub 官方会让你去 [Google Play](https://play.google.com/store/apps/details?id=com.github.android) 获取 APK，但你需要登录你的 Google 账户。一个比较好的办法是，你可以直接前往 [APK Downloader](https://apps.evozi.com/apk-downloader/?id=com.github.android) 下载 APK，从而免去登录 Google 账户的麻烦。
