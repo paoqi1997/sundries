@@ -248,8 +248,16 @@ $ hostname
 ```
 # 查看 cpu 相关参数
 $ lscpu
-# 查看 processor 的数量
-$ cat /proc/cpuinfo|grep processor|wc -l
+
+# 查看 CPU 型号
+$ cat /proc/cpuinfo|grep name|cut -d: -f2|uniq -c
+# 查看物理 CPU 的数量（主板插槽上有多少个 CPU）
+$ cat /proc/cpuinfo|grep 'physical id'|sort -u|wc -l
+# 查看每个物理 CPU 中核的数量（一颗 CPU 的物理核数）
+$ cat /proc/cpuinfo|grep 'cpu cores'
+$ cat /proc/cpuinfo|grep 'core id'|sort -u|wc -l
+# 查看逻辑 CPU 的数量（逻辑核总数）
+$ cat /proc/cpuinfo|grep processor|sort -u|wc -l
 
 # 显示内核模块的状态信息
 $ sh -c lsmod
