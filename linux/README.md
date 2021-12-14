@@ -118,6 +118,9 @@ $ find /usr/local/bin -atime -30 -type f -exec stat -c "%x %n" {} \;
 # 查找 pqnet 目录及其子目录下的 cpp 文件，但不包括 tests 目录
 $ find pqnet -path */tests -prune -o -name '*.cpp' -print
 $ find pqnet -name '*.cpp' -not -path '*/tests/*'
+
+# 在当前目录及其子目录中搜索包含 coroutine 的行，但不包括 .git 和 doc 目录
+$ find . \( -path './.git' -o -path './doc' \) -prune -o -type f -print|xargs grep -in --color coroutine
 ```
 
 通过 grep 命令进行一些操作。
