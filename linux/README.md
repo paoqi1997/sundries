@@ -134,6 +134,15 @@ $ cat /proc/cgroups|grep -E 'cpu|net'
 $ pgrep -fal ssh
 ```
 
+通过 sed 命令进行一些操作。
+
+```
+$ cat /proc/version > version.txt
+
+# 删掉包含 GNU 内容的行
+$ sed -i '/gnu/Id' version.txt
+```
+
 操作用户/组。
 
 ```
