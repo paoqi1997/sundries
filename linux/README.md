@@ -143,6 +143,14 @@ $ cat /proc/version > version.txt
 $ sed -i '/gnu/Id' version.txt
 ```
 
+通过 awk 命令进行一些操作。
+
+```
+# 查看包含 python 进程的 PID 及 CMD
+$ ps aux|grep python|grep -v grep|awk '{print $2,$11,$12}'
+$ ps aux|grep python|grep -v grep|awk '{ s=$11; for(i=12;i<=NF;++i){ s=s" "$i }; print $2" "s }'
+```
+
 操作用户/组。
 
 ```
