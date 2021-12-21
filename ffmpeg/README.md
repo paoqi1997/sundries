@@ -1,6 +1,6 @@
 # The manual of FFmpeg
 
-面向FFmpeg的基本教程。
+面向 FFmpeg 的基本教程。
 
 ## 说明
 
@@ -8,14 +8,14 @@
 
 ## [安装](https://ffmpeg.org/download.html)
 
-Windows下通过 MSYS2 安装即可。
+Windows 下通过 MSYS2 安装即可。
 
 ```
 $ pacman -Sy gcc make
 $ pacman -Sy yasm diffutils pkg-config
 ```
 
-构建FFmpeg。
+构建 FFmpeg。
 
 ```
 $ tar -xzvf ffmpeg-4.3.1.tar.gz
@@ -42,11 +42,11 @@ In file included from /usr/include/w32api/dshow.h:33,
 make: *** [ffbuild/common.mak:59：libavcodec/mf_utils.o] 错误 1
 ```
 
-在 strsafe.h 文件中添加 `#include <wchar.h>` 后重新 make 即可，注意等报错出现再添加。
+在 strsafe.h 文件中添加 `#include <wchar.h>` 后重新 make 即可。注意，等报错出现后再添加。
 
-## Use FFmpeg
+## [基本命令](https://ffmpeg.org/ffmpeg.html)
 
-相关命令如下所示：
+以下是一些基本的命令：
 
 ```
 # 查看 1.wav 文件的元信息
