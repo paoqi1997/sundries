@@ -4,5 +4,12 @@
     // 显示空格
     "editor.renderWhitespace": "all",
     // 通过鼠标滚轮切换选项卡
-    "workbench.editor.scrollToSwitchTabs": true
+    "workbench.editor.scrollToSwitchTabs": true,
+    // 打开文件时，是否根据文件内容自动覆盖相应配置
+    "editor.detectIndentation": false,
+    // 面向 Go 的编辑器配置
+    "[go]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    }
 }
