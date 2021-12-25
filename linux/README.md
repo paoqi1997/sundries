@@ -448,6 +448,11 @@ $ cat /etc/resolv.conf
 $ ss -ta
 $ lsof -i tcp
 
+# 查看打开的 TCP 连接对应的 PID
+$ sudo ss -tnpl
+# 查看[1, 1024]端口范围内打开的 TCP 连接
+$ sudo lsof -iTCP:1-1024 -sTCP:LISTEN -n -P
+
 # 查询 DNS
 $ host baidu.com
 $ nslookup baidu.com
