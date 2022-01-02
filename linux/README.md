@@ -418,18 +418,20 @@ $ telnet 220.181.38.148 12358
 $ sudo tcpdump -i lo tcp port 12358
 ```
 
-通过 iperf 测试网络性能。
+使用 tcptrack 跟踪 TCP 连接。
+
+```
+$ tcptrack -i eth0 port 80
+```
+
+使用 iperf 或 netperf 测试网络性能。
 
 ```
 # 启动服务端
 $ iperf -s -p 9307
 # 启动客户端
 $ iperf -c 127.0.0.1 -p 9307
-```
 
-通过 netperf 测试网络性能。
-
-```
 # 启动服务端
 $ sudo netserver -4 -p 7751
 # 启动客户端
