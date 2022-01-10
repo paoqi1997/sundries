@@ -14,12 +14,16 @@ $ sudo chown -c your-user dynamodb
 
 ## [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
-安装 [aws-cli](https://hub.docker.com/r/amazon/aws-cli)。
+安装 aws-cli。
 
 ```
+# https://github.com/aws/aws-cli
 $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 $ unzip awscliv2.zip
 $ sudo ./aws/install
+
+# https://hub.docker.com/r/amazon/aws-cli
+$ docker pull amazon/aws-cli
 ```
 
 配置 aws-cli。

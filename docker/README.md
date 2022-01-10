@@ -225,11 +225,15 @@ $ cat /etc/centos-release
 
 ### [Docker Compose](https://docs.docker.com/compose/)
 
-执行以下命令以安装 Docker Compose。
+安装 docker-compose。
 
 ```
+# https://github.com/docker/compose
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
+
+# https://hub.docker.com/r/docker/compose
+$ docker pull docker/compose
 ```
 
 搭建 [photoprism](https://photoprism.app) 服务。
