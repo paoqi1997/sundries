@@ -6,11 +6,13 @@
 
 以下操作均在 Ubuntu 18.04 bionic 下调试通过。
 
-## [安装](https://docs.docker.com/engine/install/ubuntu/)
+## Manage Docker
+
+### [安装](https://docs.docker.com/engine/install/ubuntu/)
 
 你可通过以下途径安装 Docker。
 
-### 1. Install using the repository
+#### 1. Install using the repository
 
 相关命令（2021-10-05 的安装方式）如下所示：
 
@@ -65,7 +67,7 @@ $ sudo apt update
 $ sudo apt install docker-ce docker-ce-cli containerd.io
 ```
 
-### 2. Install from a package
+#### 2. Install from a package
 
 从[此处](https://mirrors.aliyun.com/docker-ce/linux/ubuntu/dists/bionic/pool/stable/amd64/)获取对应的 deb 包。
 
@@ -82,7 +84,7 @@ $ sudo apt install docker-ce docker-ce-cli containerd.io
 $ sudo dpkg -i /path/to/package.deb
 ```
 
-### 3. Install using the convenience script
+#### 3. Install using the convenience script
 
 相关命令如下所示：
 
@@ -95,22 +97,7 @@ $ sudo groupadd docker
 $ sudo usermod -aG docker your-user
 ```
 
-## 卸载
-
-执行以下命令即可。
-
-```
-# 通过 apt 卸载
-$ sudo apt purge docker-ce docker-ce-cli containerd.io
-# 通过 dpkg 卸载
-$ sudo dpkg -r docker-ce docker-ce-cli containerd.io
-
-# 删除镜像、容器、卷等
-$ sudo rm -rf /var/lib/docker
-$ sudo rm -rf /var/lib/containerd
-```
-
-## 配置
+### 配置
 
 创建 [daemon.json](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file) 文件。
 
@@ -128,20 +115,24 @@ your-id 是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生
 }
 ```
 
-## [Registry API](https://docs.docker.com/registry/spec/api/)
+### 卸载
 
-如果你想获取镜像列表，但又不想访问 Docker Hub，那就要通过 Registry API 来实现。
-
-在访问 Docker Registry HTTP API V2 之前，你需要获取 [token](https://docs.docker.com/registry/spec/auth/token/)。
-
-同级目录下的 listtags.py 用以获取镜像列表，希望它能帮到你。
+执行以下命令即可。
 
 ```
-# 顺利的话，相关结果会写入 nginx.tags 文件
-$ python3 listtags.py nginx
+# 通过 apt 卸载
+$ sudo apt purge docker-ce docker-ce-cli containerd.io
+# 通过 dpkg 卸载
+$ sudo dpkg -r docker-ce docker-ce-cli containerd.io
+
+# 删除镜像、容器、卷等
+$ sudo rm -rf /var/lib/docker
+$ sudo rm -rf /var/lib/containerd
 ```
 
-## [基本命令](https://docs.docker.com/engine/reference/commandline/docker/)
+## Use Docker
+
+### [基本命令](https://docs.docker.com/engine/reference/commandline/docker/)
 
 以下是一些基本的命令：
 
@@ -214,7 +205,7 @@ $ docker run \
 $ curl 127.0.0.1:12358
 ```
 
-## [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+### [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 
 执行以下命令即可。
 
@@ -232,7 +223,7 @@ $ docker exec -it centos7 bash
 $ cat /etc/centos-release
 ```
 
-## [Docker Compose](https://docs.docker.com/compose/)
+### [Docker Compose](https://docs.docker.com/compose/)
 
 执行以下命令以安装 Docker Compose。
 
@@ -247,4 +238,17 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 $ wget https://dl.photoprism.org/docker/docker-compose.yml
 
 $ docker-compose up -d
+```
+
+## [Registry API](https://docs.docker.com/registry/spec/api/)
+
+如果你想获取镜像列表，但又不想访问 [Docker Hub](https://registry.hub.docker.com) 站点的话，那就要通过 Registry API 来实现。
+
+在访问 Docker Registry HTTP API V2 之前，你需要获取 [token](https://docs.docker.com/registry/spec/auth/token/)。
+
+同级目录下的 listtags.py 用以获取镜像列表，希望它能帮到你。
+
+```
+# 顺利的话，相关结果会写入 nginx.tags 文件
+$ python3 listtags.py nginx
 ```
