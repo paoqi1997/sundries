@@ -1,14 +1,18 @@
 # Work with GitHub
 
-## Add SSH Key
+## [Add SSH Key](https://docs.github.com/cn/authentication/connecting-to-github-with-ssh)
 
-首先生成 SSH Key，如果需要的话，这里可以设置密码。
+首先生成 SSH Key，如果需要的话，可以在这里设置密码。注意，RSA with SHA-1 已被废弃，详情请参考[该文](https://github.blog/2021-09-01-improving-git-protocol-security-github/)。
 
 ```
+# 2022.1.11 后已废弃的方式
 $ ssh-keygen -t rsa -C "604869221@qq.com"
+
+# 目前使用的方式
+$ ssh-keygen -t ed25519 -C "604869221@qq.com"
 ```
 
-将 ~/.ssh/id_rsa_github.pub 文件中的内容添加到 GitHub 账户中，随后执行以下命令。
+将 ~/.ssh/id_ed25519_github.pub 文件中的内容添加到 GitHub 账户中，随后执行以下命令。
 
 ```
 # Could not open a connection to your authentication agent.
@@ -16,7 +20,7 @@ $ ssh-keygen -t rsa -C "604869221@qq.com"
 $ ssh-agent bash
 
 # 如果你之前生成 SSH Key 的时候设置了密码，那么这里会用到它。
-$ ssh-add ~/.ssh/id_rsa_github
+$ ssh-add ~/.ssh/id_ed25519_github
 
 # 查看代理中的私钥对应的公钥
 $ ssh-add -L
