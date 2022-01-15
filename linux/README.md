@@ -217,6 +217,7 @@ $ ping bilibili.com|tee ping.log
 # 比较文件差异
 $ diff -u /etc/apt/sources.list.bak /etc/apt/sources.list|colordiff
 $ colordiff -u /etc/apt/sources.list.bak /etc/apt/sources.list
+$ vim -d /etc/apt/sources.list.bak /etc/apt/sources.list
 $ vimdiff /etc/apt/sources.list.bak /etc/apt/sources.list
 
 # 查看用户
