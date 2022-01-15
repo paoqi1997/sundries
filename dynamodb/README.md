@@ -42,3 +42,12 @@ Default output format [None]: json
 $ aws dynamodb describe-limits --endpoint-url http://localhost:8000
 $ aws dynamodb list-tables --endpoint-url http://localhost:8000
 ```
+
+## [DynamoDB Manager](https://github.com/YoyaTeam/dynamodb-manager)
+
+执行以下命令。
+
+```
+$ docker pull taydy/dynamodb-manager
+$ docker run -d --rm -p 8008:80 --name dmgr taydy/dynamodb-manager
+```
