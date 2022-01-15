@@ -214,6 +214,11 @@ $ echo -e 'Hello!\nHello!\nHi'|uniq
 # 一边跟踪命令输出一边将其记录到文件中
 $ ping bilibili.com|tee ping.log
 
+# 比较文件差异
+$ diff -u /etc/apt/sources.list.bak /etc/apt/sources.list|colordiff
+$ colordiff -u /etc/apt/sources.list.bak /etc/apt/sources.list
+$ vimdiff /etc/apt/sources.list.bak /etc/apt/sources.list
+
 # 查看用户
 $ cat /etc/passwd
 # 查看存储用户密码信息的文件
