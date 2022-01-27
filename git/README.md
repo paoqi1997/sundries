@@ -6,19 +6,16 @@
 
 以下操作均在 Git 2.17.1 下调试通过。
 
-## Config
+## [Config](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE)
 
-配置一下。
+首先对其进行配置。
 
 ```
 $ git config --global user.name "paoqi1997"
 $ git config --global user.email "604869221@qq.com"
-```
 
-查看配置。
-
-```
 $ git config -l
+$ git config --list --show-origin
 ```
 
 ## Learn Git
@@ -52,3 +49,7 @@ $ git status
 $ git add readme.txt
 $ git commit -m "update readme.txt"
 ```
+
+## 提交规范
+
+参考自 AngularJS 的 [Git Commit Guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 和 Angular 的 [Commit Message Format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)。
