@@ -49,7 +49,7 @@ $ git clone https://github.com/paoqi1997/enpa.git
 这里是为了[免密登录](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%87%AD%E8%AF%81%E5%AD%98%E5%82%A8)，稍后需要从[此处](https://github.com/settings/tokens)获取 token。
 
 ```
-# 这里将用户名中的'@'转义为%40
+# 这里将用户名（邮箱）中的'@'转义为%40
 $ echo 'https://604869221%40qq.com:your-token@github.com.cnpmjs.org' > ~/.git-credentials
 
 $ git config --global credential.helper store
@@ -61,38 +61,39 @@ $ git config --global credential.helper store
 $ git clone https://github.com.cnpmjs.org/paoqi1997/enpa.git
 ```
 
-## GitHub CLI
+## [GitHub CLI](https://cli.github.com)
 
-获取 [GitHub CLI](https://cli.github.com) 并安装，随后进行身份验证，需要从[此处](https://github.com/settings/tokens)获取 token。
+进行身份验证时，需要使用从[此处](https://github.com/settings/tokens)获取的 token。
 
 ```
+# Authenticate with a GitHub host.
 $ gh auth login
 
+# Verifies and displays information about your authentication state.
 $ gh auth status
 ```
 
 执行以下命令。
 
 ```
-# 查看repo
+# 查看 repo
 $ gh repo view godotengine/godot
 
-# 获取repo
+# 获取 repo
 $ gh repo clone paoqi1997/enpa
 
 $ cd enpa
-
-# 查看issues
+# 查看 issues
 $ gh issue list
 $ gh issue view 1
 ```
 
-## GitHub Desktop
+## [GitHub for mobile](https://github.com/mobile)
 
-点击[这里](https://desktop.github.com)获取。
+实际上 GitHub 官方会让你去 [Google Play](https://play.google.com/store/apps/details?id=com.github.android) 获取 APK，但你需要登录你的 Google 账户。一个比较好的办法是，你可以直接前往 [APK Downloader](https://apps.evozi.com/apk-downloader/?id=com.github.android) 下载 APK，从而免去登录 Google 账户的麻烦。
 
-## GitHub for mobile
+## TPs
 
-点击[这里](https://github.com/mobile)获取。
++ [GitHub Desktop](https://desktop.github.com)
 
-当然 GitHub 官方会让你去 [Google Play](https://play.google.com/store/apps/details?id=com.github.android) 获取 APK，但你需要登录你的 Google 账户。一个比较好的办法是，你可以直接前往 [APK Downloader](https://apps.evozi.com/apk-downloader/?id=com.github.android) 下载 APK，从而免去登录 Google 账户的麻烦。
++ [GitHub Status](https://www.githubstatus.com)
