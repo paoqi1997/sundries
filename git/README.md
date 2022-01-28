@@ -67,6 +67,31 @@ $ git add version
 $ git commit --amend
 ```
 
+这里列出一些[撤消操作](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C)。
+
+```
+$ echo 002919 > version
+$ git add version
+
+# 取消暂存
+$ git reset HEAD version
+# 撤销修改
+$ git checkout -- version
+```
+
+其他的一些命令放在这里。
+
+```
+# 贮藏修改
+$ git stash
+# 拉取代码
+$ git pull --rebase
+# 应用之前贮藏的修改
+$ git stash apply
+# 应用之前贮藏的修改，并在应用后删除这个 stash
+$ git stash pop
+```
+
 ## 提交规范
 
 参考自 AngularJS 的 [Git Commit Guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 和 Angular 的 [Commit Message Format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)。
