@@ -8,11 +8,13 @@
 
 ## [Config](https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%88%9D%E6%AC%A1%E8%BF%90%E8%A1%8C-Git-%E5%89%8D%E7%9A%84%E9%85%8D%E7%BD%AE)
 
-首先对其进行配置。
+初次运行 Git 前对其进行配置。
 
 ```
+# https://git-scm.com/docs/git-config
 $ git config --global user.name "paoqi1997"
 $ git config --global user.email "604869221@qq.com"
+$ git config --global core.editor vim
 
 $ git config -l
 $ git config --list --show-origin
@@ -27,27 +29,42 @@ $ mkdir learngit
 $ cd learngit
 $ git init
 
-$ touch readme.txt
 $ echo "Hello Git!" > readme.txt
 
 $ git add readme.txt
-$ git commit -m "create readme.txt"
-
-# 查看提交历史
-$ git log
-# 查看提交历史（一行信息）
-$ git log --oneline
+$ git commit -m "docs: create readme.txt"
 ```
 
-查看difference。
+查看提交历史。
+
+```
+# https://git-scm.com/docs/git-log
+$ git log -p
+$ git log --oneline
+$ git log --stat --graph
+```
+
+比较差异。
 
 ```
 $ echo "Git is better than SVN." >> readme.txt
-$ git diff readme.txt
 $ git status
 
+# https://git-scm.com/docs/git-diff
+$ git diff readme.txt
+$ git diff --stat
+
 $ git add readme.txt
-$ git commit -m "update readme.txt"
+
+$ git diff --cached
+$ git diff --staged
+
+$ git commit -m "docs: update readme.txt"
+
+$ echo 002918 > version
+$ git add version
+# 重新提交
+$ git commit --amend
 ```
 
 ## 提交规范
