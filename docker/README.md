@@ -105,7 +105,7 @@ $ sudo usermod -aG docker your-user
 $ sudo touch /etc/docker/daemon.json
 ```
 
-your-id 是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生成的 ID。
+以下是文件要包含的内容，其中 your-id 是[阿里云容器镜像服务](https://cr.console.aliyun.com)为你生成的 ID。
 
 ```json
 {
