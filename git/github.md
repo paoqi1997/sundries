@@ -97,3 +97,15 @@ $ gh issue view 1
 + [GitHub Desktop](https://desktop.github.com)
 
 + [GitHub Status](https://www.githubstatus.com)
+
+## Repos
+
++ [cli/cli](https://github.com/cli/cli)
+
++ [desktop/desktop](https://github.com/desktop/desktop)
+
++ [github/docs](https://github.com/github/docs)
+
++ [github/hub](https://github.com/github/hub)
+
++ [github/linguist](https://github.com/github/linguist)

@@ -95,3 +95,19 @@ $ git stash pop
 ## 提交规范
 
 参考自 AngularJS 的 [Git Commit Guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits) 和 Angular 的 [Commit Message Format](https://github.com/angular/angular/blob/master/CONTRIBUTING.md#commit)。
+
+## TPs
+
++ [Git LFS](https://git-lfs.github.com)
+
++ [libgit2](https://libgit2.org)
+
+## Repos
+
++ [git/git](https://github.com/git/git)
+
++ [git-for-windows/git](https://github.com/git-for-windows/git)
+
++ [git-lfs/git-lfs](https://github.com/git-lfs/git-lfs)
+
++ [libgit2/libgit2](https://github.com/libgit2/libgit2)
