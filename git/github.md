@@ -33,15 +33,15 @@ $ ssh-add -l
 ```
 $ ssh -T git@github.com
 
-# Clone paoqi1997/enpa with SSH
-$ git clone git@github.com:paoqi1997/enpa.git
+# Clone paoqi1997/pqnet with SSH
+$ git clone git@github.com:paoqi1997/pqnet.git
 ```
 
 如果嫌配置麻烦，可以直接通过 HTTPS 获取 repo。
 
 ```
-# Clone paoqi1997/enpa with HTTPS
-$ git clone https://github.com/paoqi1997/enpa.git
+# Clone paoqi1997/pqnet with HTTPS
+$ git clone https://github.com/paoqi1997/pqnet.git
 ```
 
 ## Use proxy
@@ -58,7 +58,7 @@ $ git config --global credential.helper store
 测试一下。
 
 ```
-$ git clone https://github.com.cnpmjs.org/paoqi1997/enpa.git
+$ git clone https://github.com.cnpmjs.org/paoqi1997/pqnet.git
 ```
 
 ## [GitHub CLI](https://cli.github.com)
@@ -80,9 +80,9 @@ $ gh auth status
 $ gh repo view godotengine/godot
 
 # 获取 repo
-$ gh repo clone paoqi1997/enpa
+$ gh repo clone paoqi1997/pqnet
 
-$ cd enpa
+$ cd pqnet
 # 查看 issues
 $ gh issue list
 $ gh issue view 1
