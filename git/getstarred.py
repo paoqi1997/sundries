@@ -10,13 +10,24 @@ if __name__ == '__main__':
     else:
         sUserName = argv[1]
 
+    dParam = {
+        'sort': 'created',
+        'direction': 'desc',
+        'per_page': 30,
+        'page': 1
+    }
+
+    lstParam = [f'{sKey}={dParam[sKey]}' for sKey in dParam]
+
+    sParams = '&'.join(lstParam)
+
     # https://docs.github.com/cn/rest/reference/activity#list-repositories-starred-by-a-user
-    sUrl = f'https://api.github.com/users/{sUserName}/starred'
+    sUrl = f'"https://api.github.com/users/{sUserName}/starred?{sParams}"'
 
     lstOption = [
         '-s',
         '-H',
-        '\"Accept: application/vnd.github.v3+json\"'
+        '"Accept: application/vnd.github.v3+json"'
     ]
 
     # https://curl.se/mail/lib-2016-03/0202.html
@@ -26,6 +37,7 @@ if __name__ == '__main__':
     sOptions = ' '.join(lstOption)
 
     sCmd = f'curl {sOptions} {sUrl}'
+    print(sCmd)
 
     with os.popen(sCmd) as oPipe:
         sResult = oPipe.buffer.read().decode('utf-8')
