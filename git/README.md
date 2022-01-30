@@ -98,6 +98,10 @@ $ git stash pop
 
 ## TPs
 
++ [Git](https://git-scm.com)
+
++ [Git for Windows](https://gitforwindows.org)
+
 + [Git LFS](https://git-lfs.github.com)
 
 + [libgit2](https://libgit2.org)
