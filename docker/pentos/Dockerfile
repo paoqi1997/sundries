@@ -1,6 +1,6 @@
 FROM centos:7
 
-MAINTAINER 604869221@qq.com
+LABEL maintainer='604869221@qq.com'
 
 RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
         -e 's|^#baseurl=http://mirror.centos.org/centos|baseurl=https://mirrors.ustc.edu.cn/centos|g' \
