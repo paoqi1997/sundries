@@ -239,8 +239,10 @@ $ docker pull docker/compose
 搭建 [photoprism](https://photoprism.app) 服务。
 
 ```
-$ wget https://dl.photoprism.org/docker/docker-compose.yml
+# https://docs.photoprism.app/getting-started/docker-compose/
+$ wget https://dl.photoprism.app/docker/docker-compose.yml
 
+# https://docs.docker.com/compose/reference/up/
 $ docker-compose up -d
 ```
 

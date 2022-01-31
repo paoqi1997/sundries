@@ -5,6 +5,10 @@ services:
     build: .
     ports:
       - '5000:5000'
+    volumes:
+      - .:/code
+    environment:
+      FLASK_ENV: development
   redis:
     # https://hub.docker.com/_/redis
     image: 'redis:alpine'
