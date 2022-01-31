@@ -6,4 +6,5 @@ services:
     ports:
       - '5000:5000'
   redis:
+    # https://hub.docker.com/_/redis
     image: 'redis:alpine'

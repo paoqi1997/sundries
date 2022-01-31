@@ -1,3 +1,4 @@
+# https://hub.docker.com/_/python
 FROM python:3.7-alpine
 
 WORKDIR /code
@@ -15,4 +16,5 @@ EXPOSE 5000
 
 COPY . .
 
+# https://palletsprojects.com/p/flask/
 CMD ['flask', 'run']
