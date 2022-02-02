@@ -145,6 +145,12 @@ $ docker images
 $ docker container ls
 $ docker ps -a
 
+# 附着到容器上
+$ docker attach your-container
+
+# 查看容器内运行的进程
+$ docker top your-container
+
 # 移除指定镜像
 $ docker rmi -f your-image
 
@@ -152,6 +158,12 @@ $ docker rmi -f your-image
 $ docker stop $(docker ps -aq)
 # 删除所有容器
 $ docker rm $(docker ps -aq)
+
+# Fetch the logs of a container
+$ docker logs your-container
+
+# Return low-level information on Docker objects
+$ docker inspect your-container
 ```
 
 通过 Docker 搭建 [MySQL](https://github.com/docker-library/docs/tree/master/mysql) 服务。
@@ -236,7 +248,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 $ docker pull docker/compose
 ```
 
-搭建 [photoprism](https://photoprism.app) 服务。
+搭建 [PhotoPrism](https://photoprism.app) 服务。
 
 ```
 # https://docs.photoprism.app/getting-started/docker-compose/
