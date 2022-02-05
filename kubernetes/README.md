@@ -44,4 +44,60 @@ $ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
 # 查看集群是否正常工作
 $ kubectl cluster-info
+
+# 列出集群节点
+$ kubectl get nodes
+$ kubectl get node
+$ kubectl get no -o wide
+
+# 列出 pod
+$ kubectl get pods
+$ kubectl get pod
+$ kubectl get po
+
+# 列出服务
+$ kubectl get services
+$ kubectl get service
+$ kubectl get svc
+
+# 列出 Deployment
+$ kubectl get deployments
+$ kubectl get deployment
+$ kubectl get deploy
+
+# Describe a node
+$ kubectl describe nodes your-node
+```
+
+## 实战
+
+### [部署 nginx 服务](https://kubernetes.io/zh/docs/tasks/run-application/run-stateless-application-deployment/)
+
+执行以下命令即可。
+
+```
+# https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/
+$ kubectl apply -f nginx-deployment.yaml
+
+$ kubectl get po --show-labels
+$ kubectl get po -l app=nginx
+
+# Print the logs for a container in a pod or specified resource.
+$ kubectl logs your-pod
+
+$ kubectl create -f nginx-service.yaml
+
+# Returns the Kubernetes URL for a service in your local cluster.
+$ minikube service list
+$ minikube service nginx-service --url
+```
+
+结束服务。
+
+```
+$ kubectl delete svc nginx-service
+
+$ kubectl delete deploy nginx-deployment
+
+$ kubectl delete po -l app=nginx
 ```
