@@ -7,10 +7,14 @@ metadata:
     app: nginx
 spec:
   ports:
-  - port: 80
+    # The port that will be exposed by this service.
+  - port: 8678
+    # Number or name of the port to access on the pods targeted by the service.
     targetPort: 80
     protocol: TCP
     name: ngx-svc0
+    # The port on each node on which this service is exposed when type is NodePort or LoadBalancer.
+    nodePort: 32223
   selector:
     app: nginx
   type: NodePort

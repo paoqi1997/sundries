@@ -65,7 +65,7 @@ $ kubectl get deployments
 $ kubectl get deployment
 $ kubectl get deploy
 
-# Describe a node
+# Show details of a specific resource or group of resources.
 $ kubectl describe nodes your-node
 ```
 
@@ -85,6 +85,7 @@ $ kubectl get po -l app=nginx
 # Print the logs for a container in a pod or specified resource.
 $ kubectl logs your-pod
 
+# Create a resource from a file or from stdin.
 $ kubectl create -f nginx-service.yaml
 
 # Returns the Kubernetes URL for a service in your local cluster.
