@@ -200,7 +200,7 @@ $ docker stop redis5
 通过 Docker 搭建在 [nginx](https://github.com/docker-library/docs/tree/master/nginx) 上运行的 [LearnOpenGL](https://github.com/LearnOpenGL-CN/LearnOpenGL-CN) 在线教程。
 
 ```
-$ git clone https://github.com.cnpmjs.org/LearnOpenGL-CN/LearnOpenGL-CN
+$ git clone https://github.com/LearnOpenGL-CN/LearnOpenGL-CN
 $ cd LearnOpenGL-CN
 
 $ python3 setup.py install

@@ -44,21 +44,40 @@ $ git clone git@github.com:paoqi1997/pqnet.git
 $ git clone https://github.com/paoqi1997/pqnet.git
 ```
 
-## Use proxy
+## [Use credentials](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%87%AD%E8%AF%81%E5%AD%98%E5%82%A8)
 
-这里是为了[免密登录](https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E5%87%AD%E8%AF%81%E5%AD%98%E5%82%A8)，稍后需要从[此处](https://github.com/settings/tokens)获取 token。
+这里需要你从[此处](https://github.com/settings/tokens)获取 token。
 
 ```
 # 这里将用户名（邮箱）中的'@'转义为%40
-$ echo 'https://604869221%40qq.com:your-token@github.com.cnpmjs.org' > ~/.git-credentials
+$ echo 'https://604869221%40qq.com:your-token@github.com' > ~/.git-credentials
 
 $ git config --global credential.helper store
+```
+
+## Use proxy
+
+启用 [FastGithub](https://github.com/dotnetcore/FastGithub)。
+
+```
+# https://github.com/dotnetcore/FastGithub/releases
+$ wget https://github.com/dotnetcore/FastGithub/releases/download/2.1.3/fastgithub_linux-x64.zip
+
+$ unzip -v fastgithub_linux-x64.zip
+$ unzip fastgithub_linux-x64.zip
+
+$ mv fastgithub_linux-x64 fastgithub
+$ cd fastgithub
+$ sudo ./fastgithub
+
+$ git config --global http.proxy 'http://127.0.0.1:38457'
+$ git config --get http.proxy
 ```
 
 测试一下。
 
 ```
-$ git clone https://github.com.cnpmjs.org/paoqi1997/pqnet.git
+$ git clone https://github.com/paoqi1997/pqnet.git
 ```
 
 ## [GitHub CLI](https://cli.github.com)

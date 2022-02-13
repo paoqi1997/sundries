@@ -483,13 +483,8 @@ registry = "https://mirrors.ustc.edu.cn/crates.io-index"
 通过 git 获取源代码。
 
 ```
-$ git clone https://github.com.cnpmjs.org/cloudwu/skynet
+$ git clone https://github.com/cloudwu/skynet
 $ cd skynet
-```
-
-将 .gitmodules 中的 github.com 改为 github.com.cnpmjs.org，然后执行以下命令：
-
-```
 $ make linux
 ```
 
@@ -526,13 +521,8 @@ $ sudo make install
 通过 git 获取源代码。
 
 ```
-$ git clone https://github.com.cnpmjs.org/vlang/v
+$ git clone https://github.com/vlang/v
 $ cd v
-```
-
-将 Makefile 中的 github.com 改为 github.com.cnpmjs.org，然后执行以下命令：
-
-```
 $ make
 $ sudo ./v symlink
 ```
@@ -562,7 +552,7 @@ $ bash <(curl -fsSL https://xmake.io/shget.text)
 通过 git 获取源代码。
 
 ```
-$ git clone https://github.com.cnpmjs.org/facebook/zstd
+$ git clone https://github.com/facebook/zstd
 $ cd zstd
 $ make -j2
 $ sudo make install
