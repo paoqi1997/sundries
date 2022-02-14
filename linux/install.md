@@ -96,11 +96,11 @@ $ go env -w GOPROXY=https://goproxy.cn,direct
 通过 git 获取源代码。
 
 ```
-$ git clone https://github.com/google/googletest.git
+$ git clone https://github.com/google/googletest
 $ cd googletest
 ```
 
-编译并安装googletest。
+编译并安装 googletest。
 
 ```
 $ cmake -S . -B build
@@ -114,11 +114,11 @@ $ sudo make install
 通过 git 获取源代码。
 
 ```
-$ git clone https://github.com/skywind3000/kcp.git
+$ git clone https://github.com/skywind3000/kcp
 $ cd kcp
 ```
 
-编译并安装kcp。
+编译并安装 kcp。
 
 ```
 $ cmake -S . -B build
@@ -161,7 +161,7 @@ $ chown -R mysql data
 $ ./bin/mysqld_safe --user=mysql &
 ```
 
-在~/.profile文件中添加以下命令。
+在 ~/.profile 文件中添加以下命令。
 
 ```
 export PATH=$PATH:/usr/local/mysql/bin
@@ -229,7 +229,7 @@ systemLog:
   path: /usr/local/mongodb/log/mongod.log
 ```
 
-在~/.profile文件中添加以下命令。
+在 ~/.profile 文件中添加以下命令。
 
 ```
 export PATH=$PATH:/usr/local/mongodb/bin
@@ -310,7 +310,7 @@ $ bin/mysql_ssl_rsa_setup
 $ bin/mysqld_safe --user=mysql &
 ```
 
-mysqld 依赖 [libaio1](https://pkgs.org/download/libaio1)，如果没有的话请通过包管理器安装：
+mysqld 依赖 [libaio1](https://pkgs.org/download/libaio1)。如果没有的话，请通过包管理器安装：
 
 ```
 $ sudo apt install libaio1
@@ -365,7 +365,7 @@ $ sudo tar -C /usr/local -xzvf openjdk-11.0.1_linux-x64_bin.tar.gz
 $ sudo mv /usr/local/jdk-11.0.1 /usr/local/java
 ```
 
-在$HOME/.profile文件中添加以下命令。
+在 $HOME/.profile 文件中添加以下命令。
 
 ```
 export PATH=$PATH:/usr/local/java/bin
@@ -425,7 +425,7 @@ $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 >curl -O https://static.rust-lang.org/rustup/dist/x86_64-pc-windows-gnu/rustup-init.exe
 ```
 
-如果速度比较慢可以通过国内镜像加速。
+如果速度比较慢的话，可以通过国内镜像加速。
 
 ```
 $ curl http://mirrors.rustcc.cn/rustup/archive/1.21.1/x86_64-unknown-linux-gnu/rustup-init -o rustup-init
@@ -461,7 +461,7 @@ y
 $ source ~/.cargo/env
 ```
 
-如果需要卸载Rust环境，可以这么做：
+如果需要卸载 Rust 环境，可以这么做：
 
 ```
 $ rustup self uninstall
@@ -590,13 +590,13 @@ $ lua main.luo
 
 ### [pybind11](https://pybind11.readthedocs.io/en/stable/basics.html)
 
-安装Python的开发包。
+安装 Python 的开发包。
 
 ```
 $ sudo apt install python3-dev
 ```
 
-安装pytest。
+安装 pytest。
 
 ```
 $ sudo apt install python3-pip
@@ -611,7 +611,7 @@ $ git clone https://github.com/pybind/pybind11.git
 $ cd pybind11
 ```
 
-编译并安装pybind11。
+编译并安装 pybind11。
 
 ```
 $ cmake -S . -B build
