@@ -316,8 +316,13 @@ $ cat /proc/loadavg
 $ uptime -p
 $ cat /proc/uptime
 
-# 查看 mounts 文件第10到20行的内容（没有'+'就是第11行）
+# 查看 mounts 文件第10到20行的内容（没有'+'就是最后10行内容）
 $ cat -n /proc/mounts|head -n 20|tail -n +10
+
+# Display or control the kernel ring buffer.
+$ dmesg -H
+# Query the journal.
+$ journalctl -r
 ```
 
 查看磁盘。
