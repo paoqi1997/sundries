@@ -67,6 +67,30 @@ $ git add version
 $ git commit --amend
 ```
 
+使用分支。
+
+```
+$ git branch -l
+$ git branch -a
+
+# 查看远程分支
+$ git branch -r
+
+$ git checkout -b 220302-patch
+
+# 查看本地分支及与上游分支的关系
+$ git branch -vv
+# 设置跟踪分支
+$ git branch --set-upstream-to=origin/master 220302-patch
+
+$ echo "But I am not very proficient with Git yet." >> readme.txt
+$ git add readme.txt
+
+$ git commit -m "docs: update readme.txt with the patch"
+
+$ git push origin HEAD
+```
+
 这里列出一些[撤消操作](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C)。
 
 ```
