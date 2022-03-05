@@ -319,6 +319,11 @@ $ cat /proc/uptime
 # 查看 mounts 文件第10到20行的内容（没有'+'就是最后10行内容）
 $ cat -n /proc/mounts|head -n 20|tail -n +10
 
+# file perusal filter for crt viewing
+$ more /etc/sysctl.conf
+# opposite of more
+$ less /etc/mime.types
+
 # Display or control the kernel ring buffer.
 $ dmesg -H
 # Query the journal.

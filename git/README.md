@@ -88,6 +88,7 @@ $ git add readme.txt
 
 $ git commit -m "docs: update readme.txt with the patch"
 
+# 推送当前分支到同名的远程分支
 $ git push origin HEAD
 ```
 
