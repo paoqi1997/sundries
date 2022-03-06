@@ -61,16 +61,24 @@ $ git config --global credential.helper store
 
 ```
 # https://github.com/dotnetcore/FastGithub/releases
-$ wget https://github.com/dotnetcore/FastGithub/releases/download/2.1.3/fastgithub_linux-x64.zip
+$ wget https://github.com/dotnetcore/FastGithub/releases/download/2.1.4/fastgithub_linux-x64.zip
 
 $ unzip -v fastgithub_linux-x64.zip
 $ unzip fastgithub_linux-x64.zip
 
 $ mv fastgithub_linux-x64 fastgithub
 $ cd fastgithub
-$ sudo ./fastgithub
 
-$ git config --global http.proxy 'http://127.0.0.1:38457'
+$ tmux new -s fastgithub
+$ sudo ./fastgithub|tee what.cal
+
+$ tmux attach -t fastgithub
+$ tmux detach
+
+$ tmux ls
+$ tmux kill-session -t fastgithub
+
+$ git config --global http.proxy http://127.0.0.1:38457
 $ git config --get http.proxy
 ```
 
