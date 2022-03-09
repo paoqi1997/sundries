@@ -41,7 +41,7 @@
             "guid": "{3628a9e3-9cb8-4dd5-8103-39c10409110f}",
             "name": "Git Bash",
             // change to the path of your bash.exe
-            "commandline": "D:\\Git\\bin\\bash.exe --login -i",
+            "commandline": "D:\\Git\\bin\\bash.exe --login -i -c \"ssh-agent bash\"",
             "startingDirectory": "C:\\Users\\%USERNAME%",
             "fontFace": "Consolas",
             // change to the path of your icon
