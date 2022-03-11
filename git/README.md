@@ -76,7 +76,14 @@ $ git branch -a
 # 查看远程分支
 $ git branch -r
 
-$ git checkout -b 220302-patch
+$ git checkout -b mybranch
+
+# 删除分支
+$ git branch -d mybranch
+$ git branch -D mybranch
+
+# 将 mybranch 改名为 220302-patch
+$ git branch -m mypatch 220302-patch
 
 # 查看本地分支及与上游分支的关系
 $ git branch -vv
