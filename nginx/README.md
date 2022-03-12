@@ -1,6 +1,6 @@
 # The manual of NGINX
 
-面向NGINX的基本教程。
+面向 NGINX 的基本教程。
 
 ## 说明
 
@@ -8,7 +8,7 @@
 
 ## [安装](https://nginx.org/en/download.html)
 
-获取[OpenSSL](https://www.openssl.org/source/)、[PCRE](https://ftp.pcre.org/pub/pcre/)及[zlib](https://zlib.net)的包后，提取nginx的包。
+获取 [OpenSSL](https://www.openssl.org/source/)、[PCRE](https://ftp.pcre.org/pub/pcre/) 和 [zlib](https://zlib.net) 的包后，提取 nginx 的包。
 
 ```
 $ tar -xzvf nginx-1.16.1.tar.gz

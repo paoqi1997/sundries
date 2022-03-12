@@ -166,7 +166,9 @@ $ docker logs your-container
 $ docker inspect your-container
 ```
 
-通过 Docker 搭建 [MySQL](https://github.com/docker-library/docs/tree/master/mysql) 服务。
+#### MySQL
+
+搭建 [MySQL](https://github.com/docker-library/docs/tree/master/mysql) 服务。
 
 ```
 $ docker pull mysql:8.0.19
@@ -182,22 +184,51 @@ $ mysql -uroot -p123456
 $ docker stop mysql8
 ```
 
-通过 Docker 搭建 [Redis](https://github.com/docker-library/docs/tree/master/redis) 服务。
+#### Redis
+
+准备 script.lua 脚本。
+
+```lua
+local queueKey = KEYS[1]
+local lenLimit = ARGV[1]
+local data = ARGV[2]
+
+local ret = 0
+
+-- https://redis.io/commands/lpush
+local len = redis.call('LPUSH', queueKey, data)
+if len > tonumber(lenLimit) then
+    redis.call('LTRIM', queueKey, 0, lenLimit - 1)
+    ret = 1
+end
+
+len = redis.call('LLEN', queueKey)
+
+return { ret, len }
+```
+
+搭建 [Redis](https://github.com/docker-library/docs/tree/master/redis) 服务。
 
 ```
 $ docker pull redis:5.0.7
 
 $ docker run \
     -p 127.0.0.1:6379:6379 -d --rm --name redis5 \
+    -v $PWD/script.lua:/opt/script.lua \
     redis:5.0.7
 
 $ docker exec -it redis5 bash
-$ redis-cli
+
+# https://redis.com/blog/5-6-7-methods-for-tracing-and-debugging-redis-lua-scripts/
+$ redis-cli --eval /opt/script.lua q , 10 cqc
+$ redis-cli lrange q 0 9
 
 $ docker stop redis5
 ```
 
-通过 Docker 搭建在 [nginx](https://github.com/docker-library/docs/tree/master/nginx) 上运行的 [LearnOpenGL](https://github.com/LearnOpenGL-CN/LearnOpenGL-CN) 在线教程。
+#### nginx
+
+搭建 [nginx](https://github.com/docker-library/docs/tree/master/nginx) 服务并部署 [LearnOpenGL](https://github.com/LearnOpenGL-CN/LearnOpenGL-CN) 在线教程。
 
 ```
 $ git clone https://github.com/LearnOpenGL-CN/LearnOpenGL-CN
