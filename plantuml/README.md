@@ -1,6 +1,6 @@
 # The manual of PlantUML
 
-面向[PlantUML](https://plantuml.com/zh/)的基本教程。
+面向 [PlantUML](https://plantuml.com/zh/) 的基本教程。
 
 ## 说明
 

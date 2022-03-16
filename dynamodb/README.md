@@ -8,7 +8,7 @@
 
 ```
 $ docker-compose up
-
+# your-user 是你当前的用户名
 $ sudo chown -c your-user dynamodb
 ```
 
