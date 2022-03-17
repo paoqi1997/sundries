@@ -37,3 +37,23 @@ action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-hist
 ```
 $ ./bin/elasticsearch
 ```
+
+检查 es 是否在运行。
+
+```
+$ export ES_PATH_CONF=$PWD/config
+$ curl --cacert $ES_PATH_CONF/certs/http_ca.crt -u elastic https://localhost:9200
+```
+
+修改密码。
+
+```
+# https://www.elastic.co/guide/en/elasticsearch/reference/current/built-in-users.html
+$ export ESPASS=password-of-elastic
+$ curl -X POST --cacert $ES_PATH_CONF/certs/http_ca.crt \
+    -u elastic:$ESPASS "https://localhost:9200/_security/user/elastic/_password?pretty" \
+    -H 'Content-Type: application/json' -d '{ "password": "123456" }'
+
+# 重置密码
+$ ./bin/elasticsearch-reset-password -u elastic
+```
