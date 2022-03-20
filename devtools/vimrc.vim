@@ -1,6 +1,9 @@
 " My configuration of Vim
 
-" path: /etc/vim/vimrc
+" 进入 vim，键入 ve/ver/version 命令
+" path:
+"   /etc/vim/vimrc
+"   ~/.vimrc
 
 " 1. 字符编码
 set encoding=utf-8
@@ -22,10 +25,10 @@ if has('mouse')
     set mouse-=a
 endif
 
-" 5. 将tab转换为空格
+" 5. 将 tab 转换为空格
 set expandtab
 
-" 6. 设定tab的长度为4
+" 6. 设定 tab 的长度为4
 set tabstop=4
 
 " 7. 设定自动缩进的宽度为4
@@ -40,5 +43,5 @@ set nobackup
 " 10. 显示匹配的括号
 set showmatch
 
-" 11. 关闭vi兼容模式
+" 11. 关闭 vi 兼容模式
 set nocompatible
