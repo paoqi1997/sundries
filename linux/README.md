@@ -508,7 +508,7 @@ ClientAliveCountMax 3
 $ ssh-keygen -t rsa
 
 # Windows 下可使用 Git Bash 进行操作
-$ ssh-copy-id -i ~/.ssh/id_rsa_aliyun.pub user@host
+$ ssh-copy-id -i ~/.ssh/id_rsa_aliyun.pub -p port user@host
 ```
 
 创建 ~/.ssh/config 文件并添加以下内容：
