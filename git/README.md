@@ -133,7 +133,7 @@ $ git push origin HEAD --tags
 $ git tag -d v0.0.1
 
 # 删除远程标签
-$ git push origin master :refs/tags/v0.0.1
+$ git push origin :refs/tags/v0.0.1
 ```
 
 这里列出一些[撤消操作](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C)。
