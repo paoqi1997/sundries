@@ -98,6 +98,12 @@ $ git commit -m "docs: update readme.txt with the patch"
 
 # 推送当前分支到同名的远程分支
 $ git push origin HEAD
+
+# 更新远程分支列表
+$ git remote update origin --prune
+
+# 删除远程分支 target
+$ git push origin :target
 ```
 
 使用标签。
@@ -106,9 +112,11 @@ $ git push origin HEAD
 # 从远端拉取所有标签
 $ git fetch --tags
 
+# https://www.mikestreety.co.uk/blog/the-git-commit-hash/
 # 从指定提交创建分支
 $ git checkout -b mybranch commit-hash
 
+# https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
 # 将指定提交应用到当前分支
 $ git cherry-pick commit-hash
 
@@ -120,6 +128,12 @@ $ git show v0.0.1
 
 # 将本地标签推送到远程分支
 $ git push origin HEAD --tags
+
+# 删除本地标签
+$ git tag -d v0.0.1
+
+# 删除远程标签
+$ git push origin master :refs/tags/v0.0.1
 ```
 
 这里列出一些[撤消操作](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C)。
