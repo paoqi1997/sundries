@@ -76,6 +76,7 @@ $ git branch -a
 # 查看远程分支
 $ git branch -r
 
+# 从当前提交创建分支
 $ git checkout -b mybranch
 
 # 删除分支
@@ -97,6 +98,28 @@ $ git commit -m "docs: update readme.txt with the patch"
 
 # 推送当前分支到同名的远程分支
 $ git push origin HEAD
+```
+
+使用标签。
+
+```
+# 从远端拉取所有标签
+$ git fetch --tags
+
+# 从指定提交创建分支
+$ git checkout -b mybranch commit-hash
+
+# 将指定提交应用到当前分支
+$ git cherry-pick commit-hash
+
+# 打标签
+$ git tag -a v0.0.1 -m 'The first tag'
+
+# 查看标签
+$ git show v0.0.1
+
+# 将本地标签推送到远程分支
+$ git push origin HEAD --tags
 ```
 
 这里列出一些[撤消操作](https://git-scm.com/book/zh/v2/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C)。
