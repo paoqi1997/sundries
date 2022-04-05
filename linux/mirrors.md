@@ -4,13 +4,21 @@
 
 ## 镜像站
 
+### 高校
+
 1. [中国科学技术大学](https://mirrors.ustc.edu.cn)
 
 2. [清华大学](https://mirrors.tuna.tsinghua.edu.cn)
 
-3. [阿里](https://developer.aliyun.com/mirror/)
+3. [浙江大学](https://mirrors.zju.edu.cn)
 
-4. [网易](https://mirrors.163.com)
+### 企业
+
+1. [阿里](https://developer.aliyun.com/mirror/)
+
+2. [网易](https://mirrors.163.com)
+
+3. [腾讯](https://mirrors.cloud.tencent.com)
 
 ## [elementary OS](https://mirrors.ustc.edu.cn/help/ubuntu.html)
 
