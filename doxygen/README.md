@@ -1,6 +1,6 @@
 # The manual of Doxygen
 
-面向Doxygen的基本教程。
+面向 Doxygen 的基本教程。
 
 ## 说明
 

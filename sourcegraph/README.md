@@ -1,6 +1,6 @@
 # The manual of Sourcegraph
 
-面向Sourcegraph的基本教程。
+面向 Sourcegraph 的基本教程。
 
 ## 说明
 

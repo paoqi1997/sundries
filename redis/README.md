@@ -1,6 +1,6 @@
 # The manual of Redis
 
-面向Redis的基本教程。
+面向 Redis 的基本教程。
 
 ## 说明
 

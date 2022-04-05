@@ -1,6 +1,6 @@
 # The manual of MySQL
 
-面向MySQL的基本教程。
+面向 MySQL 的基本教程。
 
 ## 说明
 
