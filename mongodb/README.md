@@ -140,17 +140,25 @@ $ sudo systemctl start mongodb
 $ mongo
 ```
 
-## Use MongoDB
+## [mongosh Methods](https://www.mongodb.com/docs/manual/reference/method/)
 
-创建用户。
+相关脚本如下所示：
 
-```sql
+```js
 > use admin
+
+// 创建用户
 > db.createUser({
     user: "root",
     pwd: "123456",
     roles: [{ role: "userAdminAnyDatabase", db: "admin" }]
 })
+
+// Authenticates a user to a database.
 > db.auth("root", "123456")
+// Returns information about the specified user.
 > db.getUser("root")
+
+// https://www.mongodb.com/docs/manual/reference/system-users-collection/
+> db.system.users.find()
 ```
