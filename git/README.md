@@ -167,20 +167,26 @@ $ git stash pop
 
 ## TPs
 
-+ [Git](https://git-scm.com)
+### 帮助
 
-+ [Git for Windows](https://gitforwindows.org)
++ [更改提交消息](https://docs.github.com/cn/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
 
-+ [Git LFS](https://git-lfs.github.com)
+### 官网
 
-+ [libgit2](https://libgit2.org)
+1. [Git](https://git-scm.com)
 
-## Repos
+2. [Git for Windows](https://gitforwindows.org)
 
-+ [git/git](https://github.com/git/git)
+3. [Git LFS](https://git-lfs.github.com)
 
-+ [git-for-windows/git](https://github.com/git-for-windows/git)
+4. [libgit2](https://libgit2.org)
 
-+ [git-lfs/git-lfs](https://github.com/git-lfs/git-lfs)
+### repos on GitHub
 
-+ [libgit2/libgit2](https://github.com/libgit2/libgit2)
+1. [git/git](https://github.com/git/git)
+
+2. [git-for-windows/git](https://github.com/git-for-windows/git)
+
+3. [git-lfs/git-lfs](https://github.com/git-lfs/git-lfs)
+
+4. [libgit2/libgit2](https://github.com/libgit2/libgit2)

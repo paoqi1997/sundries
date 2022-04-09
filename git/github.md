@@ -121,18 +121,20 @@ $ gh issue view 1
 
 ## TPs
 
-+ [GitHub Desktop](https://desktop.github.com)
+### 官网
 
-+ [GitHub Status](https://www.githubstatus.com)
+1. [GitHub Desktop](https://desktop.github.com)
 
-## Repos
+2. [GitHub Status](https://www.githubstatus.com)
 
-+ [cli/cli](https://github.com/cli/cli)
+### repos on GitHub
 
-+ [desktop/desktop](https://github.com/desktop/desktop)
+1. [cli/cli](https://github.com/cli/cli)
 
-+ [github/docs](https://github.com/github/docs)
+2. [desktop/desktop](https://github.com/desktop/desktop)
 
-+ [github/hub](https://github.com/github/hub)
+3. [github/docs](https://github.com/github/docs)
 
-+ [github/linguist](https://github.com/github/linguist)
+4. [github/hub](https://github.com/github/hub)
+
+5. [github/linguist](https://github.com/github/linguist)
