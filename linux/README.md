@@ -478,6 +478,9 @@ $ dig baidu.com
 
 # 查看去 baidu.com 的路上经过了哪些自治系统（Autonomous System, AS）
 $ mtr -z baidu.com
+
+# 打印到目标主机的路由包
+$ traceroute www.baidu.com
 ```
 
 ## remotedev
