@@ -78,6 +78,8 @@ $ git branch -r
 
 # 从当前提交创建分支
 $ git checkout -b mybranch
+# 拉取远程 dev 分支并创建本地分支
+$ git checkout -b mybranch origin/dev
 
 # 删除分支
 $ git branch -d mybranch
