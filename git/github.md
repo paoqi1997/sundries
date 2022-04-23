@@ -127,6 +127,8 @@ $ gh issue view 1
 
 2. [GitHub Status](https://www.githubstatus.com)
 
+3. [GitHub Gist](https://gist.github.com)
+
 ### repos on GitHub
 
 1. [cli/cli](https://github.com/cli/cli)

@@ -195,7 +195,7 @@ local data = ARGV[2]
 
 local ret = 0
 
--- https://redis.io/commands/lpush
+-- https://redis.io/commands/lpush/
 local len = redis.call('LPUSH', queueKey, data)
 if len > tonumber(lenLimit) then
     redis.call('LTRIM', queueKey, 0, lenLimit - 1)
