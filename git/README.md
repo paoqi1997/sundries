@@ -128,8 +128,10 @@ $ git tag -a v0.0.1 -m 'The first tag'
 # 查看标签
 $ git show v0.0.1
 
-# 将本地标签推送到远程分支
-$ git push origin HEAD --tags
+# 将本地某个标签推送到远程分支
+$ git push origin your-tag
+# 将本地所有未推送的标签推送到远程分支
+$ git push origin --tags
 
 # 删除本地标签
 $ git tag -d v0.0.1
