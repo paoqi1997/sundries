@@ -7,6 +7,8 @@
     "workbench.editor.scrollToSwitchTabs": true,
     // 打开文件时，是否根据文件内容自动覆盖相应配置
     "editor.detectIndentation": false,
+    // 是否启用括号对着色功能
+    "editor.bracketPairColorization.enabled": true,
     // 面向 Go 的编辑器配置
     "[go]": {
         "editor.tabSize": 4,
