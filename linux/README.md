@@ -12,15 +12,16 @@
 
 |软件名|主要编程语言|用途|
 |:--:|:--:|:--:|
-|[bat](https://github.com/sharkdp/bat)|Rust|更好的cat|
+|[bat](https://github.com/sharkdp/bat)|Rust|更好的 cat|
 |[cloc](https://github.com/AlDanial/cloc)|Perl|统计代码行数|
-|[dust](https://github.com/bootandy/dust)|Rust|更好的du|
-|[fd](https://github.com/sharkdp/fd)|Rust|更好的find|
-|[htop](https://github.com/htop-dev/htop)|C|更好的top|
+|[dust](https://github.com/bootandy/dust)|Rust|更好的 du|
+|[fd](https://github.com/sharkdp/fd)|Rust|更好的 find|
+|[htop](https://github.com/htop-dev/htop)|C|更好的 top|
 |[lnav](https://github.com/tstack/lnav)|C++|高亮显示日志行|
 |[screenfetch](https://github.com/KittyKatt/screenFetch)|Shell|显示系统信息|
 |[tldr](https://github.com/tldr-pages/tldr)|Markdown|直观地展示一个命令的常见用法|
 |[viu](https://github.com/atanunq/viu)|Rust|在终端显示图片|
+|[ag](https://github.com/ggreer/the_silver_searcher)|C|grep -> ack -> ag|
 
 ## util
 
