@@ -529,8 +529,8 @@ User user
 通过 scp 或其他命令上传/下载文件。
 
 ```
-$ scp localfile user@host:remotefile
-$ scp user@host:remotefile localfile
+$ scp -P port localfile user@host:remotefile
+$ scp -P port user@host:remotefile localfile
 
 $ sftp user@host
 sftp> help
