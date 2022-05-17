@@ -6,17 +6,17 @@
 
 以下操作均在 Ubuntu 20.04.4 LTS 下调试通过。
 
-## [Install](https://www.elastic.co/guide/en/elasticsearch/reference/current/targz.html)
+## [Install](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/targz.html)
 
 获取 tar 包。
 
 ```
-$ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.0-linux-x86_64.tar.gz
-$ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.0-linux-x86_64.tar.gz.sha512
-$ shasum -a 512 -c elasticsearch-8.1.0-linux-x86_64.tar.gz.sha512
+$ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.3-linux-x86_64.tar.gz
+$ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.1.3-linux-x86_64.tar.gz.sha512
+$ shasum -a 512 -c elasticsearch-8.1.3-linux-x86_64.tar.gz.sha512
 
-$ tar -xzvf elasticsearch-8.1.0-linux-x86_64.tar.gz
-$ cd elasticsearch-8.1.0
+$ tar -xzvf elasticsearch-8.1.3-linux-x86_64.tar.gz
+$ cd elasticsearch-8.1.3
 ```
 
 在 ./config/elasticsearch.yml 文件中添加以下内容：
@@ -35,6 +35,7 @@ action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-hist
 启动。
 
 ```
+# 启动成功后会打印 Password for the elastic user，后面设置 ESPASS 的时候会用到
 $ ./bin/elasticsearch
 ```
 
