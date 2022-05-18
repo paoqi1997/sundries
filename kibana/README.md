@@ -24,15 +24,27 @@ $ cd kibana-8.1.3
 # Kibana is served by a back end server. This setting specifies the port to use.
 server.port: 5601
 
+# Specifies the address to which the Kibana server will bind. IP addresses and host names are both valid values.
+# The default is 'localhost', which usually means remote machines will not be able to connect.
+# To allow connections from remote users, set this parameter to a non-loopback address.
+server.host: "0.0.0.0"
+
 # The URLs of the Elasticsearch instances to use for all your queries.
-elasticsearch.hosts: ["http://localhost:9200"]
+elasticsearch.hosts: ["https://localhost:9200"]
 
 # If your Elasticsearch is protected with basic authentication, these settings provide
 # the username and password that the Kibana server uses to perform maintenance on the Kibana
 # index at startup. Your Kibana users still need to authenticate with Elasticsearch, which
 # is proxied through the Kibana server.
 elasticsearch.username: "kibana_system"
-elasticsearch.password: "pass"
+elasticsearch.password: "123456"
+
+# Enables you to specify a path to the PEM file for the certificate
+# authority for your Elasticsearch instance.
+elasticsearch.ssl.certificateAuthorities: [ "config/elasticsearch-ca.pem" ]
+
+# To disregard the validity of SSL certificates, change this setting's value to 'none'.
+elasticsearch.ssl.verificationMode: certificate
 ```
 
 启动。

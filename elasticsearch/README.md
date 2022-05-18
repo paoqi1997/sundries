@@ -46,7 +46,7 @@ $ export ES_PATH_CONF=$PWD/config
 $ curl --cacert $ES_PATH_CONF/certs/http_ca.crt -u elastic https://localhost:9200
 ```
 
-修改密码。
+修改 elastic 用户的密码。
 
 ```
 # https://www.elastic.co/guide/en/elasticsearch/reference/current/built-in-users.html
@@ -58,3 +58,100 @@ $ curl -X POST --cacert $ES_PATH_CONF/certs/http_ca.crt \
 # 重置密码
 $ ./bin/elasticsearch-reset-password -u elastic
 ```
+
+### 使 Kibana 能通过 HTTPS 与 es 通信
+
+修改 kibana_system 用户的密码。
+
+```
+$ curl -X POST --cacert $ES_PATH_CONF/certs/http_ca.crt \
+    -u elastic:$ESPASS "https://localhost:9220/_security/user/kibana_system/_password?pretty" \
+    -H 'Content-Type: application/json' -d '{ "password": "123456" }'
+```
+
+准备 CA。
+
+```
+# 默认生成 elastic-stack-ca.p12 文件，这里可以设置密码，比如 abc
+$ ./bin/elasticsearch-certutil ca
+
+# 默认生成 elastic-certificates.p12 文件
+$ ./bin/elasticsearch-certutil cert --ca elastic-stack-ca.p12
+```
+
+生成证书。
+
+```
+$ ./bin/elasticsearch-certutil http
+...
+Generate a CSR? [y/N]
+<ENTER>
+...
+Use an existing CA? [y/N]y
+...
+CA Path: /path/to/elastic-stack-ca.p12
+...
+# 这里填 abc
+Password for elastic-certificates.p12:
+...
+For how long should your certificate be valid? [5y] 1y
+...
+# 单机部署，先忽略
+Generate a certificate per node? [y/N]
+<ENTER>
+...
+Enter all the hostnames that you need, one per line.
+When you are done, press <ENTER> once more to move on to the next step.
+<ENTER>
+...
+Enter all the IP addresses that you need, one per line.
+When you are done, press <ENTER> once more to move on to the next step.
+127.0.0.1
+<ENTER>
+...
+Do you wish to change any of these options? [y/N]
+<ENTER>
+...
+Provide a password for the "http.p12" file:  [<ENTER> for none]
+<ENTER>
+...
+What filename should be used for the output zip file? [/path/to/elasticsearch-ssl-http.zip]
+<ENTER>
+```
+
+将相关文件拷贝到 config 目录。
+
+```
+$ unzip elasticsearch-ssl-http.zip -d sslconfig
+$ cp sslconfig/elasticsearch/http.p12 config/certs/httplus.p12
+$ cp sslconfig/kibana/elasticsearch-ca.pem ../kibana-8.1.3/config
+```
+
+更新密码。
+
+```
+# 应为空密码
+$ ./bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password
+Setting xpack.security.http.ssl.keystore.secure_password already exists. Overwrite? [y/N]y
+Enter value for xpack.security.http.ssl.keystore.secure_password:
+<ENTER>
+```
+
+在 ./config/elasticsearch.yml 文件中修改 keystore.path 选项：
+
+```
+# Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
+xpack.security.http.ssl:
+  enabled: true
+  keystore.path: certs/httplus.p12
+```
+
+相关参考链接如下所示：
+
++ [Secure the Elastic Stack](https://www.elastic.co/guide/en/elasticsearch/reference/8.1/secure-cluster.html)
+
++ [从0开始在Elastic Stack中完成TLS加密](https://www.rondochen.com/ELK9/)
+
++ [ElasticSearch安全-账号密码验证](https://www.cnblogs.com/luo630/p/15341532.html)
+
++ [A step-by-step guide to enabling security, TLS/SSL, and PKI authentication in Elasticsearch](https://alexmarquardt.com/2018/11/05/security-tls-ssl-pki-authentication-in-elasticsearch/)
