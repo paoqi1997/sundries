@@ -20,7 +20,7 @@ $ cd kibana-8.1.3
 
 在 ./config/kibana.yml 文件中设置以下内容：
 
-```
+```yml
 # Kibana is served by a back end server. This setting specifies the port to use.
 server.port: 5601
 

@@ -21,7 +21,7 @@ $ cd elasticsearch-8.1.3
 
 在 ./config/elasticsearch.yml 文件中添加以下内容：
 
-```
+```yml
 action.auto_create_index: .monitoring*,.watches,.triggered_watches,.watcher-history*,.ml*
 ```
 
@@ -140,7 +140,7 @@ Enter value for xpack.security.http.ssl.keystore.secure_password:
 
 在 ./config/elasticsearch.yml 文件中修改 keystore.path 选项：
 
-```
+```yml
 # Enable encryption for HTTP API client connections, such as Kibana, Logstash, and Agents
 xpack.security.http.ssl:
   enabled: true
@@ -163,3 +163,28 @@ $ curl -k -u elastic:123456 https://localhost:9200
 + [ElasticSearch安全-账号密码验证](https://www.cnblogs.com/luo630/p/15341532.html)
 
 + [A step-by-step guide to enabling security, TLS/SSL, and PKI authentication in Elasticsearch](https://alexmarquardt.com/2018/11/05/security-tls-ssl-pki-authentication-in-elasticsearch/)
+
+### 引入 elasticsearch-head
+
+为解决跨域问题，在 ./config/elasticsearch.yml 文件中添加以下内容：
+
+```yml
+# Enable security features
+xpack.security.enabled: false
+
+# https://www.elastic.co/guide/en/elasticsearch/reference/8.1/modules-network.html
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+```
+
+部署 ElasticSearch Head。
+
+```
+$ git clone https://github.com/mobz/elasticsearch-head
+$ cd elasticsearch-head
+
+$ npm install
+$ npm run start
+```
+
+在浏览器访问该链接：`http://127.0.0.1:9100`
