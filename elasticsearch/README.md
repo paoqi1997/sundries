@@ -92,7 +92,7 @@ Use an existing CA? [y/N]y
 CA Path: /path/to/elastic-stack-ca.p12
 ...
 # 这里填 abc
-Password for elastic-certificates.p12:
+Password for elastic-stack-ca.p12:
 ...
 For how long should your certificate be valid? [5y] 1y
 ...
@@ -102,6 +102,7 @@ Generate a certificate per node? [y/N]
 ...
 Enter all the hostnames that you need, one per line.
 When you are done, press <ENTER> once more to move on to the next step.
+localhost
 <ENTER>
 ...
 Enter all the IP addresses that you need, one per line.
@@ -114,6 +115,7 @@ Do you wish to change any of these options? [y/N]
 ...
 # 这里填 xyz
 Provide a password for the "http.p12" file:  [<ENTER> for none]
+Repeat password to confirm:
 ...
 What filename should be used for the output zip file? [/path/to/elasticsearch-ssl-http.zip]
 <ENTER>
@@ -143,6 +145,13 @@ Enter value for xpack.security.http.ssl.keystore.secure_password:
 xpack.security.http.ssl:
   enabled: true
   keystore.path: certs/httplus.p12
+```
+
+curl 用新证书访问 es。
+
+```
+$ curl --cacert sslconfig/kibana/elasticsearch-ca.pem -u elastic:123456 https://localhost:9200
+$ curl -k -u elastic:123456 https://localhost:9200
 ```
 
 相关参考链接如下所示：
