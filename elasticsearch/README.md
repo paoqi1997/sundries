@@ -59,13 +59,13 @@ $ curl -X POST --cacert $ES_PATH_CONF/certs/http_ca.crt \
 $ ./bin/elasticsearch-reset-password -u elastic
 ```
 
-### 使 Kibana 能通过 HTTPS 与 es 通信
+### 使 Kibana 能与经 HTTPS 加密的 es 通信
 
 修改 kibana_system 用户的密码。
 
 ```
 $ curl -X POST --cacert $ES_PATH_CONF/certs/http_ca.crt \
-    -u elastic:$ESPASS "https://localhost:9220/_security/user/kibana_system/_password?pretty" \
+    -u elastic:123456 "https://localhost:9200/_security/user/kibana_system/_password?pretty" \
     -H 'Content-Type: application/json' -d '{ "password": "123456" }'
 ```
 
@@ -112,8 +112,8 @@ When you are done, press <ENTER> once more to move on to the next step.
 Do you wish to change any of these options? [y/N]
 <ENTER>
 ...
+# 这里填 xyz
 Provide a password for the "http.p12" file:  [<ENTER> for none]
-<ENTER>
 ...
 What filename should be used for the output zip file? [/path/to/elasticsearch-ssl-http.zip]
 <ENTER>
@@ -127,14 +127,13 @@ $ cp sslconfig/elasticsearch/http.p12 config/certs/httplus.p12
 $ cp sslconfig/kibana/elasticsearch-ca.pem ../kibana-8.1.3/config
 ```
 
-更新密码。
+更新 http.ssl 方面的密码。
 
 ```
-# 应为空密码
+# 填入之前设置的 xyz
 $ ./bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password
 Setting xpack.security.http.ssl.keystore.secure_password already exists. Overwrite? [y/N]y
 Enter value for xpack.security.http.ssl.keystore.secure_password:
-<ENTER>
 ```
 
 在 ./config/elasticsearch.yml 文件中修改 keystore.path 选项：
