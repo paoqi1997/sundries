@@ -140,3 +140,7 @@ $ gh issue view 1
 4. [github/hub](https://github.com/github/hub)
 
 5. [github/linguist](https://github.com/github/linguist)
+
+### more
+
+1. [GitHub中文社区](https://www.githubs.cn)

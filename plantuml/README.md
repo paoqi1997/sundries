@@ -4,7 +4,7 @@
 
 ## 说明
 
-图的绘制主要通过 vscode 的 [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) 扩展实现。
+图的绘制主要通过 vscode 的 [PlantUML](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml) 扩展来实现。
 
 使用扩展前需要安装以下依赖：
 
