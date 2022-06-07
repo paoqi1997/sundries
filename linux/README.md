@@ -308,6 +308,9 @@ $ sudo apt install lsb-core
 # 打印 LSB 和特定于发行版的信息
 $ lsb_release -a
 
+# 查看时区等
+$ timedatectl
+
 # 查看系统负载
 $ w
 $ uptime
