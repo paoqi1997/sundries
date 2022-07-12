@@ -435,6 +435,7 @@ $ telnet 220.181.38.148 12358
 通过 tcpdump 抓包。
 
 ```
+# 加 -w 1.cap 生成 1.cap 文件，可以拿去给 Wireshark 分析
 $ sudo tcpdump -i lo tcp port 12358
 ```
 
