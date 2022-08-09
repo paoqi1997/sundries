@@ -591,7 +591,7 @@ A challenge password []:
 An optional company name []:
 
 # 生成 CA 证书
-$ openssl x509 -req -in ca.csr -signkey ca.key -days 365 -out ca.pem
+$ openssl x509 -req -in ca.csr -signkey ca.key -days 3650 -out ca.pem
 ```
 
 使用 CA 证书颁发证书。
@@ -604,13 +604,13 @@ $ openssl genrsa -out web.key -passout pass:123456 -aes128 2048
 $ openssl req -new -key web.key -passin pass:123456 -out web.csr -subj "/C=CN/ST=Guangdong/L=Shenzhen/O=pq/OU=web/CN=blog.paoqi.com"
 
 # 生成证书
-$ openssl x509 -req -in web.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out web.pem
+$ openssl x509 -req -in web.csr -CA ca.pem -CAkey ca.key -CAcreateserial -days 365 -out web.pem
 ```
 
 查看私钥、证书等文件的信息。
 
 ```
-$ openssl rsa -noout -text -in web.key
+$ openssl rsa -noout -text -passin pass:123456 -in web.key
 $ openssl req -noout -text -in web.csr
 $ openssl x509 -noout -text -in web.pem
 ```
