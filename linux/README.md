@@ -546,10 +546,12 @@ sftp> get remotefile
 sftp> put localfile
 ```
 
-通过 openssl 命令进行一些操作。
+## openssl
+
+以下是一些加解密操作：
 
 ```
-# 生成1024位的私钥，用 AES-128-CBC 加密它，设置密码为123456，输出到 id_rsa.pri 文件
+# 生成2048位的私钥，用 AES-128-CBC 加密它，设置密码为123456，输出到 id_rsa.pri 文件
 $ openssl genrsa -out id_rsa.pri -passout pass:123456 -aes-128-cbc 2048
 # 从 id_rsa.pri 文件读取私钥，用密码123456解密，生成的公钥输出到 id_rsa.pub 文件
 $ openssl rsa -in id_rsa.pri -passin pass:123456 -pubout -out id_rsa.pub
@@ -566,3 +568,63 @@ $ openssl rsautl -sign -inkey id_rsa.pri -in letter_python.txt -out letter.xyz
 # 用公钥验证 letter.xyz 文件的签名，输出到 letter_c.txt 文件
 $ openssl rsautl -verify -pubin -inkey id_rsa.pub -in letter.xyz -out letter_c.txt
 ```
+
+准备 CA 证书。
+
+```
+# 准备根证书的私钥
+$ openssl genrsa -out ca.key 2048
+
+# 创建 CA 证书的申请
+$ openssl req -new -key ca.key -out ca.csr
+...
+-----
+Country Name (2 letter code) [AU]:CN
+State or Province Name (full name) [Some-State]:Guangdong
+Locality Name (eg, city) []:Shenzhen
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:pq
+Organizational Unit Name (eg, section) []:cqc
+Common Name (e.g. server FQDN or YOUR name) []:paoqi.com
+Email Address []:paoqi@pqmail.com
+...
+A challenge password []:
+An optional company name []:
+
+# 生成 CA 证书
+$ openssl x509 -req -in ca.csr -signkey ca.key -days 365 -out ca.pem
+```
+
+使用 CA 证书颁发证书。
+
+```
+# 准备证书的私钥
+$ openssl genrsa -out web.key -passout pass:123456 -aes128 2048
+
+# 创建证书申请
+$ openssl req -new -key web.key -passin pass:123456 -out web.csr -subj "/C=CN/ST=Guangdong/L=Shenzhen/O=pq/OU=web/CN=blog.paoqi.com"
+
+# 生成证书
+$ openssl x509 -req -in web.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out web.pem
+```
+
+查看私钥、证书等文件的信息。
+
+```
+$ openssl rsa -noout -text -in web.key
+$ openssl req -noout -text -in web.csr
+$ openssl x509 -noout -text -in web.pem
+```
+
+验证证书。
+
+```
+$ openssl verify -CAfile ca.pem web.pem
+```
+
+相关参考链接如下所示：
+
++ [搭建自己的CA服务 - OpenSSL CA 实战](http://www.yunweipai.com/4513.html)
+
++ [openssl 签发证书相关命令](https://blog.csdn.net/zhangxm_qz/article/details/124706553)
+
++ [SSL证书介绍并使用openssl和cfssl生成SSL证书](https://blog.csdn.net/rainbowhhyhhy/article/details/110763821)
