@@ -22,6 +22,8 @@
 |[tldr](https://github.com/tldr-pages/tldr)|Markdown|直观地展示一个命令的常见用法|
 |[viu](https://github.com/atanunq/viu)|Rust|在终端显示图片|
 |[ag](https://github.com/ggreer/the_silver_searcher)|C|grep -> ack -> ag|
+|[ripgrep](https://github.com/BurntSushi/ripgrep)|Rust|更好的 grep|
+|[lsd](https://github.com/Peltoche/lsd)|Rust|更好的 ls|
 
 ## util
 
