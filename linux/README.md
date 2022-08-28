@@ -288,6 +288,9 @@ $ cat /proc/cpuinfo|grep 'core id'|sort -u|wc -l
 # 查看逻辑 CPU 的数量（逻辑核总数）
 $ cat /proc/cpuinfo|grep processor|sort -u|wc -l
 
+# 查看各个 CPU 的运行情况
+$ mpstat -P ALL
+
 # 显示内核模块的状态信息
 $ sh -c lsmod
 # 查看内核参数
