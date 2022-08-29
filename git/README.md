@@ -114,9 +114,16 @@ $ git push origin :target
 # 从远端拉取所有标签
 $ git fetch --tags
 
+# 查看本地标签
+$ git tag
+# 查看远程标签
+$ git ls-remote --tags origin
+
 # https://www.mikestreety.co.uk/blog/the-git-commit-hash/
 # 从指定提交创建分支
 $ git checkout -b mybranch commit-hash
+# 从指定标签创建分支
+$ git checkout -b mybranch your-tag
 
 # https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
 # 将指定提交应用到当前分支
@@ -135,7 +142,6 @@ $ git push origin --tags
 
 # 删除本地标签
 $ git tag -d v0.0.1
-
 # 删除远程标签
 $ git push origin :refs/tags/v0.0.1
 ```
