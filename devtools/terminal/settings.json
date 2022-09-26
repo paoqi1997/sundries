@@ -11,6 +11,7 @@
             "font": {
                 "face": "Consolas"
             },
+            // generate your guid: https://www.guidgen.com
             "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
             "name": "cmd",
             "opacity": 80,
@@ -19,6 +20,7 @@
         {
             "colorScheme": "Frost",
             "commandline": "powershell.exe",
+            // https://github.com/microsoft/cascadia-code
             "font": {
                 "face": "Cascadia Code"
             },
@@ -59,16 +61,16 @@
         },
         {
             "colorScheme": "Desert",
-            // https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh
+            // https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh
             // https://stackoverflow.com/questions/626533/how-can-i-ssh-directly-to-a-particular-directory
             "commandline": "ssh -t vm \"cd && eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa_github && bash --login\"",
             "font": {
                 "face": "Consolas"
             },
             "guid": "{6d6cb9a9-c123-41c3-a42f-67598edd3ba3}",
-            "name": "Ubuntu",
             // change to the path of your icon
             "icon": "/path/to/ubuntu.png",
+            "name": "Ubuntu",
             "opacity": 80,
             "useAcrylic": true
         },
@@ -92,7 +94,6 @@
             "font": {
                 "face": "Consolas"
             },
-            // generate your guid: https://www.guidgen.com
             "guid": "{0f1244de-9193-423a-b77f-a6692690781b}",
             // change to the path of your icon
             "icon": "/path/to/aliyun.ico",
