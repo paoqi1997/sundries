@@ -1,101 +1,117 @@
 // To view the default settings, hold "alt" while clicking on the "Settings" button.
 // For documentation on these settings, see: https://aka.ms/terminal-documentation
 {
+    "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
     "defaultProfile": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
     "profiles": [
         {
-            // Make changes here to the cmd.exe profile
+            "colorScheme": "Desert",
+            "commandline": "cmd.exe",
+            "font": {
+                "face": "Consolas"
+            },
             "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
             "name": "cmd",
-            "commandline": "cmd.exe",
-            "fontFace": "Consolas",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "opacity": 80,
+            "useAcrylic": true
         },
         {
-            // Make changes here to the powershell.exe profile
+            "colorScheme": "Desert",
+            "commandline": "powershell.exe",
+            "font": {
+                "face": "Consolas"
+            },
             "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
             "name": "Windows PowerShell",
-            "commandline": "powershell.exe",
-            "fontFace": "Consolas",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "opacity": 80,
+            "useAcrylic": true
         },
         {
-            "guid": "{cfa4360a-5c53-45bb-858f-ef5574adea94}",
-            "name": "MINGW64 / MSYS2",
+            "colorScheme": "Desert",
             // change to the path of your msys2_shell.cmd
             "commandline": "D:\\msys64\\msys2_shell.cmd -defterm -here -no-start -mingw64",
-            "startingDirectory": "C:\\Users\\%USERNAME%",
-            "fontFace": "Consolas",
+            "font": {
+                "face": "Consolas"
+            },
+            "guid": "{cfa4360a-5c53-45bb-858f-ef5574adea94}",
             // change to the path of your icon
             "icon": "/path/to/msys2.ico",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "name": "MINGW64 / MSYS2",
+            "opacity": 80,
+            "startingDirectory": "C:\\Users\\%USERNAME%",
+            "useAcrylic": true
         },
         {
-            "guid": "{3628a9e3-9cb8-4dd5-8103-39c10409110f}",
-            "name": "Git Bash",
+            "colorScheme": "Desert",
             // change to the path of your bash.exe
             "commandline": "D:\\Git\\bin\\bash.exe --login -i -c \"ssh-agent bash\"",
-            "startingDirectory": "C:\\Users\\%USERNAME%",
-            "fontFace": "Consolas",
+            "font": {
+                "face": "Consolas"
+            },
+            "guid": "{3628a9e3-9cb8-4dd5-8103-39c10409110f}",
             // change to the path of your icon
             "icon": "/path/to/git.ico",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "name": "Git Bash",
+            "opacity": 80,
+            "startingDirectory": "C:\\Users\\%USERNAME%",
+            "useAcrylic": true
         },
         {
+            "colorScheme": "Desert",
+            // https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh
+            // https://stackoverflow.com/questions/626533/how-can-i-ssh-directly-to-a-particular-directory
+            "commandline": "ssh -t vm \"cd && exec bash -l\"",
+            "font": {
+                "face": "Consolas"
+            },
             "guid": "{6d6cb9a9-c123-41c3-a42f-67598edd3ba3}",
             "name": "Ubuntu",
-            // https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh
-            "commandline": "ssh -t vm \"cd && exec bash -l\"",
-            "fontFace": "Consolas",
             // change to the path of your icon
             "icon": "/path/to/ubuntu.png",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "opacity": 80,
+            "useAcrylic": true
         },
         {
-            "guid": "{914a0d3c-9db4-56f8-a8ac-65f4b7ea8b09}",
-            "name": "openSUSE-Leap-15.2",
+            "colorScheme": "Desert",
             "commandline": "wsl -d openSUSE-Leap-15.2",
-            "source": "Windows.Terminal.Wsl",
-            "fontFace": "Consolas",
+            "font": {
+                "face": "Consolas"
+            },
+            "guid": "{914a0d3c-9db4-56f8-a8ac-65f4b7ea8b09}",
             // change to the path of your icon
             "icon": "/path/to/opensuse.png",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "name": "openSUSE-Leap-15.2",
+            "opacity": 80,
+            "source": "Windows.Terminal.Wsl",
+            "useAcrylic": true
         },
         {
+            "colorScheme": "Desert",
+            "commandline": "ssh aliyun",
+            "font": {
+                "face": "Consolas"
+            },
             // generate your guid: https://www.guidgen.com
             "guid": "{0f1244de-9193-423a-b77f-a6692690781b}",
-            "name": "Aliyun",
-            "commandline": "ssh aliyun",
-            "fontFace": "Consolas",
             // change to the path of your icon
             "icon": "/path/to/aliyun.ico",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "name": "Aliyun",
+            "opacity": 80,
+            "useAcrylic": true
         },
         {
-            "guid": "{04cd7c95-538d-4a69-8bed-d79e6e0bbde5}",
-            "name": "Tencent Cloud",
+            "colorScheme": "Desert",
             "commandline": "ssh tc",
-            "fontFace": "Consolas",
+            "font": {
+                "face": "Consolas"
+            },
+            "guid": "{04cd7c95-538d-4a69-8bed-d79e6e0bbde5}",
             // change to the path of your icon
             "icon": "/path/to/tc.ico",
-            "colorScheme": "Desert",
-            "useAcrylic": true,
-            "acrylicOpacity": 0.8
+            "name": "Tencent Cloud",
+            "opacity": 80,
+            "useAcrylic": true
         },
         {
             "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
@@ -130,7 +146,7 @@
     ],
     // Add any keybinding overrides to this array.
     // To unbind a default keybinding, set the command to "unbound"
-    "keybindings": [
+    "actions": [
         {
             "command": "newTab",
             "keys": "ctrl+t"
