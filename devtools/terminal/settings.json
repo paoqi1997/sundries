@@ -61,7 +61,7 @@
             "colorScheme": "Desert",
             // https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh
             // https://stackoverflow.com/questions/626533/how-can-i-ssh-directly-to-a-particular-directory
-            "commandline": "ssh -t vm \"cd && exec bash -l\"",
+            "commandline": "ssh -t vm \"cd && eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa_github && bash --login\"",
             "font": {
                 "face": "Consolas"
             },
