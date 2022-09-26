@@ -17,10 +17,10 @@
             "useAcrylic": true
         },
         {
-            "colorScheme": "Desert",
+            "colorScheme": "Frost",
             "commandline": "powershell.exe",
             "font": {
-                "face": "Consolas"
+                "face": "Cascadia Code"
             },
             "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
             "name": "Windows PowerShell",
@@ -141,7 +141,32 @@
             "brightCyan": "#ffd700",
             "brightWhite": "#ffffff",
             "background": "#333333",
-            "foreground": "#ffffff"
+            "foreground": "#ffffff",
+            "selectionBackground": "#b5d5ff",
+            "cursorColor": "#ffffff"
+        },
+        // https://learn.microsoft.com/zh-cn/windows/terminal/custom-terminal-gallery/frosted-glass-theme
+        {
+            "name": "Frost",
+            "background": "#FFFFFF",
+            "black": "#3C5712",
+            "blue": "#17b2ff",
+            "brightBlack": "#749B36",
+            "brightBlue": "#27B2F6",
+            "brightCyan": "#13A8C0",
+            "brightGreen": "#89AF50",
+            "brightPurple": "#F2A20A",
+            "brightRed": "#F49B36",
+            "brightWhite": "#741274",
+            "brightYellow": "#991070",
+            "cursorColor": "#000000",
+            "cyan": "#3C96A6",
+            "foreground": "#000000",
+            "green": "#6AAE08",
+            "purple": "#991070",
+            "red": "#8D0C0C",
+            "white": "#6E386E",
+            "yellow": "#991070"
         }
     ],
     // Add any keybinding overrides to this array.
