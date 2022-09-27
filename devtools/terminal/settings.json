@@ -173,6 +173,7 @@
     ],
     // Add any keybinding overrides to this array.
     // To unbind a default keybinding, set the command to "unbound"
+    // https://learn.microsoft.com/zh-cn/windows/terminal/customize-settings/actions
     "actions": [
         {
             "command": "newTab",
@@ -181,6 +182,31 @@
         {
             "command": "closeTab",
             "keys": "ctrl+w"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "keys": "ctrl+shift+d"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "right"
+            },
+            "keys": "ctrl+plus"
+        },
+        {
+            "command":
+            {
+                "action": "splitPane",
+                "split": "down"
+            },
+            "keys": "ctrl+-"
         }
     ]
 }
