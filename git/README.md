@@ -124,6 +124,8 @@ $ git ls-remote --tags origin
 $ git checkout -b mybranch commit-hash
 # 从指定标签创建分支
 $ git checkout -b mybranch your-tag
+# 从指定分支创建分支
+$ git checkout -b mybranch origin/your-branch
 
 # https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
 # 将指定提交应用到当前分支
@@ -180,6 +182,8 @@ $ git stash pop
 ### 帮助
 
 + [更改提交消息](https://docs.github.com/cn/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
+
++ [Oh Shit, Git!?!](https://ohshitgit.com/zh)
 
 ### 官网
 
