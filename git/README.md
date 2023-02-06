@@ -98,8 +98,15 @@ $ git add readme.txt
 
 $ git commit -m "docs: update readme.txt with the patch"
 
+# 修改最近一次的提交信息
+$ git commit --amend
+# 修改最近一次的提交（如提交遗漏文件），但不需要修改提交信息
+$ git commit --amend --no-edit
+
 # 推送当前分支到同名的远程分支
 $ git push origin HEAD
+# 强制推送分支，但会检查上游是否已发生改变
+$ git push --force-with-lease origin HEAD
 
 # 更新远程分支列表
 $ git remote update origin --prune

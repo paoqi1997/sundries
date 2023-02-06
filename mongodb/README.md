@@ -162,3 +162,7 @@ $ mongo
 // https://www.mongodb.com/docs/manual/reference/system-users-collection/
 > db.system.users.find()
 ```
+
+## TPs
+
++ [疯狂了！当游戏爱上MongoDB会怎么样？？？](https://blog.csdn.net/yaxuan88521/article/details/128544163)
