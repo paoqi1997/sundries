@@ -22,11 +22,19 @@
 
 + [Compute Engine 客户端库](https://cloud.google.com/compute/docs/api/libraries?hl=zh-cn)
 
++ [机器系列资源和比较指南](https://cloud.google.com/compute/docs/machine-resource?hl=zh-cn)
+
++ [创建运行自定义机器类型的虚拟机](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type?hl=zh-cn)
+
 #### images
 
 + [操作系统详情](https://cloud.google.com/compute/docs/images/os-details?hl=zh-cn)
 
 + [Cloud/GoogleComputeEngineImage](https://wiki.debian.org/Cloud/GoogleComputeEngineImage)
+
+#### IP
+
++ [预留静态外部 IP 地址](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address?hl=zh-cn)
 
 ### Go
 
@@ -35,6 +43,10 @@
 ### IAM
 
 + [管理服务帐号模拟](https://cloud.google.com/iam/docs/impersonating-service-accounts?hl=zh-cn)
+
+### VPC
+
++ [添加网络标记](https://cloud.google.com/vpc/docs/add-remove-network-tags?hl=zh-cn)
 
 ### Packer
 
