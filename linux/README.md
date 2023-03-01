@@ -398,6 +398,36 @@ $ sudo sysdig -c topprocs_cpu   # Top processes by CPU usage
 $ sudo sysdig -c topfiles_bytes # Top files by R+W bytes
 ```
 
+## package manager
+
+### Debian/Ubuntu
+
+查看命令在哪个包。
+
+```
+$ dpkg --help|grep '\-S'
+$ dpkg -S sshd
+$ dpkg -S rsyslogd
+$ dpkg -S bin/pip
+
+$ apt search netstat
+
+$ sudo apt install -y apt-file && sudo apt-file update
+$ apt-file search netstat|grep bin
+```
+
+查看包。
+
+```
+$ apt info bat
+$ apt show bat
+
+# 查看包的依赖
+$ apt depends bat
+# 查看包的更新日志
+$ apt changelog bat
+```
+
 ## netdev
 
 默认没有的话请通过包管理器安装。
