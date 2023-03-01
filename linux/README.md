@@ -102,6 +102,17 @@ $ gdb app core
 (gdb) bt
 ```
 
+`sudo echo ...` 正确的[使用姿势](https://stackoverflow.com/questions/84882/sudo-echo-something-etc-privilegedfile-doesnt-work)是什么？
+
+```
+# wrong
+$ sudo echo Hello! >> /etc/hi.txt
+# pass
+$ echo Hello\!|sudo tee -a /etc/hi.txt
+# pass
+$ sudo sh -c 'echo Hello! >> /etc/hi.txt'
+```
+
 通过 find 命令进行一些操作。
 
 ```
@@ -426,6 +437,8 @@ $ apt show bat
 $ apt depends bat
 # 查看包的更新日志
 $ apt changelog bat
+# 查看已安装的包
+$ apt list --installed
 ```
 
 ## netdev
