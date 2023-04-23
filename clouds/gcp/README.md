@@ -20,11 +20,15 @@
 
 + [向 Compute Engine 进行身份验证](https://cloud.google.com/compute/docs/authentication?hl=zh-cn)
 
-+ [Compute Engine 客户端库](https://cloud.google.com/compute/docs/api/libraries?hl=zh-cn)
-
 + [机器系列资源和比较指南](https://cloud.google.com/compute/docs/machine-resource?hl=zh-cn)
 
 + [创建运行自定义机器类型的虚拟机](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type?hl=zh-cn)
+
+#### API
+
++ [Compute Engine API](https://cloud.google.com/compute/docs/reference/rest/v1)
+
++ [Compute Engine 客户端库](https://cloud.google.com/compute/docs/api/libraries?hl=zh-cn)
 
 #### images
 
