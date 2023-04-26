@@ -6,4 +6,7 @@
 
 ### ECS
 
-+ [实例规格族](https://help.aliyun.com/document_detail/25378.html)
+||Aliyun|Alibaba Cloud|
+|:--:|:--:|:--:|
+|实例规格族|[_](https://help.aliyun.com/document_detail/25378.html)|[_](https://www.alibabacloud.com/help/zh/elastic-compute-service/latest/instance-family)|
+|查看实例元数据|[_](https://help.aliyun.com/document_detail/108460.html)|[_](https://www.alibabacloud.com/help/zh/elastic-compute-service/latest/view-instance-metadata)|

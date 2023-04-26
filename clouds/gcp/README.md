@@ -24,6 +24,8 @@
 
 + [创建运行自定义机器类型的虚拟机](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type?hl=zh-cn)
 
++ [虚拟机元数据简介](https://cloud.google.com/compute/docs/metadata/overview?hl=zh-cn)
+
 #### API
 
 + [Compute Engine API](https://cloud.google.com/compute/docs/reference/rest/v1)
