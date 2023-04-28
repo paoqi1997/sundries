@@ -4,7 +4,7 @@
 
 ## TPs
 
-### ECS
+### Elastic Compute Service
 
 ||Aliyun|Alibaba Cloud|
 |:--:|:--:|:--:|
