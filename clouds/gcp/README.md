@@ -26,6 +26,8 @@
 
 + [虚拟机元数据简介](https://cloud.google.com/compute/docs/metadata/overview?hl=zh-cn)
 
++ [创建和使用 Spot 虚拟机](https://cloud.google.com/compute/docs/instances/create-use-spot?hl=zh-cn)
+
 #### API
 
 + [Compute Engine API](https://cloud.google.com/compute/docs/reference/rest/v1)
