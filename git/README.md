@@ -65,6 +65,9 @@ $ echo 002918 > version
 $ git add version
 # 重新提交
 $ git commit --amend
+
+# 比较差异
+$ git diff commit-id1 commit-id2
 ```
 
 使用分支。
@@ -78,6 +81,11 @@ $ git branch -r
 
 # 从当前提交创建分支
 $ git checkout -b mybranch
+
+# https://www.mikestreety.co.uk/blog/the-git-commit-hash/
+# 从指定提交创建分支
+$ git checkout -b mybranch commit-hash
+
 # 拉取远程 dev 分支并创建本地分支
 $ git checkout -b mybranch origin/dev
 
@@ -113,6 +121,9 @@ $ git remote update origin --prune
 
 # 删除远程分支 target
 $ git push origin :target
+
+# 重置当前分支为远程分支
+$ git reset --hard origin/master
 ```
 
 使用标签。
@@ -126,13 +137,8 @@ $ git tag
 # 查看远程标签
 $ git ls-remote --tags origin
 
-# https://www.mikestreety.co.uk/blog/the-git-commit-hash/
-# 从指定提交创建分支
-$ git checkout -b mybranch commit-hash
 # 从指定标签创建分支
 $ git checkout -b mybranch your-tag
-# 从指定分支创建分支
-$ git checkout -b mybranch origin/your-branch
 
 # https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html
 # 将指定提交应用到当前分支
@@ -172,8 +178,12 @@ $ git checkout -- version
 ```
 # 贮藏修改
 $ git stash
+
+# https://blog.csdn.net/yao_hou/article/details/108178717
+# https://blog.csdn.net/weixin_42310154/article/details/119004977
 # 拉取代码
 $ git pull --rebase
+
 # 应用之前贮藏的修改
 $ git stash apply
 # 应用之前贮藏的修改，并在应用后删除这个 stash
