@@ -24,6 +24,7 @@
 |[ag](https://github.com/ggreer/the_silver_searcher)|C|grep -> ack -> ag|
 |[ripgrep](https://github.com/BurntSushi/ripgrep)|Rust|更好的 grep|
 |[lsd](https://github.com/Peltoche/lsd)|Rust|更好的 ls|
+|[neofetch](https://github.com/dylanaraps/neofetch)|Shell|显示系统信息|
 
 ## util
 
@@ -228,6 +229,10 @@ $ echo -e 'Hello!\nHello!\nHi'|uniq
 # 一边跟踪命令输出一边将其记录到文件中
 $ ping bilibili.com|tee ping.log
 
+# 按从大到小的顺序列出文件等
+$ ls -lSh
+$ ls -lSrh|tac
+
 # 比较文件差异
 $ diff -u /etc/apt/sources.list.bak /etc/apt/sources.list|colordiff
 $ colordiff -u /etc/apt/sources.list.bak /etc/apt/sources.list
@@ -338,6 +343,8 @@ $ cat /proc/uptime
 
 # 查看 mounts 文件第10到20行的内容（没有'+'就是最后10行内容）
 $ cat -n /proc/mounts|head -n 20|tail -n +10
+# 查看 cgroup 的挂载情况
+$ mount|grep cgroup
 
 # file perusal filter for crt viewing
 $ more /etc/sysctl.conf
@@ -348,6 +355,10 @@ $ less /etc/mime.types
 $ dmesg -H
 # Query the journal.
 $ journalctl -r
+
+# /etc/rc.local
+$ systemctl cat rc-local
+$ systemctl show rc-local
 ```
 
 查看磁盘。
@@ -380,6 +391,10 @@ $ lsof -p your-pid
 
 # 查看前10个占用内存最多的进程
 $ ps aux|sort -k6nr|head -n 10
+
+# 查看1号进程
+$ ps -fp 1
+$ ps -up 1
 
 # 查看引用的 so 文件
 $ ldd /usr/local/bin/lua
@@ -517,7 +532,7 @@ $ cat /etc/resolv.conf
 
 # 查看 TCP 连接
 $ ss -ta
-$ lsof -i tcp
+$ sudo lsof -i tcp
 
 # 查看打开的 TCP 连接对应的 PID
 $ sudo ss -tnpl
