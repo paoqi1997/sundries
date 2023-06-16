@@ -153,9 +153,12 @@ $ pgrep -fal ssh
 
 ```
 $ cat /proc/version > version.txt
-
 # 删掉包含 GNU 内容的行
 $ sed -i '/gnu/Id' version.txt
+
+$ echo 'echo 0' > rc.local
+# 在 rc.local 文件首行插入 `#!/bin/bash` 内容
+$ sed -i '1s/^/#\!\/bin\/bash\n/' rc.local
 ```
 
 通过 awk 命令进行一些操作。
