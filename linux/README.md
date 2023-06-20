@@ -407,6 +407,8 @@ $ nm -A /usr/local/lib/liblua.a
 
 # 跟踪系统调用
 $ strace -ttT cat /proc/uptime
+# 跟踪784号进程的 write 系统调用
+$ sudo strace -f -e trace=write -e write=1,2 -q -p 784
 
 # 1s获取一次进程状态
 $ top -d 1
