@@ -137,6 +137,12 @@ $ sudo rm -rf /var/lib/containerd
 以下是一些基本的命令：
 
 ```
+# Display system-wide information
+$ docker info
+
+# 列出网络
+$ docker network ls
+
 # 查看镜像列表
 $ docker image ls
 $ docker images
@@ -164,6 +170,17 @@ $ docker logs your-container
 
 # Return low-level information on Docker objects
 $ docker inspect your-container
+
+# 在 Docker Hub 上搜索镜像
+$ docker search image-name
+
+# 查看镜像历史
+$ docker history your-image --no-trunc
+
+# 将容器中的文件拷贝到本地
+$ docker cp container-id:/path/to/file .
+# 将本地文件拷贝到容器中
+$ docker cp file container-id:/path/to
 ```
 
 #### MySQL
