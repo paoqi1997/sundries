@@ -483,12 +483,22 @@ $ sudo apt install net-tools
 通过 iptables 控制端口开放情况。
 
 ```
+# ACCEPT 要放在 DROP all 之前
 # 查看规则
-$ sudo iptables -L -n
+$ sudo iptables -L -n --line-numbers
+
 # 禁用8080端口
 $ sudo iptables -A INPUT -p tcp --dport 8080 -j DROP
 # 解除限制
 $ sudo iptables -D INPUT -p tcp --dport 8080 -j DROP
+
+# 将规则插入到第8条的位置
+$ sudo iptables -I INPUT 8 -p tcp --dport 8080 -j ACCEPT
+# 删除第8条规则
+$ sudo iptables -D INPUT 8
+
+# 导出规则
+$ sudo iptables-save > rules.v4
 ```
 
 通过 telnet 测试端口的连通性。
