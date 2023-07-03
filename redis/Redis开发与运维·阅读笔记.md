@@ -267,12 +267,12 @@ Redis 官方给出了[使用 setnx 实现分布式锁](https://redis.io/topics/d
 127.0.0.1:6379> LPUSH mylist d e f
 
 # 在元素a前面插入1
-127.0.0.1:6379> LINSERT mylist before a 1
+127.0.0.1:6379> LINSERT mylist BEFORE a 1
 
 # 获取[0, 3]的元素
-127.0.0.1:6379> LRANGE mylist before 0 3
+127.0.0.1:6379> LRANGE mylist 0 3
 # 获取[-3, -1]的元素
-127.0.0.1:6379> LRANGE mylist before -3 -1
+127.0.0.1:6379> LRANGE mylist -3 -1
 
 # 获取指定索引的元素
 127.0.0.1:6379> LINDEX mylist 5
