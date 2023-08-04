@@ -37,24 +37,36 @@ Restart=on-failure
 WantedBy=multi-user.target
 ```
 
-执行以下命令：
+执行以下命令。
 
 ```
 $ sudo systemctl enable redis
 $ sudo systemctl start redis
 ```
 
+如果你只想获取 redis-cli，可以执行以下命令。
+
+```
+$ sudo apt install -y redis-tools
+```
+
 ## Use Redis
 
-启动 redis 客户端。
+连接到 redis 服务器。
 
 ```
 $ redis-cli
 ```
 
-执行以下命令。
+执行以下 redis 命令：
 
 ```
 127.0.0.1:6379> SET name paoqi
 127.0.0.1:6379> GET name
 ```
+
+## TPs
+
++ [几个查看Redis内存信息的命令](https://itlanyan.com/check-redis-memory-commands/)
+
++ [找到 Redis 上大量占用内存的 key](https://ylgrgyq.com/find-big-keys-on-redis.html)
