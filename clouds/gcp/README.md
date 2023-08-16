@@ -6,9 +6,17 @@
 
 + [使用 REST 进行身份验证](https://cloud.google.com/docs/authentication/rest?hl=zh-cn)
 
++ [Google Cloud Service Health](https://status.cloud.google.com)
+
 ### Cloud API
 
 + [Cloud 客户端库](https://cloud.google.com/apis/docs/cloud-client-libraries?hl=zh-cn)
+
+### Cloud Firewall
+
++ [全球网络防火墙政策](https://cloud.google.com/firewall/docs/network-firewall-policies?hl=zh-cn)
+
++ [防火墙标记](https://cloud.google.com/firewall/docs/tags-firewalls-overview?hl=zh-cn)
 
 ### Compute Engine
 
@@ -44,6 +52,12 @@
 
 + [预留静态外部 IP 地址](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address?hl=zh-cn)
 
+### Games
+
++ [Google Cloud for Games](https://cloud.google.com/solutions/games)
+
++ [Google Cloud 游戏行业解决方案](https://cloud.google.com/solutions/gaming?hl=zh-cn)
+
 ### Go
 
 + [Google Compute Engine API v1](https://cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1)
@@ -55,18 +69,6 @@
 ### VPC
 
 + [添加网络标记](https://cloud.google.com/vpc/docs/add-remove-network-tags?hl=zh-cn)
-
-### Cloud Firewall
-
-+ [全球网络防火墙政策](https://cloud.google.com/firewall/docs/network-firewall-policies?hl=zh-cn)
-
-+ [防火墙标记](https://cloud.google.com/firewall/docs/tags-firewalls-overview?hl=zh-cn)
-
-### Game
-
-+ [Google Cloud for Games](https://cloud.google.com/solutions/games)
-
-+ [Google Cloud 游戏行业解决方案](https://cloud.google.com/solutions/gaming?hl=zh-cn)
 
 ### Packer
 
