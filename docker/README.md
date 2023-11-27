@@ -306,6 +306,14 @@ $ wget https://dl.photoprism.app/docker/docker-compose.yml
 $ docker-compose up -d
 ```
 
+### 问题汇总
+
+#### MTU
+
++ [Docker0 Eth设备MTU不正确导致容器无法访问外网](https://chanjarster.github.io/post/docker/docker0-mtu/)
+
++ [虚拟网络环境中 Docker MTU 问题及解决方式](https://www.zeng.dev/post/2022-the-docker-mtu-problem/)
+
 ## [Registry API](https://docs.docker.com/registry/spec/api/)
 
 如果你想获取镜像列表，但又不想访问 [Docker Hub](https://registry.hub.docker.com) 站点的话，那就要通过 Registry API 来实现。
