@@ -70,6 +70,10 @@ $ kubectl get deploy
 # Show details of a specific resource or group of resources.
 $ kubectl describe nodes your-node
 $ kubectl describe po your-pod -n your-namespace
+
+# Display Resource (CPU/Memory/Storage) usage.
+$ kubectl top no
+$ kubectl top po
 ```
 
 ## 实战
