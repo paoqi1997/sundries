@@ -50,10 +50,12 @@ $ kubectl get nodes
 $ kubectl get node
 $ kubectl get no -o wide
 
-# 列出 pod
+# 列出当前命名空间下的 pod
 $ kubectl get pods
 $ kubectl get pod
-$ kubectl get po
+$ kubectl get po your-pod -o yaml
+# 列出所有命名空间下的 pod
+$ kubectl get po --all-namespaces
 
 # 列出服务
 $ kubectl get services
@@ -67,6 +69,7 @@ $ kubectl get deploy
 
 # Show details of a specific resource or group of resources.
 $ kubectl describe nodes your-node
+$ kubectl describe po your-pod -n your-namespace
 ```
 
 ## 实战
