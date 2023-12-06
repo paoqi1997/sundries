@@ -10,6 +10,8 @@
 
 + [Google Cloud Service Health](https://status.cloud.google.com)
 
+### Artifact Registry
+
 ### Certificate Manager
 
 ### Cloud API
