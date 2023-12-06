@@ -18,3 +18,9 @@
 ||Aliyun|Alibaba Cloud|
 |:--:|:--:|:--:|
 |阿里云健康状态|[_](https://status.aliyun.com/#/)|[_](https://status.alibabacloud.com/#/)|
+
+### WHOIS
+
+||Aliyun|Alibaba Cloud|
+|:--:|:--:|:--:|
+|域名信息查询|[_](https://whois.aliyun.com)|[_](https://www.alibabacloud.com/zh/whois/home)|
