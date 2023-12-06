@@ -6,17 +6,27 @@
 
 + [使用 REST 进行身份验证](https://cloud.google.com/docs/authentication/rest?hl=zh-cn)
 
++ [比较 AWS 和 Azure 服务和 Google Cloud](https://cloud.google.com/docs/get-started/aws-azure-gcp-service-comparison?hl=zh-cn)
+
 + [Google Cloud Service Health](https://status.cloud.google.com)
+
+### Certificate Manager
 
 ### Cloud API
 
 + [Cloud 客户端库](https://cloud.google.com/apis/docs/cloud-client-libraries?hl=zh-cn)
+
+### Cloud Domains
+
+### Cloud DNS
 
 ### Cloud Firewall
 
 + [全球网络防火墙政策](https://cloud.google.com/firewall/docs/network-firewall-policies?hl=zh-cn)
 
 + [防火墙标记](https://cloud.google.com/firewall/docs/tags-firewalls-overview?hl=zh-cn)
+
+### Cloud Load Balancing
 
 ### Compute Engine
 
