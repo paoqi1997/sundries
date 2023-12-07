@@ -14,6 +14,10 @@
 
 ### Certificate Manager
 
++ [Google 管理的证书的网域授权](https://cloud.google.com/certificate-manager/docs/domain-authorization?hl=zh-cn)
+
++ [管理 DNS 授权](https://cloud.google.com/certificate-manager/docs/dns-authorizations?hl=zh-cn)
+
 ### Cloud API
 
 + [Cloud 客户端库](https://cloud.google.com/apis/docs/cloud-client-libraries?hl=zh-cn)
@@ -21,6 +25,8 @@
 ### Cloud Domains
 
 ### Cloud DNS
+
++ [添加、修改和删除记录](https://cloud.google.com/dns/docs/records?hl=zh-cn)
 
 ### Cloud Firewall
 
@@ -85,3 +91,7 @@
 ### Packer
 
 + [Google Compute Builder](https://developer.hashicorp.com/packer/plugins/builders/googlecompute)
+
+### Terraform
+
++ [Google Cloud Platform Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)

@@ -6,6 +6,8 @@
 
 ### ACM
 
++ [DNS 验证](https://docs.aws.amazon.com/zh_cn/acm/latest/userguide/dns-validation.html)
+
 ### DynamoDB
 
 + [Amazon DynamoDB NoSQL Workbench](https://aws.amazon.com/cn/dynamodb/nosql-workbench/)
@@ -25,3 +27,13 @@
 ### ELB
 
 ### Route 53
+
++ [Amazon Route 53 为公有托管区域创建的 NS 和 SOA 记录](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/SOA-NSrecords.html)
+
++ [在别名记录和非别名记录之间进行选择](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
+
++ [支持的 DNS 记录类型](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/ResourceRecordTypes.html)
+
+### Terraform
+
++ [AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
