@@ -36,6 +36,8 @@
 
 ### Cloud Load Balancing
 
++ [选择负载均衡器](https://cloud.google.com/load-balancing/docs/choosing-load-balancer?hl=zh-cn)
+
 ### Compute Engine
 
 + [Compute Engine IAM 角色和权限](https://cloud.google.com/compute/docs/access/iam?hl=zh-cn)
@@ -76,6 +78,12 @@
 
 + [Google Cloud 游戏行业解决方案](https://cloud.google.com/solutions/gaming?hl=zh-cn)
 
+### GKE
+
+#### Ingress
+
++ [适用于应用负载均衡器的 GKE Ingress](https://cloud.google.com/kubernetes-engine/docs/concepts/ingress?hl=zh-cn)
+
 ### Go
 
 + [Google Compute Engine API v1](https://cloud.google.com/go/docs/reference/cloud.google.com/go/compute/latest/apiv1)
@@ -88,6 +96,10 @@
 
 + [添加网络标记](https://cloud.google.com/vpc/docs/add-remove-network-tags?hl=zh-cn)
 
+### Kubernetes
+
++ [Google Cloud Native Ingress Controller](https://tech.paulcz.net/kubernetes-cookbook/gcp/gce-ingress/)
+
 ### Packer
 
 + [Google Compute Builder](https://developer.hashicorp.com/packer/plugins/builders/googlecompute)
@@ -95,3 +107,5 @@
 ### Terraform
 
 + [Google Cloud Platform Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
+
++ [使用 Terraform 部署基本的 Flask Web 服务器](https://cloud.google.com/docs/terraform/get-started-with-terraform?hl=zh-cn)

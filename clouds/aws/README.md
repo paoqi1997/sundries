@@ -26,6 +26,8 @@
 
 ### ELB
 
++ [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/)
+
 ### Route 53
 
 + [Amazon Route 53 为公有托管区域创建的 NS 和 SOA 记录](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/SOA-NSrecords.html)
@@ -33,6 +35,10 @@
 + [在别名记录和非别名记录之间进行选择](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
 
 + [支持的 DNS 记录类型](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/ResourceRecordTypes.html)
+
+### ExternalDNS
+
++ [Setting up ExternalDNS for Services on AWS](https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md)
 
 ### Terraform
 
