@@ -12,6 +12,10 @@
 
 ### Artifact Registry
 
++ [在 Artifact Registry 中存储 Helm 图表](https://cloud.google.com/artifact-registry/docs/helm/store-helm-charts?hl=zh-cn)
+
++ [在 Artifact Registry 中存储 Node.js 软件包](https://cloud.google.com/artifact-registry/docs/nodejs/store-nodejs?hl=zh-cn)
+
 ### Certificate Manager
 
 + [Google 管理的证书的网域授权](https://cloud.google.com/certificate-manager/docs/domain-authorization?hl=zh-cn)
@@ -24,7 +28,11 @@
 
 ### Cloud Domains
 
++ [Register a domain with Cloud Domains](https://cloud.google.com/domains/docs/buy-register-domain)
+
 ### Cloud DNS
+
++ [创建、修改和删除区域](https://cloud.google.com/dns/docs/zones?hl=zh-cn)
 
 + [添加、修改和删除记录](https://cloud.google.com/dns/docs/records?hl=zh-cn)
 
@@ -37,6 +45,10 @@
 ### Cloud Load Balancing
 
 + [选择负载均衡器](https://cloud.google.com/load-balancing/docs/choosing-load-balancer?hl=zh-cn)
+
++ [使用 Google 管理的 SSL 证书](https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs?hl=zh-cn)
+
++ [目标代理概览](https://cloud.google.com/load-balancing/docs/target-proxies?hl=zh-cn)
 
 ### Compute Engine
 
@@ -91,6 +103,10 @@
 ### IAM
 
 + [管理服务帐号模拟](https://cloud.google.com/iam/docs/impersonating-service-accounts?hl=zh-cn)
+
+### Identity-Aware Proxy
+
++ [设置外部应用负载平衡器](https://cloud.google.com/iap/docs/load-balancer-howto?hl=zh-cn)
 
 ### VPC
 
