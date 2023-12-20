@@ -108,6 +108,14 @@
 
 + [设置外部应用负载平衡器](https://cloud.google.com/iap/docs/load-balancer-howto?hl=zh-cn)
 
+### Service Usage
+
++ [列出服务](https://cloud.google.com/service-usage/docs/list-services?hl=zh-cn)
+
++ [启用和停用服务](https://cloud.google.com/service-usage/docs/enable-disable?hl=zh-cn)
+
++ [已启用的服务](https://cloud.google.com/service-usage/docs/enabled-service?hl=zh-cn)
+
 ### VPC
 
 + [添加网络标记](https://cloud.google.com/vpc/docs/add-remove-network-tags?hl=zh-cn)
