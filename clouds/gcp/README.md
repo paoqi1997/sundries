@@ -50,6 +50,10 @@
 
 + [目标代理概览](https://cloud.google.com/load-balancing/docs/target-proxies?hl=zh-cn)
 
+### Cloud SDK
+
++ [安装 Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk?hl=zh-cn)
+
 ### Compute Engine
 
 + [Compute Engine IAM 角色和权限](https://cloud.google.com/compute/docs/access/iam?hl=zh-cn)
