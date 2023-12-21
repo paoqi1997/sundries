@@ -26,15 +26,15 @@
 
 + [Cloud 客户端库](https://cloud.google.com/apis/docs/cloud-client-libraries?hl=zh-cn)
 
-### Cloud Domains
-
-+ [Register a domain with Cloud Domains](https://cloud.google.com/domains/docs/buy-register-domain)
-
 ### Cloud DNS
 
 + [创建、修改和删除区域](https://cloud.google.com/dns/docs/zones?hl=zh-cn)
 
 + [添加、修改和删除记录](https://cloud.google.com/dns/docs/records?hl=zh-cn)
+
+### Cloud Domains
+
++ [Register a domain with Cloud Domains](https://cloud.google.com/domains/docs/buy-register-domain)
 
 ### Cloud Firewall
 
@@ -53,6 +53,10 @@
 ### Cloud SDK
 
 + [安装 Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk?hl=zh-cn)
+
+### Cloud Storage
+
++ [创建存储桶](https://cloud.google.com/storage/docs/creating-buckets?hl=zh-cn)
 
 ### Compute Engine
 
