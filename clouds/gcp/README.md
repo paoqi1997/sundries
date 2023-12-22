@@ -22,6 +22,14 @@
 
 + [管理 DNS 授权](https://cloud.google.com/certificate-manager/docs/dns-authorizations?hl=zh-cn)
 
++ [Domain authorization: The faster way to provision managed certificates in GCP](https://www.doit.com/domain-authorization-the-faster-way-to-provision-managed-certificates-in-gcp/)
+
++ [Deploy HTTPS Load Balancer with Google SSL on GCP](https://xebia.com/blog/deploy-a-https-load-balancer-with-wildcard-ssl-certificate-on-google-cloud-platform/)
+
+#### API
+
++ [Certificate Manager API](https://cloud.google.com/certificate-manager/docs/reference/certificate-manager/rest)
+
 ### Cloud API
 
 + [Cloud 客户端库](https://cloud.google.com/apis/docs/cloud-client-libraries?hl=zh-cn)
