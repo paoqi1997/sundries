@@ -30,6 +30,8 @@
 
 ### Route 53
 
++ [路由子域的流量](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/dns-routing-traffic-for-subdomains.html)
+
 + [Amazon Route 53 为公有托管区域创建的 NS 和 SOA 记录](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/SOA-NSrecords.html)
 
 + [在别名记录和非别名记录之间进行选择](https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
