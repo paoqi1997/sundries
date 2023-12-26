@@ -12,6 +12,8 @@
 
 ### Artifact Registry
 
++ [价格](https://cloud.google.com/artifact-registry/pricing?hl=zh-cn)
+
 + [在 Artifact Registry 中存储 Helm 图表](https://cloud.google.com/artifact-registry/docs/helm/store-helm-charts?hl=zh-cn)
 
 + [在 Artifact Registry 中存储 Node.js 软件包](https://cloud.google.com/artifact-registry/docs/nodejs/store-nodejs?hl=zh-cn)
@@ -64,9 +66,13 @@
 
 ### Cloud Storage
 
++ [价格](https://cloud.google.com/storage/pricing?hl=zh-cn)
+
 + [创建存储桶](https://cloud.google.com/storage/docs/creating-buckets?hl=zh-cn)
 
 ### Compute Engine
+
++ [所有价格](https://cloud.google.com/compute/all-pricing?hl=zh-cn)
 
 + [Compute Engine IAM 角色和权限](https://cloud.google.com/compute/docs/access/iam?hl=zh-cn)
 
@@ -123,6 +129,20 @@
 ### Identity-Aware Proxy
 
 + [设置外部应用负载平衡器](https://cloud.google.com/iap/docs/load-balancer-howto?hl=zh-cn)
+
+### Memorystore
+
+#### Memorystore for Redis
+
++ [价格](https://cloud.google.com/memorystore/docs/redis/pricing?hl=zh-cn)
+
++ [Memorystore for Redis 概览](https://cloud.google.com/memorystore/docs/redis/redis-overview?hl=zh-cn)
+
+#### Memorystore for Redis Cluster
+
++ [价格](https://cloud.google.com/memorystore/docs/cluster/pricing)
+
++ [Memorystore for Redis 集群简介](https://cloud.google.com/memorystore/docs/cluster/overview?hl=zh-cn)
 
 ### Service Usage
 
