@@ -14,6 +14,8 @@
 
 + [价格](https://cloud.google.com/artifact-registry/pricing?hl=zh-cn)
 
++ [在 Artifact Registry 中存储 Docker 容器映像](https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images?hl=zh-cn)
+
 + [在 Artifact Registry 中存储 Helm 图表](https://cloud.google.com/artifact-registry/docs/helm/store-helm-charts?hl=zh-cn)
 
 + [在 Artifact Registry 中存储 Node.js 软件包](https://cloud.google.com/artifact-registry/docs/nodejs/store-nodejs?hl=zh-cn)
@@ -105,6 +107,18 @@
 #### IP
 
 + [预留静态外部 IP 地址](https://cloud.google.com/compute/docs/ip-addresses/reserve-static-external-ip-address?hl=zh-cn)
+
+### Datastore
+
++ [在 Datastore 模式 Firestore 中存储和查询数据](https://cloud.google.com/datastore/docs/store-query-data?hl=zh-cn)
+
++ [选择原生模式或 Datastore 模式](https://cloud.google.com/datastore/docs/firestore-or-datastore?hl=zh-cn)
+
+### Firestore
+
++ [管理数据库](https://cloud.google.com/firestore/docs/manage-databases?hl=zh-cn)
+
++ [选择原生模式或 Datastore 模式](https://cloud.google.com/firestore/docs/firestore-or-datastore?hl=zh-cn)
 
 ### Games
 
