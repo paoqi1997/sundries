@@ -72,6 +72,12 @@
 
 + [创建存储桶](https://cloud.google.com/storage/docs/creating-buckets?hl=zh-cn)
 
+### Cloud Storage Transfer Service
+
++ [权限和角色](https://cloud.google.com/storage-transfer/docs/access-control?hl=zh-cn)
+
++ [创建转移作业](https://cloud.google.com/storage-transfer/docs/create-transfers?hl=zh-cn)
+
 ### Compute Engine
 
 + [所有价格](https://cloud.google.com/compute/all-pricing?hl=zh-cn)
