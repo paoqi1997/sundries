@@ -74,6 +74,8 @@
 
 ### Cloud Storage Transfer Service
 
++ [无代理转移权限](https://cloud.google.com/storage-transfer/docs/iam-cloud?hl=zh-cn)
+
 + [权限和角色](https://cloud.google.com/storage-transfer/docs/access-control?hl=zh-cn)
 
 + [创建转移作业](https://cloud.google.com/storage-transfer/docs/create-transfers?hl=zh-cn)
@@ -189,3 +191,11 @@
 + [Google Cloud Platform Provider](https://registry.terraform.io/providers/hashicorp/google/latest/docs)
 
 + [使用 Terraform 部署基本的 Flask Web 服务器](https://cloud.google.com/docs/terraform/get-started-with-terraform?hl=zh-cn)
+
+## Google Cloud CLI
+
+列出 Compute Engine 可用的 Debian 映像。
+
+```
+$ gcloud compute images list --project debian-cloud --no-standard-images
+```
