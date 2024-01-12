@@ -44,6 +44,8 @@ $ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
 # 查看集群是否正常工作
 $ kubectl cluster-info
+# 列出支持的 API versions
+$ kubectl api-versions
 
 # 列出集群节点
 $ kubectl get nodes
@@ -109,3 +111,7 @@ $ kubectl delete deploy nginx-deployment
 
 $ kubectl delete po -l app=nginx
 ```
+
+## TPs
+
++ [Automate public DNS entries with External DNS for Kubernetes](https://linuxblog.xyz/posts/kubernetes-external-dns/)
