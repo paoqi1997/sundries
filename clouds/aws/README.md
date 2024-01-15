@@ -45,3 +45,14 @@
 ### Terraform
 
 + [AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
+
+## [Service endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html)
+
+如下所示：
+
+```
+# EC2
+$ curl https://ec2.ap-northeast-1.amazonaws.com/ping
+# GameLift
+$ curl https://gamelift.ap-northeast-1.amazonaws.com/ping
+```
