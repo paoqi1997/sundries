@@ -62,6 +62,10 @@
 
 + [目标代理概览](https://cloud.google.com/load-balancing/docs/target-proxies?hl=zh-cn)
 
+### Cloud Logging
+
++ [Cloud Audit Logs 概览](https://cloud.google.com/logging/docs/audit?hl=zh-cn)
+
 ### Cloud SDK
 
 + [安装 Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk?hl=zh-cn)
