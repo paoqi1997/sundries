@@ -15,7 +15,7 @@ Windows下直接通过 msi 安装即可。
 配置一下。
 
 ```
->npm config set registry https://registry.npm.taobao.org
+>npm config set registry https://registry.npmmirror.com
 
 # 假设 nodejs 安装在 D:\nodejs
 >npm config set prefix "D:\nodejs\global"
