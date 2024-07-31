@@ -8,6 +8,10 @@
 
 + [DNS 验证](https://docs.aws.amazon.com/zh_cn/acm/latest/userguide/dns-validation.html)
 
+### CloudTrail
+
++ [查看事件历史记录](https://docs.aws.amazon.com/zh_cn/awscloudtrail/latest/userguide/tutorial-event-history.html)
+
 ### DynamoDB
 
 + [Amazon DynamoDB NoSQL Workbench](https://aws.amazon.com/cn/dynamodb/nosql-workbench/)
@@ -24,9 +28,21 @@
 
 ### ECR
 
++ [什么是 Amazon Elastic Container Registry？](https://docs.aws.amazon.com/zh_cn/AmazonECR/latest/userguide/what-is-ecr.html)
+
 ### ELB
 
++ [Elastic Load Balancing 功能](https://aws.amazon.com/cn/elasticloadbalancing/features/)
+
++ [什么是经典负载均衡器？](https://docs.aws.amazon.com/zh_cn/elasticloadbalancing/latest/classic/introduction.html)
+
++ [什么是 Application Load Balancer？](https://docs.aws.amazon.com/zh_cn/elasticloadbalancing/latest/application/introduction.html)
+
 + [AWS Load Balancer Controller](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.6/)
+
+### Global Accelerator
+
++ [什么是 AWS Global Accelerator？](https://docs.aws.amazon.com/zh_cn/global-accelerator/latest/dg/what-is-global-accelerator.html)
 
 ### Route 53
 
