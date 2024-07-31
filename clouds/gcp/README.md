@@ -66,6 +66,10 @@
 
 + [Cloud Audit Logs 概览](https://cloud.google.com/logging/docs/audit?hl=zh-cn)
 
+### Cloud NAT
+
++ [使用 Public NAT 设置和管理网络地址转换](https://cloud.google.com/nat/docs/set-up-manage-network-address-translation?hl=zh-cn)
+
 ### Cloud SDK
 
 + [安装 Google Cloud CLI](https://cloud.google.com/sdk/docs/install-sdk?hl=zh-cn)
@@ -208,7 +212,7 @@
 $ gcloud compute images list --project debian-cloud --no-standard-images
 ```
 
-查看默认层级等。
+查看默认网络层级等。
 
 ```
 $ gcloud compute project-info describe
