@@ -170,6 +170,10 @@
 
 + [Memorystore for Redis 集群简介](https://cloud.google.com/memorystore/docs/cluster/overview?hl=zh-cn)
 
+### Network Service Tiers
+
++ [Network Service Tiers 概览](https://cloud.google.com/network-tiers/docs/overview?hl=zh-cn)
+
 ### Service Usage
 
 + [列出服务](https://cloud.google.com/service-usage/docs/list-services?hl=zh-cn)
@@ -202,4 +206,13 @@
 
 ```
 $ gcloud compute images list --project debian-cloud --no-standard-images
+```
+
+查看默认层级等。
+
+```
+$ gcloud compute project-info describe
+...
+defaultNetworkTier: PREMIUM
+...
 ```
