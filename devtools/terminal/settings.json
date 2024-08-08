@@ -61,7 +61,7 @@
         },
         {
             "colorScheme": "Desert",
-            // https://learn.microsoft.com/en-us/windows/terminal/tutorials/ssh
+            // https://learn.microsoft.com/zh-cn/windows/terminal/tutorials/ssh
             // https://stackoverflow.com/questions/626533/how-can-i-ssh-directly-to-a-particular-directory
             "commandline": "ssh -t vm \"cd && eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa_github && bash --login\"",
             "font": {
@@ -85,6 +85,7 @@
             "icon": "/path/to/opensuse.png",
             "name": "openSUSE-Leap-15.2",
             "opacity": 80,
+            // https://learn.microsoft.com/zh-cn/windows/wsl/compare-versions
             "source": "Windows.Terminal.Wsl",
             "useAcrylic": true
         },
@@ -196,7 +197,8 @@
             "command":
             {
                 "action": "splitPane",
-                "split": "right"
+                "split": "right",
+                "splitMode": "duplicate"
             },
             "keys": "ctrl+plus"
         },
@@ -204,7 +206,8 @@
             "command":
             {
                 "action": "splitPane",
-                "split": "down"
+                "split": "down",
+                "splitMode": "duplicate"
             },
             "keys": "ctrl+-"
         }
