@@ -10,6 +10,8 @@
 
 + [Google Cloud Service Health](https://status.cloud.google.com)
 
++ [Search — Squarespace Domains](https://domains.squarespace.com/domain-search)
+
 ### Artifact Registry
 
 + [价格](https://cloud.google.com/artifact-registry/pricing?hl=zh-cn)

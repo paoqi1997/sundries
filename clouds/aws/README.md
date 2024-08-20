@@ -4,6 +4,10 @@
 
 ## TPs
 
++ [Service health](https://health.aws.amazon.com/health/status)
+
++ [Amazon Registrar Whois](https://registrar.amazon.com/whois)
+
 ### ACM
 
 + [DNS 验证](https://docs.aws.amazon.com/zh_cn/acm/latest/userguide/dns-validation.html)
