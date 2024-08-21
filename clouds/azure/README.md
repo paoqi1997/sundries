@@ -4,6 +4,8 @@
 
 ## TPs
 
++ [Azure 状态](https://azure.status.microsoft/zh-cn/status)
+
 ### Azure DNS
 
 ||Azure 中国|Azure Global Edition|
