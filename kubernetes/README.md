@@ -112,6 +112,46 @@ $ kubectl delete deploy nginx-deployment
 $ kubectl delete po -l app=nginx
 ```
 
+### [部署 Kong Ingress Controller](https://docs.konghq.com/kubernetes-ingress-controller/latest/get-started/)
+
+添加 Helm repo 源。
+
+```
+$ helm repo add kong https://charts.konghq.com
+$ helm repo update
+```
+
+部署。
+
+```
+$ helm install kong kong/ingress -n kong --create-namespace
+```
+
+查看服务地址。
+
+```
+$ minikube service kong-gateway-proxy -n kong
+$ minikube ip
+$ minikube profile list
+```
+
+测试代理访问情况。
+
+```
+$ PROXY_IP=192.168.49.2:31455
+$ curl -i $PROXY_IP
+```
+
+测试：重启 kong-controller 部署。
+
+```
+$ kubectl rollout restart deployment kong-controller -n kong
+```
+
 ## TPs
 
 + [Automate public DNS entries with External DNS for Kubernetes](https://linuxblog.xyz/posts/kubernetes-external-dns/)
+
++ [📚 Kubernetes（K8S）简介 - K8S 教程 - 易文档](https://k8s.easydoc.net/docs/dRiQjyTY/28366845/6GiNOzyZ/9EX8Cp45)
+
++ [Kubernetes教程 | Kuboard](https://kuboard.cn/learning/)
