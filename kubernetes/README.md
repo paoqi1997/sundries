@@ -46,6 +46,8 @@ $ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 $ kubectl cluster-info
 # 列出支持的 API versions
 $ kubectl api-versions
+# 列出支持的 API resources
+$ kubectl api-resources
 
 # 列出集群节点
 $ kubectl get nodes
@@ -64,10 +66,14 @@ $ kubectl get services
 $ kubectl get service
 $ kubectl get svc
 
-# 列出 Deployment
+# 列出部署
 $ kubectl get deployments
 $ kubectl get deployment
 $ kubectl get deploy
+
+# 列出事件
+$ kubectl get events
+$ kubectl get ev
 
 # Show details of a specific resource or group of resources.
 $ kubectl describe nodes your-node
