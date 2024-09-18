@@ -72,6 +72,7 @@ output {
     hosts => ["https://localhost:9200"]
     cacert => "/path/to/file/sslconfig/kibana/elasticsearch-ca.pem"
     index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
+    # logstash_system
     user => "elastic"
     password => "123456"
   }
