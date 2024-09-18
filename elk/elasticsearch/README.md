@@ -188,3 +188,13 @@ $ npm run start
 ```
 
 在浏览器访问该链接：`http://127.0.0.1:9100`
+
+## TPs
+
++ [Security privileges](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-privileges.html)
+
+### Index lifecycle
+
++ [【Kibana】索引生命周期策略报错 index.lifecycle.rollover_alias does not point](https://www.bilibili.com/read/cv10124335/)
+
++ [Index Lifecycle Policy not deleting - “Waiting for all shard copies to be active”](https://discuss.elastic.co/t/index-lifecycle-policy-not-deleting-waiting-for-all-shard-copies-to-be-active/304801)
