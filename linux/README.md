@@ -23,8 +23,10 @@
 |[viu](https://github.com/atanunq/viu)|Rust|在终端显示图片|
 |[ag](https://github.com/ggreer/the_silver_searcher)|C|grep -> ack -> ag|
 |[ripgrep](https://github.com/BurntSushi/ripgrep)|Rust|更好的 grep|
-|[lsd](https://github.com/Peltoche/lsd)|Rust|更好的 ls|
+|[lsd](https://github.com/lsd-rs/lsd)|Rust|更好的 ls|
 |[neofetch](https://github.com/dylanaraps/neofetch)|Shell|显示系统信息|
+|[exa](https://github.com/ogham/exa)|Rust|更好的 ls|
+|[bottom](https://github.com/ClementTsang/bottom)|Rust|更好的 top|
 
 ## util
 
@@ -362,6 +364,12 @@ $ journalctl -r
 # /etc/rc.local
 $ systemctl cat rc-local
 $ systemctl show rc-local
+
+# get locale-specific information
+$ locale
+
+# valid login shells
+$ cat /etc/shells
 ```
 
 查看磁盘。
@@ -564,6 +572,9 @@ $ mtr -z baidu.com
 
 # 打印到目标主机的路由包
 $ traceroute www.baidu.com
+
+# 查询域名
+$ whois bluepoch.com
 ```
 
 ## remotedev
