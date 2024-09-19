@@ -119,11 +119,21 @@ $ git push --force-with-lease origin HEAD
 # 更新远程分支列表
 $ git remote update origin --prune
 
+# 查看本地配置的远程仓库
+$ git remote -v
+# 查看 origin 远程仓库的信息
+$ git remote show origin
+# 添加新的远程仓库
+$ git remote add -f name url
+
 # 删除远程分支 target
 $ git push origin :target
 
 # 重置当前分支为远程分支
 $ git reset --hard origin/master
+
+# 查看各个工作树
+$ git worktree list
 ```
 
 使用标签。
@@ -183,6 +193,14 @@ $ git stash
 # https://blog.csdn.net/weixin_42310154/article/details/119004977
 # 拉取代码
 $ git pull --rebase
+
+# 将当前分支的提交应用到 origin 远程仓库的 master 分支的最新提交之后
+$ git rebase origin/master
+
+# 整理最近的2个提交
+$ git rebase -i HEAD~2
+# 继续整理
+$ git rebase --continue
 
 # 应用之前贮藏的修改
 $ git stash apply
