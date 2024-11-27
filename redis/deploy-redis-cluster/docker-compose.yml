@@ -1,0 +1,62 @@
+name: redis-cluster
+
+services:
+  redis_m1:
+    image: redis:7.4.1
+    container_name: redis-m1
+    restart: always
+    network_mode: "host"
+    command: redis-server /etc/redis.conf
+    volumes:
+      - /opt/docker/redis-cluster/redis-m1/data:/data
+      - /opt/docker/redis-cluster/redis-m1/redis.conf:/etc/redis.conf
+
+  redis_m2:
+    image: redis:7.4.1
+    container_name: redis-m2
+    restart: always
+    network_mode: "host"
+    command: redis-server /etc/redis.conf --port 6479
+    volumes:
+      - /opt/docker/redis-cluster/redis-m2/data:/data
+      - /opt/docker/redis-cluster/redis-m2/redis.conf:/etc/redis.conf
+
+  redis_m3:
+    image: redis:7.4.1
+    container_name: redis-m3
+    restart: always
+    network_mode: "host"
+    command: redis-server /etc/redis.conf --port 6579
+    volumes:
+      - /opt/docker/redis-cluster/redis-m3/data:/data
+      - /opt/docker/redis-cluster/redis-m3/redis.conf:/etc/redis.conf
+
+  redis_s1:
+    image: redis:7.4.1
+    container_name: redis-s1
+    restart: always
+    network_mode: "host"
+    command: redis-server /etc/redis.conf --port 6679
+    volumes:
+      - /opt/docker/redis-cluster/redis-s1/data:/data
+      - /opt/docker/redis-cluster/redis-s1/redis.conf:/etc/redis.conf
+
+  redis_s2:
+    image: redis:7.4.1
+    container_name: redis-s2
+    restart: always
+    network_mode: "host"
+    command: redis-server /etc/redis.conf --port 6779
+    volumes:
+      - /opt/docker/redis-cluster/redis-s2/data:/data
+      - /opt/docker/redis-cluster/redis-s2/redis.conf:/etc/redis.conf
+
+  redis_s3:
+    image: redis:7.4.1
+    container_name: redis-s3
+    restart: always
+    network_mode: "host"
+    command: redis-server /etc/redis.conf --port 6879
+    volumes:
+      - /opt/docker/redis-cluster/redis-s3/data:/data
+      - /opt/docker/redis-cluster/redis-s3/redis.conf:/etc/redis.conf
