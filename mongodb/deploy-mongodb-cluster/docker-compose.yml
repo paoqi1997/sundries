@@ -1,0 +1,155 @@
+# https://github.com/minhhungit/mongodb-cluster-docker-compose/blob/master/docker-compose.yml
+
+name: mongodb-cluster
+
+services:
+  # mongos
+  mongos1:
+    image: mongodb/mongodb-community-server:latest
+    container_name: mongos-1
+    restart: always
+    command: mongos --port 27017 --configdb rs-config/config_server1:27017,config_server2:27017,config_server3:27017 --bind_ip_all
+    ports:
+      - "27017:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/mongos-1/db:/data/db
+      - /opt/docker/mongodb-cluster/mongos-1/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  mongos2:
+    image: mongodb/mongodb-community-server:latest
+    container_name: mongos-2
+    restart: always
+    command: mongos --port 27017 --configdb rs-config/config_server1:27017,config_server2:27017,config_server3:27017 --bind_ip_all
+    ports:
+      - "27018:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/mongos-2/db:/data/db
+      - /opt/docker/mongodb-cluster/mongos-2/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  # configsvr
+  config_server1:
+    image: mongodb/mongodb-community-server:latest
+    container_name: config-server-1
+    restart: always
+    command: mongod --port 27017 --configsvr --replSet rs-config
+    ports:
+      - "27117:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/config-server-1/db:/data/db
+      - /opt/docker/mongodb-cluster/config-server-1/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  config_server2:
+    image: mongodb/mongodb-community-server:latest
+    container_name: config-server-2
+    restart: always
+    command: mongod --port 27017 --configsvr --replSet rs-config
+    ports:
+      - "27118:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/config-server-2/db:/data/db
+      - /opt/docker/mongodb-cluster/config-server-2/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  config_server3:
+    image: mongodb/mongodb-community-server:latest
+    container_name: config-server-3
+    restart: always
+    command: mongod --port 27017 --configsvr --replSet rs-config
+    ports:
+      - "27119:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/config-server-3/db:/data/db
+      - /opt/docker/mongodb-cluster/config-server-3/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  # shard-1
+  shard1a:
+    image: mongodb/mongodb-community-server:latest
+    container_name: shard-1a
+    restart: always
+    command: mongod --port 27017 --shardsvr --replSet rs-shard1
+    ports:
+      - "27217:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/shard-1a/db:/data/db
+      - /opt/docker/mongodb-cluster/shard-1a/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  shard1b:
+    image: mongodb/mongodb-community-server:latest
+    container_name: shard-1b
+    restart: always
+    command: mongod --port 27017 --shardsvr --replSet rs-shard1
+    ports:
+      - "27218:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/shard-1b/db:/data/db
+      - /opt/docker/mongodb-cluster/shard-1b/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  shard1c:
+    image: mongodb/mongodb-community-server:latest
+    container_name: shard-1c
+    restart: always
+    command: mongod --port 27017 --shardsvr --replSet rs-shard1
+    ports:
+      - "27219:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/shard-1c/db:/data/db
+      - /opt/docker/mongodb-cluster/shard-1c/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  # shard-2
+  shard2a:
+    image: mongodb/mongodb-community-server:latest
+    container_name: shard-2a
+    restart: always
+    command: mongod --port 27017 --shardsvr --replSet rs-shard2
+    ports:
+      - "27317:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/shard-2a/db:/data/db
+      - /opt/docker/mongodb-cluster/shard-2a/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  shard2b:
+    image: mongodb/mongodb-community-server:latest
+    container_name: shard-2b
+    restart: always
+    command: mongod --port 27017 --shardsvr --replSet rs-shard2
+    ports:
+      - "27318:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/shard-2b/db:/data/db
+      - /opt/docker/mongodb-cluster/shard-2b/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+  shard2c:
+    image: mongodb/mongodb-community-server:latest
+    container_name: shard-2c
+    restart: always
+    command: mongod --port 27017 --shardsvr --replSet rs-shard2
+    ports:
+      - "27319:27017"
+    volumes:
+      - /opt/docker/mongodb-cluster/shard-2c/db:/data/db
+      - /opt/docker/mongodb-cluster/shard-2c/configdb:/data/configdb
+    networks:
+      - mongo-network
+
+networks:
+  mongo-network:
+    driver: bridge
