@@ -289,6 +289,7 @@ $ sg your-group -c your-command
 $ hostid
 # 显示主机名
 $ hostname
+$ hostnamectl
 ```
 
 ## monitor
