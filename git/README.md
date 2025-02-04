@@ -214,28 +214,28 @@ $ git stash pop
 
 ## TPs
 
-### 帮助
+[Git](https://git-scm.com)
 
-+ [更改提交消息](https://docs.github.com/cn/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
+[Git for Windows](https://gitforwindows.org)
 
-+ [Oh Shit, Git!?!](https://ohshitgit.com/zh)
+[Git Large File Storage](https://git-lfs.com)
 
-### 官网
+[libgit2](https://libgit2.org)
 
-1. [Git](https://git-scm.com)
+### Help
 
-2. [Git for Windows](https://gitforwindows.org)
+[Oh Shit, Git!?!](https://ohshitgit.com/zh)
 
-3. [Git LFS](https://git-lfs.github.com)
+[Git 代理设置方法](https://www.cnblogs.com/China-Dream/p/16476775.html)
 
-4. [libgit2](https://libgit2.org)
+[解决 TortoiseGitPlink Fatal Error：深入解析](https://blog.csdn.net/Li_WenZhang/article/details/142250858)
 
-### repos on GitHub
+### GitHub repos
 
-1. [git/git](https://github.com/git/git)
+[git/git](https://github.com/git/git)
 
-2. [git-for-windows/git](https://github.com/git-for-windows/git)
+[git-for-windows/git](https://github.com/git-for-windows/git)
 
-3. [git-lfs/git-lfs](https://github.com/git-lfs/git-lfs)
+[git-lfs/git-lfs](https://github.com/git-lfs/git-lfs)
 
-4. [libgit2/libgit2](https://github.com/libgit2/libgit2)
+[libgit2/libgit2](https://github.com/libgit2/libgit2)

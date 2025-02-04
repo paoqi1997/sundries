@@ -121,26 +121,28 @@ $ gh issue view 1
 
 ## TPs
 
-### 官网
+[GitHub Status](https://www.githubstatus.com)
 
-1. [GitHub Desktop](https://desktop.github.com)
+[GitHub Gist](https://gist.github.com)
 
-2. [GitHub Status](https://www.githubstatus.com)
+[GitHub Desktop](https://desktop.github.com)
 
-3. [GitHub Gist](https://gist.github.com)
+[GitHub CLI](https://cli.github.com)
 
-### repos on GitHub
+### GitHub Docs
 
-1. [cli/cli](https://github.com/cli/cli)
+[在 HTTPS 端口使用 SSH](https://docs.github.com/zh/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)
 
-2. [desktop/desktop](https://github.com/desktop/desktop)
+[更改提交消息](https://docs.github.com/zh/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message)
 
-3. [github/docs](https://github.com/github/docs)
+### GitHub repos
 
-4. [github/hub](https://github.com/github/hub)
+[desktop/desktop](https://github.com/desktop/desktop)
 
-5. [github/linguist](https://github.com/github/linguist)
+[cli/cli](https://github.com/cli/cli)
 
-### more
+[github/docs](https://github.com/github/docs)
 
-1. [GitHub中文社区](https://www.githubs.cn)
+[mislav/hub](https://github.com/mislav/hub)
+
+[github-linguist/linguist](https://github.com/github-linguist/linguist)
