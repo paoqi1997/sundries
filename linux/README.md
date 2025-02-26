@@ -419,6 +419,11 @@ $ strace -ttT cat /proc/uptime
 # 跟踪784号进程的 write 系统调用
 $ sudo strace -f -e trace=write -e write=1,2 -q -p 784
 
+# count time, calls, and errors for each syscall and report summary
+$ strace -c curl -vI https://www.kurobbs.com
+# count time and calls, and report a summary on exit.
+$ ltrace -c curl -vI https://www.kurobbs.com
+
 # 1s获取一次进程状态
 $ top -d 1
 # 以批处理模式获取一次进程状态
